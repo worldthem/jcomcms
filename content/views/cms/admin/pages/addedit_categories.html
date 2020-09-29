@@ -1,0 +1,84 @@
+<#include "/cms/admin/layouts/successMessage.html">
+  <div class="col-md-12">
+          <div class="card">
+                 <div class="header">
+                    <h4 class="title">
+                         <#if page.getTitle()??>
+                             ${view.l('Edit')+': '+ page.getTitle()}
+                         <#else>
+                            ${view.l('Create new')}
+                         </#if>
+                    </h4>
+                </div>
+              <div class="content">
+                  ${view.adminSwitchLang()} <!--Switch Lang-->
+
+                   <form class="formSave" action="${baseurl+'admin/update-categories'}" method="POST"  >
+                        <div class="text_align_right">
+                            <input type="submit" class="btn" value="${view.l('Save')}">
+                        </div>
+                     
+                     <input type="hidden" name="catid" value="${page.getCatid()!}">
+                     <input type="hidden" name="type" value="${type!}">
+                     <input type="hidden" name="lang" value="${view.currentLang()!}">
+                     <div  class="col-md-6">
+                         <p>
+                            <label>${view.l('Title')}</label> <br/>
+                            <input type="text" class="form-control" name="title" value="${page.getTitle()!}">
+                         </p>
+                      </div>
+                     <div  class="col-md-6">
+                         <p>
+                            <label >${view.l('Parent')}</label> <br/>
+                             <select name="parent" class="form-control">
+                                 <option value="0" >${view.l('Select parent')}</option>
+                                   ${view.catsructure(type,"select", page.getParent()!?string )}
+                             </select>
+                        </p>
+                      </div> 
+                     <div class="clear"></div>
+
+                    <div  class="col-md-6">
+                        <p>
+                            <label > ${view.l('CPU')}</label> <br/>
+                            <input type="text" class="form-control" name="cpu" value="${page.getCpu()!}">
+                        </p>
+                     </div>
+                     
+                     <div  class="col-md-6">
+                        <p>
+                            <label >${view.l('External URL')}</label> <br/>
+                            <input type="text" class="form-control" name="url" value="${page.getUrl()!}">
+                        </p>
+                     </div>
+                     
+                    <div  class="col-md-6">
+                         <p>
+                            <label >${view.l('Meta description')}</label> <br/>
+                            <input type="text" class="form-control" name="metad" value="${page.getMetad()!}">
+                         </p>
+                     </div>
+                    <div  class="col-md-6">
+
+                          <p> <label >${view.l('Meta keyword')}</label> <br/>
+                            <input type="text" class="form-control" name="metak" value="${page.getMetak()!}">
+                          </p>
+                     </div>
+
+                    <div class="height20px"></div>
+                    <div class="col-md-12">
+                        <textarea name="text" id="editor" class="form-control tinymce" >${page.getText()!}</textarea>
+                    </div>
+                    <div class="height10px"></div>
+                    <div class="text-center">
+                        <input type="submit" class="btn" value="${view.l('Save')}">
+                    </div>
+                    </form> 
+                </div>
+            </div>
+ </div>
+      
+<script>
+	initSample();
+</script>
+ 

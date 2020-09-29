@@ -1,0 +1,107 @@
+<div class="col-md-12">
+ <div class="card">
+    <form class="formSave" action="${baseurl}admin/checkout-fields-save" method="POST" >
+        <input type="hidden" name="fieldsType" value="${fieldsType!}">
+        <div class="col-md-6">
+           <h3> ${title}</h3> 
+        </div>
+        <div class="col-md-6 text_align_right">
+          <input type="submit" class="btn btn_small" value="${view.l('Update')}"/>
+       </div>
+        <div class="col-md-12 text_align_right"></div>
+
+        
+       <div class="content table-responsive table-full-width">
+          <table class="table table-hover table-striped">
+              <tbody>
+                <tr>
+                    <td></td>
+                    <td id="edit_title" style="vertical-align: middle;">
+                        <div class="edit_text" style="display: inline-table; font-weight:bold; font-size:20px"> <#if titleBox??> ${titleBox.get(view.currentLang())} <#else> ${fields["title"]}</#if> </div>
+                       <div class="hide_edit blockMultilang">
+                                    <#if titleBox??>  ${titleBox.get(view.currentLang())}  <#else> ${fields["title"]}</#if> <br>
+                             <#list view.listLang() as langVal>
+                                    <span class="inputLang">${langVal} </span>
+                                    <input type="text" class="form-control show_edit"  name="${'title['+langVal+']'}" value="<#if titleBox??>${titleBox.get(langVal)!}<#else>${fields['title']}</#if>">
+                             </#list>
+                        </div>
+                    </td>
+                    <td>  </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td style="vertical-align: middle;">
+                        <a href="#" class="fa_edit"  onclick="edit_row_tr('#edit_title');return false;"> </a>
+                    </td>
+                 </tr>
+                <#list fields as key, value>
+                  <#if !key?contains("title")>
+
+                    <tr id="edit_${key}" class="options_each enabled_option">
+                        <td style="vertical-align: middle;">
+                             <label class="switch show_edit">
+                                <input type="checkbox" class="checkbox show_edit" name="${key}[enable]" <#if fieldsdb[key]??>checked=""</#if>  value="yes">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <div class="edit_text" style="display: inline-table;"> <#if fieldsdb[key]??> ${fieldsdb[key].getTitleTranslated()!}<#else> ${value}</#if> </div>
+                             <label class="hide_edit blockMultilang">
+                                 <#if fieldsdb[key]??>${fieldsdb[key].getTitleTranslated()!}<#else> ${value}</#if> <br>
+                                <#list view.listLang() as langVal>
+                                <span class="inputLang">${langVal} </span>
+                                    <input type="text" class="form-control show_edit"  name="${key+'[title]['+langVal+']'}" value="<#if fieldsdb[key]??>${fieldsdb[key].getTitle().get(langVal)!}<#else>${value}</#if>">
+                                </#list>
+                             </label>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <label class="show_edit">${view.l('Show title')}</label><br>
+                            <label class="switch show_edit">
+                                <input type="checkbox" class="checkbox show_edit" name="${key}[showTitle]" <#if fieldsdb[key]??><#if fieldsdb[key].getShowTitle()> checked="" </#if></#if> value="yes">
+                                <span class="slider round"></span>
+                            </label>
+                         </td>
+                        <td style="vertical-align: middle;">
+                            <label class="show_edit">${view.l('Required')}</label><br>
+                            <label class="switch show_edit">
+                                <input type="checkbox" class="checkbox show_edit" name="${key}[required]" <#if fieldsdb[key]??><#if fieldsdb[key].getRequired()> checked="" </#if></#if> value="yes">
+                                <span class="slider round"></span>
+                            </label>
+                         </td>
+                        <td style="vertical-align: middle;">
+                             <div class="edit_text" > ${view.l('Field width')} </div>
+                             <label class="hide_edit hide_edit">${view.l('Field width')} <br>
+                                <select name="${key}[boxLength]" class="form-control show_edit">
+                                      <option value="half" >${view.l('Half')}</option>
+                                     <option value="full"  <#if fieldsdb[key]??><#if fieldsdb[key].getBoxLength()?contains("full")> selected="" </#if></#if>>${view.l('Full')}</option>
+                                </select>
+                             </label>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <div class="edit_text" > ${view.l('Field Type Box')} </div>
+                            <label class="hide_edit hide_edit">${view.l('Field Type Box')} <br>
+                                <select name="${key}[boxType]" class="form-control show_edit">
+                                    <option value="textbox">${view.l('Textbox')}</option>
+                                    <option value="textarea" <#if fieldsdb[key]??> <#if fieldsdb[key].getBoxType()?contains("textarea")> selected="" </#if> </#if>>${view.l('Textarea')}</option>
+                                </select>
+                            </label>
+
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <a href="#" class="fa_edit"  onclick="edit_row_tr('#edit_${key}');return false;"> </a>
+                        </td>
+                    </tr>
+                  </#if>
+                </#list>
+            </tbody>
+         </table>
+       </div>
+        <div class="col-md-12 text_align_right">
+          <input type="submit" class="btn btn_small" value="${ view.l('Update') }"/>
+        </div>
+        <div class="height15px"></div>
+     </form>
+   </div>
+ 
+  </div>
+ 

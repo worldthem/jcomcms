@@ -1,0 +1,89 @@
+
+ 
+<div class="col-md-12">
+ <div class="card">
+     <div class="header">
+       <h4 class="title"> ${view.l('List of')} ${type!}</h4>
+        <#if (type!?contains("pages") || type!?contains("posts") || type!?contains("tabs")|| type!?contains("emails")) >
+             <p>
+              <a class="btn" href="${baseurl}admin/page-single/${type!}?id=0"> ${view.l('Add new one')}</a>
+            </p>
+        </#if>
+     </div>
+     
+     <form action="${baseurl}admin/page-bulk" method="post">
+            <input type="hidden" name="type" value="${type!}">
+         <#if (type?contains("pages") || type?contains("posts")) >
+           <div class="col-md-2">
+               <select name="action" class="form-control" >
+                <option value="">${view.l('Action')}</option>
+                <option value="del">${view.l('Remove')} </option>
+               </select>
+          </div>
+         
+           <div class="col-md-1">
+              <button type="submit" class="btn btn_small">${view.l('Apply')}</button>  
+           </div>
+        
+           <div class="col-md-6">
+            <#if (type?contains("posts")) >
+              <select class="form-control"  onchange="if (this.value) window.location.href=this.value">
+                <option value="{{url('/admin/page/'.$type)}}" >${view.l('Show from category')}</option>
+                  {!! \Wh::get_cat_yerahical_option($categories, 0, 0, "/admin/page/show-from-cat/".$type , (!empty($catid)? $catid: 0))  !!}
+              </select>
+            <#else>
+              <br />
+            </#if>
+           </div>
+          
+          <div class="col-md-2">
+           <input type="text" class="form-control" name="s" value=""  placeholder="${view.l('Search')}"/>
+         </div>
+          <div class="col-md-1">
+            <button type="submit" class="btn btn_small">${view.l('Search')}</button>  
+          </div>
+     </#if>
+
+     <div class="clear"></div>
+     
+     <div class="content table-responsive table-full-width">
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th style="width: 30px;"><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+                 <th style="width: 30px;">ID</th>
+                 <#if (!type?contains("pages") && !type?contains("posts"))> <th style="width: 79px;"> ${view.l('Enabled')}</th> </#if>
+                 <th> ${view.l('Title')}</th>
+                 <#if (type?contains("pages") || type?contains("posts"))> <th> ${view.l('CPU')}</th></#if>
+                 <#if type?contains("emails")><th> ${view.l('Page type')}</th></#if>
+                 <th style="width: 40px;"></th>
+                 <th style="width: 40px;"></th>
+             </thead>
+             <tbody>
+                <#list rows.iterator() as row>
+                      <tr>
+                          <td> <input type="checkbox" name="bulkid" class="checkboxeach"  value="${row.getPageid()!}"></td>
+                          <td>${row.getPageid()!}</td>
+                              <#if (!type?contains("pages") && !type?contains("posts"))>
+                                <td>
+                                  <input type="checkbox" <#if row.getEnable()??>checked</#if> onclick="window.location.href = '${baseurl}admin/page-enable?id=${row.getPageid()!}&enable=<#if row.getEnable()??>disable<#else>enable</#if>'" />
+                                </td>
+                             </#if>
+                          <td>${row.getTitle()!} </td>
+
+                          <#if (type?contains("pages") || type?contains("posts"))> <td>${row.getCpu()!}</td> </#if>
+                          <#if type?contains("emails")><td> ${row.getDirection()!}</td></#if>
+                           <td>
+                             <a href="${baseurl}admin/page-single/${type}?id=${row.getPageid()!}" title="Edit" class="fa_edit"> </a>
+                          </td>
+                           <td>
+                              <a href="${baseurl}admin/page-destroy?id=${row.getPageid()!}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"></a>
+                          </td>
+                     </tr>
+               </#list>
+             </tbody>
+         </table>
+            <#include "/cms/standart/default/pagination.html">
+        </form>  
+     </div>
+ </div>
+</div>

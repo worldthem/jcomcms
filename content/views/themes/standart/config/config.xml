@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<config>
+<adminmenus>
+   <!--
+    This is the admin menu ittem so you know in witch list is also you could check the content/config/adminmenu.xml
+    <menuittem nr="10">
+        <menu url="#">eCommerce</menu>
+        ....
+    </menuittem>
+   <menuittem nr="20">
+        <menu url="/admin/statistic">Statistic</menu>
+        ....
+    </menuittem>
+   <menuittem nr="30">
+        <menu url="#">Pages</menu>
+        ....
+    </menuittem>
+    <menuittem nr="40">
+        <menu url="#">Blog</menu>
+        ....
+   </menuittem>
+   <menuittem nr="50">
+        <menu url="#">Products</menu>
+        ....
+    </menuittem>
+   <menuittem nr="60">
+        <menu url="#">Checkout</menu>
+        ....
+    </menuittem>
+    <menuittem nr="70">
+        <menu url="#">Users</menu>
+        ....
+    </menuittem>
+    <menuittem nr="80">
+        <menu url="#">General Settings</menu>
+        ....
+    </menuittem>
+    <menuittem nr="800">
+        <menu url="/signup/logout">Log out</menu>
+        ....
+    </menuittem>
+
+    <menuittem nr="30">  This mean will add to the end this to ittem in menu nr 30
+    <menu url="/admin/new ittem">new ittem</menu>
+    <menu url="/admin/new ittem">new ittem</menu>
+    </menuittem>
+
+    <ittem nr="30"></ittem>  This mean will delete the menu 30 where is menu Pages
+
+
+
+     <ittem nr="33">  this mean will add the new menu between 30 and 40
+        <menu url="/admin/newmenu">new menu</menu>
+        <menu url="/admin/new submenu">new submenu</menu>
+        <menu url="/admin/new submenu">new submenu</menu>
+    </ittem>
+
+
+
+    <menuittem nr="20">
+        <menu url="/admin/statistic">Statistic</menu>
+        <menu url="/admin/statistic2">Statistic</menu>
+    </menuittem>
+
+    <menuittem nr="30">
+        <menu url="/admin/new ittem">new ittem</menu>
+        <menu url="/admin/new ittem2">new ittem</menu>
+    </menuittem>
+    <menuittem nr="40"></menuittem>
+    <menuittem nr="80">
+        <menu url="#">General Settings</menu>
+        <menu url="/admin/general-settings">General Settings</menu>
+        <menu url="/admin/general-settings/language">Language</menu>
+    </menuittem>
+
+    -->
+
+</adminmenus>
+
+    <hooks>
+        <ittem field="adminfooter">
+        <!--  <![CDATA[ <p>your html here</p> ]]> -->
+        </ittem>
+
+        <ittem field="header"></ittem>
+        <ittem field="footer"></ittem>
+    </hooks>
+
+</config>

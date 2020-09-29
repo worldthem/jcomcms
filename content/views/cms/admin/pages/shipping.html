@@ -1,0 +1,173 @@
+<div class="col-md-12">
+ <div class="card">
+    <div class="header">
+           <h4 class="title"> ${view.l('Shipping method') }</h4>
+     </div>
+     
+     <div class="clear"></div>
+     
+     <div class="add_new_top">  
+    <form action="${baseurl}admin/checkout-shipping/store" method="post">
+          <input type="hidden" name="id" value="0">
+        <input type="hidden" name="showhide" value="2">
+           <div class="col-md-2">
+              <label>  ${view.l('Title') }</label> <br />
+              <div class="blockMultilang">
+                   <#list view.listLang() as langVal>
+                       <span class="inputLang">${langVal}</span>
+                       <input type="text" name="shipping_name[${langVal}]" class="form-control">
+                  </#list>
+               </div>
+          </div>
+          
+          
+         <div class="col-md-2">
+          <label> ${view.l('Select country') }  <br />
+             <select class="form-control" name="country">
+                <option value="0"> ${view.l('For all countries (Worldwide)') }</option>
+                 <#if countries??>
+                      <#list countries as value>
+                           <option value="${value.getId()!}">${value.getCountry()!} </option>
+                      </#list>
+                 </#if>
+             </select>
+          </div>
+          
+          <div class="col-md-2">
+             <label>  ${view.l('Weight') } kg<br />
+                <input type="text" name="weight" class="form-control"/>
+                <small> ${view.l("Leave empty if you don't use Weight") }}</small>
+             </label>
+          </div>
+           <div class="col-md-2">
+             <label>  ${view.l('Shipping calculation') } <br />
+                  <select name="type_shipping" class="form-control" >
+                   <option  value="2"> ${view.l('Fixed') }</option>
+                   <option value="3" > ${view.l('Percentage from Total') }</option>
+                 </select>
+             </label>
+          </div>
+           <div class="col-md-2">
+             <label>  ${view.l('Fixed Or') } %<br />
+                <input type="text" name="price" class="form-control" placeholder="25"/>
+             </label>
+             <small> ${view.l('Fixed Price 25$ OR  Percentage 25% from basket total') }</small>
+          </div>
+          <div class="col-md-2" style="background: #A2A2A2;">
+            <label>  ${view.l('Free') } <br />
+                <input type="text" name="free_delivery" class="form-control" placeholder="1000" />
+            </label>
+             <small> ${view.l("Free when basket total is bigger than this ammount, leave empty if don't need") }}</small>
+          </div>
+          
+        <div class="col-md-12 text_align_right"><br />
+           <button type="submit" class="btn btn_small"> ${view.l('Add new one') }</button>  
+        </div>
+         
+     <div class="clear"></div>
+    </form> 
+   </div>
+ <#if rows??>
+     <form action="${baseurl}admin/checkout-shipping/bulk" method="post">
+        <div class="col-md-2">
+             <select name="action" class="form-control" >
+                <option value=""> ${view.l('Action') }</option>
+                <option value="del"> ${view.l('Remove') } </option>
+                <option value="3"> ${view.l('Hide') }  </option>
+                <option value="2"> ${view.l('Show') }  </option>
+            </select>
+          </div>
+         
+        <div class="col-md-1">
+           <button type="submit" class="btn btn_small"> ${view.l('Apply') }</button>  
+        </div>
+        <div class="col-md-6"><br /></div>
+     <div class="col-md-3" class="text_align_right">
+    
+
+        <select class="form-control"  onchange="if (this.value) window.location.href=this.value">
+            <option value=""> ${view.l('Select country') }</option>
+            <#if countries??>
+                  <#list countries as value>
+                        <option value="${baseurl}admin/checkout-shipping?country=${value.getId()!}">${value.getCountry()!} </option>
+                 </#list>
+             </#if>
+       </select>
+
+     </div>
+         <div class="clear"></div>
+        
+     <div class="content table-responsive table-full-width">
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th style="width: 30px;"><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+                 <th style="width: 30px;">ID</th>
+                 <th style="width: 50px;"> ${view.l('Show') +" / "+ view.l('Hidden') }</th>
+                 <th> ${view.l('Title') }</th>
+                 <th> ${view.l('Country') }</th>
+                 <th> ${view.l('Weight(kg)') }</th>
+                  <th> ${view.l('Shipping Calculation') }</th>
+                 <th> ${view.l('Fixed Price OR  Percentage') }(%)</th>
+                 <th> ${view.l('Free delivery') }</th>
+                 <th style="width: 40px;"></th>
+                 <th style="width: 40px;"></th>
+             </thead>
+             <tbody>
+
+
+              <#list rows.iterator() as row>
+                    <tr>
+                        <td> <input type="checkbox" name="bulkid" class="checkboxeach"  value="${row.getId()}"></td>
+                         <td>${row.getId()}</td>
+                         <td>
+                             <#if (row.getShowhide() == 2)>
+                                <span class="fa_publish"></span>
+                             <#else>
+                                 <span class="fa_unpublish"></span>
+                             </#if>
+                         </td>
+                         <td> ${row.getShipping_name() } </td>
+                         <td>
+                        <#if (row.getCountry()>0 )>
+                                 <#if countries??>
+                                       <#list countries as value>
+                                           <#if (row.getCountry() ==value.getId())>  ${value.getCountry()!} </#if>
+                                       </#list>
+                                  </#if>
+
+                          <#else>
+                                 ${view.l('Worldwide')}
+                             </#if>
+                         </td>
+                         <td>
+                             ${row.getWeight()!}
+                         </td>
+                          <td>
+                              <#if (row.getType_shipping()==2 )>
+                                      ${view.l('Fixed') }
+                               <#else>
+                                     ${view.l('Percentage from Total') }
+                              </#if>
+                         </td>
+                         <td>
+                             ${row.getPrice()!}
+                        </td>
+                           <td>
+                               ${row.getFree_delivery()!}
+                           </td>
+                          <td>
+                             <a href="${baseurl}admin/checkout-shipping/delete?id=${row.getId()}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"></a>
+                         </td>
+                         <td ><a href="${baseurl}admin/checkout-shipping/update?id=${row.getId()}" class="fa_edit" ></a></td>
+                     </tr>
+             </#list>
+             </tbody>
+         </table>
+      </form>
+    <#include "/cms/standart/default/pagination.html">
+   </#if>
+
+     </div>
+ </div>
+</div>
+ 

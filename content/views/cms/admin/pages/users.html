@@ -1,0 +1,120 @@
+<#include "/cms/admin/layouts/successMessage.html">
+<div class="col-md-12">
+ <div class="card">
+     <div class="header">
+          <h4 class="title">${view.l('Users')}</h4>
+     </div>
+     <div class="add_new_top">  
+    <form action="${baseurl}admin/users/store" method="post">
+         <div class="col-md-2">
+             <label> ${view.l('Usr Role')} <br />
+                  <select name="userRole" class="form-control" >
+                     <option value="ROLE_USER">Subscriber</option>
+                     <option value="ROLE_EDITOR">Editor</option>
+                     <option value="ROLE_ADMIN">Admin</option>
+                  </select>
+             </label>
+          </div>
+           <div class="col-md-2">
+             <label> ${view.l('First Name')} <br />
+                <input type="text" name="firstName" required="" class="form-control"/>
+             </label>
+          </div><div class="col-md-2">
+             <label> ${view.l('Last Name')} <br />
+                <input type="text" name="lastName" required="" class="form-control"/>
+             </label>
+          </div>
+          
+          
+          
+          <div class="col-md-2">
+             <label> ${view.l('Email')}<br />
+                <input type="email" name="email" required="" class="form-control"/>
+                
+             </label>
+          </div>
+          
+           <div class="col-md-2">
+             <label> ${view.l('Password')}<br />
+                <input type="text" name="password" required="" class="form-control" placeholder="******"/>
+             </label>
+           </div>
+          
+         <div class="col-md-1"><br />
+           <button type="submit" class="btn btn_small">${view.l('Add new one')} </button>  
+        </div>
+         
+     <div class="clear"></div>
+    </form> 
+   </div> 
+     
+     <form action="${baseurl}admin/users/destroy-bulk" method="post">
+           <div class="col-md-2">
+               <select name="action" class="form-control" >
+                <option value="">${view.l('Action')}</option>
+                <option value="del">${view.l('Remove')} </option>
+               </select>
+          </div>
+         
+        <div class="col-md-1">
+           <button type="submit" class="btn btn_small">${view.l('Apply')}</button>  
+        </div>
+           <div class="col-md-6"><br /></div>
+          
+          <div class="col-md-2">
+           <input type="text" class="form-control" name="s" value="${search!}"  placeholder="${view.l('Search')}"/>
+         </div>
+          <div class="col-md-1">
+            <button type="submit" class="btn btn_small">${view.l('Search')}</button>  
+          </div>
+         
+     <div class="clear"></div>
+     
+     <div class="content table-responsive table-full-width">
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+                 <th>ID</th>
+                 <th>${view.l('User name')}</th>
+                 <th>${view.l('Email')}</th>
+                  <th>${view.l('Role')}</th>
+                 <th>${view.l('Date')}</th>
+                 <th>${view.l('Orders')}</th>
+                 <th style="width: 40px"> </th>
+                 <th style="width: 40px"> </th>
+                 <th style="width: 40px"> </th>
+             </thead>
+             <tbody>
+                   <#list rows.iterator() as row>
+                     <tr id="edit_this_nr${row.getUserid()!}">
+                           <td> <input type="checkbox" name="bulkid" class="checkboxeach"  value="${row.getUserid()!}"></td>
+                           <td>${row.getUserid()!}</td>
+                           <td> <a href="${baseurl}admin/users/single?id=${row.getUserid()!}">${row.getFirstName()!} ${row.getLastName()!}</a></td>
+                           <td> <a href="${baseurl}admin/users/single?id=${row.getUserid()!}">${row.getEmail()!}</a></td>
+
+                          <td> ${view.returnRole(row.getRoles()!)!} </td>
+                          <td> ${row.getCreated_at()!}</td>
+                          <td>
+                             <a href="${baseurl}admin?userid=${row.getUserid()!}">View orders</a>
+                          </td>
+                          <td>
+                             <a href="${baseurl}admin/users/single?id=${row.getUserid()!}" class="fa_edit"> </a>
+                         </td>
+                          <td>
+                             <#if (row.getUserid() > 1)>
+                                <a href="${baseurl}admin/users/destroy?id=${row.getUserid()!}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"> </a>
+                             </#if>
+                         </td>
+                         <td class="result${row.getUserid()!}"></td>
+                     </tr>
+                  </#list>
+             </tbody>
+         </table>
+ 
+     </div>
+         <div class="col-md-12">
+             <#include "/cms/standart/default/pagination.html">
+         </div>
+     </form>  
+ </div>
+</div>

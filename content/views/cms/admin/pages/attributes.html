@@ -1,0 +1,122 @@
+
+<div class="col-md-12">
+ <div class="card">
+      <div class="header">
+           <h4 class="title" > ${title+view.l('Example: Color, Size')+', ...'}</h4>
+     </div>
+     
+       <div class="add_new_top">
+
+                 <form action="${baseurl+'admin/attributes-save'}" method="POST" >
+                     <input type="hidden" name="type[newk]" value="${attr!}">
+                     <input type="hidden" name="key[newk]"  value="">
+
+                     <#list view.listLang() as langVal>
+                            <div class="col-md-2" >
+                               <p>
+                                  <label>${view.l('Title')+'-'+langVal} </label> <br/>
+                                  <input type="text" class="form-control" required="" name="${'title[newk]['+langVal+']'}" value="">
+                               </p>
+                            </div>
+                     </#list>
+
+                     <#if attr?contains("spec") >
+                      <div  class="col-md-3" >
+                           <p>
+                             <label>${view.l('Box type')} </label> <br/>
+                                  <select name="box[newk]"  class="form-control">
+                                      <option value="textbox">${view.l('Textbox')}</option>
+                                      <option value="select">${view.l('Select')}</option>
+                                      <option value="checkbox">${view.l('Checkbox')}</option>
+                                 </select>
+                           </p>
+                      </div>
+                   </#if>
+                        
+                      <div  class="col-md-2">
+                       <label><br /> </label> <br/>
+                            <input type="submit" class="btn btn_small" value="${view.l('Add new one')}">
+                      </div>
+                  </form>
+
+                  <div class="clear"></div>
+                  </div>                 
+                      <div class="clear"></div>
+
+         <div class="content table-responsive table-full-width">
+
+              <form action="${baseurl+'admin/attributes-save'}" method="POST" >
+                    <input type="hidden" name="attr" value="${attr!}">
+                    <input type="hidden" name="key"  value="${attr!}">
+                                      
+                 
+                 <table class="table table-hover table-striped">
+                     <thead>
+                         <th style="width: 100px;">ID</th>
+                         <th >${view.l('Title')} </th>
+                          <#if attr?contains("spec") >
+                              <th> ${view.l('Type')}</th>
+                          </#if>
+                         <th >${view.l('ShortCode')} </th>
+                         <th style="width: 45px;"></th>
+                         <th style="width: 110px;" >${view.l('Sugestion')} </th>
+                         <th style="width: 110px;"></th>
+                         <th style="width: 45px;"></th>
+                     </thead>
+                     <tbody> 
+                        <#list attributes as key, value>
+                          <#if value.getType()?contains(attr) >
+
+                               <tr id="${'edit_'+key}">
+                                   <td>
+                                       <input type="hidden" name="type[${key}]" value="${attr!}">
+                                        <input type="hidden" name="key[${key}]" value="${key}">
+                                        <span >${key}</span>
+                                   </td>
+                                   <td>
+                                      <div class="edit_text" >${value.getName().get(view.currentLang()!)!}</div>
+                                      <div class="hide_edit blockMultilang">
+                                        <#list view.listLang() as langVal>
+                                              <span class="inputLang">${langVal}</span>
+                                              <input type="text"  class="form-control" required="" name="title[${key}][${langVal}]" value="${value.getName().get(langVal)!}">
+                                          </#list>
+                                       </div>
+                                   </td>
+                                 <#if attr?contains("spec") >
+                                   <td>${view.l('Type')}
+                                       <div class="edit_text" >${value.getBox()!} </div>
+                                         <select name="box[${key}]" class="form-control hide_edit">
+                                             <option value="textbox">${view.l('Textbox')}</option>
+                                             <option value="select"  <#if value.getBox()!?contains("select")>selected</#if>>${view.l('Select')}</option>
+                                             <option value="checkbox" <#if value.getBox()!?contains("checkbox")>selected</#if>>${view.l('Checkbox')}</option>
+                                         </select>
+                                    </td>
+                                  </#if>
+                                   <td >[attributes id=${key}] </td>
+                                    <td>
+                                       <a href="#" class="fa_edit" onclick="edit_row_tr('${'#edit_'+key}');return false;"> </a>
+                                    </td>
+                                   <td>
+                                      <a href="#" data-toggle="modal" data-target="#load_ajax_modal" class="btn btn_small" data-url=""
+                                           onclick="access_url('${baseurl+'admin/attributes-sugestion?key='+key}','.modal_load_content');">${view.l('Add Sugestion')}</a>
+                                   </td>
+                                    <td>
+                                       <input type="submit" class="btn btn_small" value="${view.l('Save')}"/>
+                                    </td>
+                                    <td> 
+                                       <a href="${baseurl+'admin/attributes-delete/'+key}" title="${view.l('Delete')}"  class="fa_delete"> </a>
+                                    </td>
+                                </tr>
+                             </#if>
+                         </#list>
+
+                      </tbody>
+                    </table> 
+                 </form> 
+
+         </div>
+               
+         <div class="clear"></div>
+
+    </div>
+</div>

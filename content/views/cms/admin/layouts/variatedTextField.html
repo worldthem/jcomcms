@@ -1,0 +1,14 @@
+<label> ${title}</label> <br/>
+<div class="blockMultilang">  
+ <input  type="hidden" name="${fieldName}" value="<#if keySugestion??>${keySugestion}</#if>" class="${'field'+keyField}"/>
+
+   <#list view.listLang() as langd>
+      <span class="inputLang">${langd}</span>
+        <#if (langd?index==0)>
+            <input type="text" class="form-control wsugestion replaceName" data-name="${keyField}" name="sugestion[${keyField}][<#if keySugestion??>${keySugestion}</#if>][${langd}]" data-lang="${langd}" data-listlang="${view.comaLang()}" autocomplete="off" value="<#if keySugestion??>${view.getSugestionById(entryInner.getSugestion(),keySugestion, langd)}</#if>"/>
+            <div class="sugestion_elements"></div>
+        <#else>
+            <input type="text" class="form-control langthis${langd} replaceName" autocomplete="off" name="sugestion[${keyField}][<#if keySugestion??>${keySugestion}</#if>][${langd}]" data-lang="${langd}" value="<#if keySugestion??>${view.getSugestionById(entryInner.getSugestion(),keySugestion, langd)}</#if>"/>
+        </#if>
+  </#list>
+</div>

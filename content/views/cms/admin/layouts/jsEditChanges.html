@@ -1,0 +1,34 @@
+<script type="text/javascript">
+<!--
+ $( function() { 
+ var unsaved = false;
+$(":input").change(function(){ //triggers change in all input fields including text type
+    unsaved = true;
+});
+ $( "select" ).click(function() {
+     unsaved = true;  
+ });
+ 
+ /*
+ $( document ).delegate( ".tinymce", "click",function() {
+     unsaved = true; alert("ds");  
+ });
+ */
+ 
+ $( ".formSave" ).submit(function( event ) {
+  unsaved = false;
+  //event.preventDefault();
+  return true;
+});
+function unloadPage(){ 
+    if(unsaved){
+        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+    }
+}
+
+
+
+window.onbeforeunload = unloadPage;
+}) ;
+-->
+</script>

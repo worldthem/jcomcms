@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<config>
+<menus>
+    <menuittem nr="10">
+        <menu url="#">eCommerce</menu>
+        <menu url ="admin">Orders</menu>
+        <menu url="admin/comments">Reviews</menu>
+        <menu url="admin/page/emails">Email Templates</menu>
+        <menu url="admin/page/add-edit/emails">hidden</menu>
+        <menu url="admin/cupon">Coupons</menu>
+        <menu url="admin/vieworder">hidden</menu>
+        <menu url="admin/page-single/emails">hidden</menu>
+
+    </menuittem>
+
+    <menuittem nr="20">
+        <menu url="admin/statistic">Statistic</menu>
+    </menuittem>
+
+    <menuittem nr="30">
+        <menu url="#">Pages</menu>
+        <menu url="admin/page/pages">Pages</menu>
+        <menu url="admin/contact-form">Contact Forms</menu>
+        <menu url="admin/editable-blocks?type=_header_">Header</menu>
+        <menu url="admin/editable-blocks?type=_footer_">Footer</menu>
+        <menu url="admin/editable-blocks?type=_shop_sidebar_&amp;editor=editor">Shop Sidebar</menu>
+        <menu url="admin/editable-blocks?type=product-single&amp;editor=editor">Product Single Page Sidebar</menu>
+        <menu url="admin/page-single/pages">hidden</menu>
+        <menu url="admin/contact-form-single">hidden</menu>
+    </menuittem>
+
+    <menuittem nr="40">
+        <menu url="#">Blog</menu>
+        <menu url="admin/page/posts">Posts</menu>
+        <menu url="admin/categories/list/posts">Categories</menu>
+        <menu url="admin/categories/list/tags">Tags</menu>
+        <menu url="admin/page/add-edit/posts">hidden</menu>
+        <menu url="admin/categories/add-edit/posts">hidden</menu>
+        <menu url="admin/categories/add-edit/tags">hidden</menu>
+        <menu url="admin/page-single/posts">hidden</menu>
+    </menuittem>
+
+    <menuittem nr="50">
+        <menu url="#">Products</menu>
+        <menu url="admin/view-products">All Products</menu>
+        <menu url="admin/products/add-edit">Add new product</menu>
+        <menu url="admin/categories/list/product">Product Categories</menu>
+        <menu url="admin/categories/list/brand">Brands</menu>
+        <menu url="admin/attributes/var">Variation</menu>
+        <menu url="admin/attributes/spec">Specification</menu>
+        <menu url="admin/import-products">Import Products from CSV</menu>
+        <menu url="admin/page/add-edit/tabs">hidden</menu>
+        <menu url="admin/page/tabs">Product Tabs</menu>
+        <menu url="admin/product">hidden</menu>
+        <menu url="admin/categories/add-edit/product">hidden</menu>
+        <menu url="admin/categories/add-edit/brand">hidden</menu>
+        <menu url="admin/page-single/tabs">hidden</menu>
+    </menuittem>
+
+    <menuittem nr="60">
+        <menu url="#">Checkout</menu>
+        <menu url="admin/checkout-fields/billing">Billing Fields</menu>
+        <menu url="admin/checkout-fields/shipping">Shipping Fields</menu>
+        <menu url="admin/money-currencies">Currencies</menu>
+        <menu url="admin/checkout-shipping">Shipping Method</menu>
+        <menu url="admin/checkout-countries">Countries</menu>
+        <menu url="admin/checkout-payment">Payment</menu>
+        <menu url="admin/checkout-shipping/update">hidden</menu>
+        <menu url="admin/checkout-payment/single">hidden</menu>
+    </menuittem>
+
+    <menuittem nr="70">
+        <menu url="#">Users</menu>
+        <menu url="admin/users">Users</menu>
+        <menu url="admin/subscribers">Subscribers</menu>
+        <menu url="admin/users/single">hidden</menu>
+    </menuittem>
+
+    <menuittem nr="80">
+        <menu url="#">General Settings</menu>
+        <menu url="admin/general-settings">General Settings</menu>
+        <menu url="admin/general-settings/language">Language</menu>
+        <menu url="admin/menu">Menu</menu>
+        <menu url="admin/themes">Themes</menu>
+        <menu url="admin/email-settings">Email settings</menu>
+        <menu url="admin/language/translate">hidden</menu>
+        <menu url="admin/menu/single">hidden</menu>
+
+    </menuittem>
+
+    <menuittem nr="800">
+        <menu url="logout">Log out</menu>
+    </menuittem>
+
+</menus>
+
+     <categorieslink>
+        <product>
+            <ittem field="product">Product categories</ittem>
+            <ittem field="brand">Brands</ittem>
+        </product>
+        <posts>
+            <ittem field="posts">Categories</ittem>
+            <ittem field="tags">Tags</ittem>
+        </posts>
+    </categorieslink>
+
+    <pagefields>
+        <pages>
+            <ittem>cpu</ittem>
+            <ittem>metad</ittem>
+            <ittem>metak</ittem>
+        </pages>
+        <posts>
+            <ittem>cpu</ittem>
+            <ittem>metad</ittem>
+            <ittem>metak</ittem>
+            <ittem>cat</ittem>
+            <ittem>image</ittem>
+        </posts>
+        <emails>
+            <ittem>subject</ittem>
+            <ittem>enable</ittem>
+            <ittem>editonly</ittem>
+        </emails>
+        <emails>
+            <ittem>enable</ittem>
+            <ittem>sort</ittem>
+        </emails>
+    </pagefields>
+
+
+    <menulink>
+       <customlink>
+            <ittem field="/shop">Shop</ittem>
+            <ittem field="/wishlist">Wishlist</ittem>
+            <ittem field="/cart/get">Cart</ittem>
+            <ittem field="/checkout/step1">Checkout</ittem>
+            <ittem field="/orders-list">My orders</ittem>
+            <ittem field="/signup/my-account">My Account</ittem>
+            <ittem field="/blog">Blog</ittem>
+            <ittem field="/logout">Logout</ittem>
+            <ittem field="#login">Login</ittem>
+            <ittem field="#registration">Registration</ittem>
+       </customlink>
+    </menulink>
+
+    <generalsettings>
+
+
+    </generalsettings>
+
+</config>

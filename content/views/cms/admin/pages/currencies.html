@@ -1,0 +1,77 @@
+<div class="col-md-12">
+ <div class="card">
+    <form class="formSave" action="${baseurl}admin/money-currencies-save" method="POST" >
+        <input type="hidden" name="fieldsType" value="${fieldsType!}">
+        <div class="col-md-6">
+           <h3> ${title}</h3> 
+        </div>
+        <div class="col-md-6 text_align_right">
+          <input type="submit" class="btn btn_small" value="${view.l('Update')}"/>
+       </div>
+        <div class="col-md-12 text_align_right">
+            <a href="#" class="btn btn_small btn_active" onclick="option_enabled(); return false;"> ${view.l("Active currencies")} </a> | <a href="#" class="btn btn_small" onclick="option_all(); return false;"> ${view.l("All currencies")} </a>
+        </div>
+
+        
+       <div class="content table-responsive table-full-width">
+          <table class="table table-hover table-striped">
+              <tbody>
+                
+                <#list fields as key, value>
+                     <tr id="edit_${key}" class="options_each <#if fieldsConfig[key]??>enabled_option<#else>disabled_option</#if>">
+                        <td style="vertical-align: middle;">
+                             <label class="switch show_edit">
+                                <input type="checkbox" class="checkbox show_edit" name="${key}[enable]" <#if fieldsConfig[key]??>checked=""</#if>  value="yes">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td style="vertical-align: middle;">${key}</td>
+
+                        <td style="vertical-align: middle;">
+                            <div class="edit_text" style="display: inline-table;"> <#if fieldsConfig[key]??> ${fieldsConfig[key].getCode()!}<#else> ${value}</#if> </div>
+                             <label class="hide_edit blockMultilang">
+                                 <input type="text" class="form-control show_edit"  name="${key+'[code]'}" value="<#if fieldsConfig[key]??>${fieldsConfig[key].getCode()!}<#else>${value}</#if>">
+                             </label>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <label class="show_edit">${view.l('Main Currency')}</label><br>
+                            <label class="switch show_edit">
+                                <input type="checkbox" class="checkbox show_edit" name="${key}[main]" <#if fieldsConfig[key]??><#if fieldsConfig[key].getMain()> checked="" </#if></#if> value="yes">
+                                <span class="slider round"></span>
+                            </label>
+                         </td>
+
+                        <td style="vertical-align: middle;">
+                             <div class="edit_text" > ${view.l('Field width')} </div>
+                             <label class="hide_edit hide_edit">${view.l('Field width')} <br>
+                                <select name="${key}[type]" class="form-control show_edit">
+                                 <option value="left" >${view.l('Left')}</option>
+                                 <option value="right" <#if fieldsConfig[key]??><#if fieldsConfig[key].getType()?contains("right")> selected="" </#if></#if>> ${view.l('Right')}</option>
+                                 <option value="left with space" <#if fieldsConfig[key]??><#if fieldsConfig[key].getType()?contains("left with space")> selected="" </#if></#if>>${view.l('Left with space')}</option>
+                                 <option value="right with space" <#if fieldsConfig[key]??><#if fieldsConfig[key].getType()?contains("right with space")> selected="" </#if></#if>>${view.l('Right with space')}</option>
+                               </select>
+                             </label>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <div class="edit_text" style="display: inline-table;"> ${view.l('Rate(to main currency)')} : <#if fieldsConfig[key]??>${fieldsConfig[key].getRate() !}<#else>1</#if>  </div>
+                            <label class="hide_edit blockMultilang">
+                                <input type="text" class="form-control show_edit"  name="${key+'[rate]'}" value="<#if fieldsConfig[key]??>${fieldsConfig[key].getRate() !}<#else>1</#if>">
+                            </label>
+                       </td>
+                        <td style="vertical-align: middle;">
+                            <a href="#" class="fa_edit"  onclick="edit_row_tr('#edit_${key}');return false;"> </a>
+                        </td>
+                    </tr>
+                 </#list>
+            </tbody>
+         </table>
+       </div>
+        <div class="col-md-12 text_align_right">
+          <input type="submit" class="btn btn_small" value="${ view.l('Update') }"/>
+        </div>
+        <div class="height15px"></div>
+     </form>
+   </div>
+ 
+  </div>
+ 

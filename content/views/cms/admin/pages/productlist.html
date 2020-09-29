@@ -1,0 +1,167 @@
+ 
+<div class="col-md-12">
+ <div class="card">
+    <div class="header">
+        <p>
+          <a class="btn" href="${baseurl+'admin/products/add-edit?id=0'}">${view.l('Add new one')}</a>
+       </p>
+     </div>
+
+     <hr/>
+   <div class="col-md-7 noPadding" style="display:none;">
+     <h4>${view.l('Transfer products from one category to another')}</h4>
+     <form action="${baseurl}admin/move-prodduct-from-to-category" method="GET">
+         
+         <div class="col-md-4">
+                ${view.l('FROM')}  <br/>
+              <select name="from" class="form-control" > ${view.catsructure('product','select', null)}</select>
+        </div>
+         <div class="col-md-4">
+                ${view.l('TO')}<br/>
+               <select class="form-control" name="to" >${view.catsructure('product','select', null)}</select>
+        </div>
+         <div class="col-md-4">
+             <br/> 
+             <input type="submit" class="btn btn_small" value="${view.l('Transfer')}">
+        </div>
+         <div class="clear"></div>
+    </form>
+    </div>
+    
+    <div class="col-md-5 noPadding"  style="display:none;">
+     <h4 text="${view.l('Increase price')}"></h4>
+       <form action="/admin/product/increase-price" method="POST"> 
+
+         <div class="col-md-5">
+              ${view.l('With')} <br/>
+             <input  type="text" class="form-control" value="{{@$setting['_additional_price']}}" name="_additional_price"/>  
+        </div>
+         <div class="col-md-4">
+              ${view.l('Type')} <br/><br/>
+               <select class="form-control"  name="_additional_type"> 
+                 <option value="fix">${view.l('Fixed price')}</option>
+                 <option value="percentage" > ${view.l('Percentage from price')}</option>
+               </select>
+        </div>
+         <div class="col-md-3">
+             <br/> 
+             <input type="submit" class="btn btn_small" value="${view.l('Increase')}" >
+        </div>
+         <div class="clear"></div>
+    </form>
+   </div>
+   
+    <div class="clear"></div>
+
+     <div class="clear_15px"></div>
+     <form action="${baseurl}admin/products-bulk" method="post">
+         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <div class="col-md-2">
+          <select  name="action" class="form-control" >
+                <option value="">${view.l('Action')}</option>
+                <option value="move">${view.l('Move to category')}</option>
+                <option value="2">${view.l('Hidde Products')}</option>
+                <option value="1">${view.l('Make products Visible')}</option>
+                <option value="del">${view.l('Delete')}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select name="category_id" class="form-control">
+                <option value='0'>${view.l('Select category')}</option>
+                   ${view.catsructure('product','select', null)}
+            </select>
+        </div>
+         <div class="col-md-1">
+          <button type="submit" class="btn btn_small">${view.l('Apply')}</button>
+         </div>
+        <div class="gap_20px">
+            <br />  
+        </div>
+  
+        <div class="col-md-2">
+            <select class="form-control" onchange="if (this.value) window.location.href='${baseurl}admin/view-products?catid='+this.value" >
+                <option value=''>${view.l('Show products from category')}</option>
+                  ${view.catsructure('product','select', null)}
+            </select>
+        </div>
+         
+         <div class="col-md-2">
+           <input type="text" class="form-control" name="s" value="" placeholder="${view.l('Search Product')}"/>
+         </div>
+          <div class="col-md-1">
+            <button type="submit" class="btn btn_small">${view.l('Search')}</button>
+          </div>
+        
+         <div class="col-md-1">
+            <a href="${baseurl+'admin/view-products'}" class="btn btn_small btn_active">${view.l('Reset')}</a>
+         </div>
+     <div class="clear"></div>
+     
+     <div class="content table-responsive table-full-width">
+          <table class="table table-hover table-striped">
+             <thead>
+                 <th style="width: 40px;"><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+                 <th style="width: 65px;">ID </th>
+                 <th style="width: 100px;">${view.l('Price')}</th>
+                 <th style="width: 55px;">${view.l('Image')}</th>
+                 <th>${view.l('Title')}</th>
+                 <th>${view.l('Categories')}</th>
+                 <th>${view.l('Author')}</th>
+                 <th colspan="3" style="width:120px;text-align: right;"><strong > ${view.l('Products')}</strong></th>
+             </thead>
+              <tbody>
+
+              <#list products.iterator() as product>
+               <tr>
+                   <td>
+                        <input type="checkbox" name="id" class="checkboxeach"  value="${product.getProductid()}">
+                    </td>
+                    <td>
+                        <a   href="${baseurl + view.prurl(product.getCpu()!, product.getCatid()!) }" target="_blank" ><i class="fa fa-link"></i> ${product.getProductid()}</a>
+                   </td>
+                    <td >${product.getPriceHtml()}</td>
+                    <td>
+                        <img style="max-width: 40px;" src="${baseurl}content/imgproduct/thumb_${product.getImage()!}" alt="${product.getTitle()!}" />
+                    </td>
+                    <td>
+                        <a href="${baseurl+'admin/products/add-edit?id='+product.getProductid()}"> ${product.getTitle()!''} </a>
+                    </td>
+                    <td>
+                        <a href="${baseurl}admin/view-products?catid=${product.getCat().getId()!}">
+                            ${product.getCat().getTitle()!}
+                        </a> 
+                    </td>
+                     <td>
+                        <a href="${baseurl}admin/view-products?userid=${product.getUsers().getUserid()!}" >
+                                   ${product.getUsers().getFirstName()!}
+                         </a>
+                    </td>
+                    
+                        <td class="width_table_btn">
+                          <a href="${baseurl+'admin/products/add-edit?id='+product.getProductid()}" title="Edit" class="fa_edit">
+                          </a>
+                        </td>
+                        <td class="width_table_btn"> 
+                          <a href="${baseurl+'admin/products/delete-hide?id='+product.getProductid()}" title="Delete"  class="fa_delete">
+                          </a>
+                        </td>
+                          <td class="width_table_btn">
+                              <a  href="${baseurl}admin/products-delete-hide?id=${product.getProductid()}&action=<#if (product.getHide()== 2)>1<#else>2</#if>" title="Unpublish" class="<#if (product.getHide()== 2)>fa_unpublish<#else>fa_publish</#if>"></a>
+                        </td> 
+                    
+                    </tr>
+              <#else>
+              <p>${view.l('No Products')}</p>
+              </#list>
+             </tbody>
+         </table>
+       
+          <div class="col-md-12">
+              <#include "/cms/standart/default/pagination.html">
+          </div>
+          <div class="clear"></div>
+     </div>
+     </form>
+      
+ </div>
+</div>

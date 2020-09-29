@@ -1,0 +1,20 @@
+<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+    <#assign authorities = Session["SPRING_SECURITY_CONTEXT"].authentication.authorities />
+        <#if authorities?seq_contains("ROLE_ADMIN")>
+            <script> window.location.replace("${baseurl}admin"); </script>
+        <#else>
+            <script> window.location.replace("${baseurl}"); </script>
+        </#if>
+</#if>
+
+<div class="col-md-12">
+       <div class="logo text-center">
+          <a href="/">
+             <img src="${adminassets}/img/ecommercecms.png"/>
+          </a>
+      </div>
+    <div class="panel panel-default login" >
+        <#assign typeLogin="admin">
+        <#include "/cms/standart/default/login_registre_reset.html">
+     </div>
+</div>

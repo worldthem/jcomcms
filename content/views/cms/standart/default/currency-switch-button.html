@@ -1,0 +1,16 @@
+<#if (curency?size > 1)>
+<div class="btn-group pull-left">
+           <div class="btn-group show_currency">
+             <button type="button" class="btn btn-default dropdown-toggle usa">
+                  ${seted!}
+                <span class="caret"></span>
+            </button>
+
+             <ul class="dropdown-menu currency_meu">
+                <#list curency as key, value>
+                  <li><a href="${baseurl}set-currency/${key}">${key} ${value.code}</a></li>
+               </#list>
+             </ul>
+           </div>
+  </div>
+</#if>

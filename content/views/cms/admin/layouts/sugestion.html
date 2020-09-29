@@ -1,0 +1,73 @@
+<form action="${baseurl}admin/attributes-sugestion/update" id="add_sugestion_new" method="post" onsubmit="access_url('${baseurl}admin/attributes-sugestion/update','.modal_load_content','.add_load_new','#add_sugestion_new'); return false;">
+    <input type="hidden" name="fieldKey" value="${fieldKey}"/>
+    <input type="hidden" name="id" value="new"/>
+    <div class="add_new_top">
+    <label>${view.l("Add sugestion")} (${view.l("One per line")})</label><br />
+    <table class="table" style="margin-bottom: 0;">
+         <tr>
+             <#list view.listLang() as langVal>
+                <td> 
+                    <img src="${baseurl}content/views/assets/langicon/${langVal}.png"/> ${langVal?upper_case}
+                    <textarea class="form-control"  name="title[${langVal}]" required="" placeholder="${langVal?upper_case}, ${view.l('One per line')}"></textarea><br />
+               </td>
+            </#list>
+        </tr> 
+    </table>
+     <input type="submit" class="btn btn_small" value="${view.l('Add new one')}"/>
+     <span class="add_load_new" style="width: 35px;"></span>
+   </div>  
+</form>
+
+<#if sugestion??>
+<form action="#" method="post" class="bulkEditting" onsubmit="access_url('${baseurl}admin/attributes-sugestion/bulk','.modal_load_content','.resultBulk', '.bulkEditting'); return false;">
+    <input type="hidden" name="fieldKey" value="${fieldKey}"/>
+           <div class="col-md-6" style="padding-left: 8px;">
+               <select name="action" class="form-control" >
+                <option value="">${view.l('Action')}</option>
+                <option value="del">${view.l('Remove')} </option>
+               </select>
+          </div>
+         
+        <div class="col-md-6">
+           <button type="submit" class="btn btn_small">${view.l('Apply')}</button>
+           <span class="resultBulk"></span>
+        </div>
+
+    
+   
+       <table class="table table-hover table-striped">
+         <thead>
+             <th style="width: 40px;"><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+             <#list view.listLang() as langVal>
+                  <th>${view.l('Title')}(${langVal?upper_case})</th>
+             </#list>
+             <th> </th>
+             <th> </th>
+             <th style="width: 30px;"> </th>
+          </thead>
+         <tbody>
+
+
+              <#list sugestion as key, value>
+                 <tr class="updateData${key}">
+                   <td> 
+                       <input type="hidden" name="return" value="noresult"/>
+                       <input type="hidden" name="fieldKeySingle" value="${fieldKey}"/>
+                       <input type="hidden" name="id" value="${key}" />
+                       <input type="checkbox" name="rowid" class="checkboxeach"  value="${key}">
+                   </td>
+                     <#list view.listLang() as langVal>
+                        <td> <input type="text" class="form-control" name="title[${langVal}]" value="${value.get(langVal)!}" /> </td>
+                     </#list>
+                   <td> 
+                       <a href="#" class="btn btn_small" onclick="return updateSerialiseFromDiv('${baseurl}admin/attributes-sugestion/update-single','.add_load${key}','.updateData${key}');" >${view.l('Update')}</a>
+                    </td> 
+                   <td>  
+                     <a href="" class="fa_delete" onclick="access_url('${baseurl}admin/attributes-sugestion/remove?fieldKey=${fieldKey}&key=${key}','.modal_load_content','.add_load${key}'); return false;"> </td>
+                   <td class="col-md-1 add_load${key}">  </td>
+                </tr>
+            </#list>
+         </tbody>
+      </table>
+ </form>
+</#if>

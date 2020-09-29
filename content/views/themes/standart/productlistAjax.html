@@ -1,0 +1,7 @@
+<#if products??>
+  <#list products.iterator() as product>
+    <#include "/cms/standart/product/product.html">
+  </#list>
+</#if>
+<div class="clear"></div>
+<div class="col-md-12"><#include "/cms/standart/default/pagination.html"> </div>

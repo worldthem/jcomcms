@@ -1,0 +1,10 @@
+<#list array as key, val>
+   <a href="#" class="block_list" data-class="${key}">
+     <img src="${val[0]!}" />
+     <span>${val[1]!}</span>
+  </a>
+
+  <textarea class="${key}" style="display: none;">${val[2]!}</textarea>
+  <textarea class="style${key}" style="display: none;">${val[3]!}</textarea>
+</#list>
+     

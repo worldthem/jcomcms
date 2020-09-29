@@ -1,0 +1,74 @@
+<div class="col-md-12">
+ <div class="card">
+        <div class="header">
+           <h4 class="title">${view.l('Payments')}</h4>
+        </div>
+     <div class="content table-responsive table-full-width">
+      <#if page??>
+
+      
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th>${view.l('Name') }</th>
+                 <th>${view.l('Description') }</th>
+                 <th style="width: 100px"> </th>
+                 <th style="width: 100px"> </th>
+             </thead>
+             <tbody>
+                <#list rows as  row>
+                   <tr>
+                       <td>
+                           ${row.getTitle()!}
+                       </td>  
+                       <td> ${row.getDescription()!}</td>
+                        <td>
+                           <a href="${baseurl}admin/checkout-payment/onoff?payment=${row.getId()!}&onoff=<#if listActive?seq_contains(row.getId()!)>off<#else>on</#if>"  title="Unpublish" class="<#if listActive?seq_contains(row.getId()!)>fa_publish<#else>fa_unpublish</#if>"></a>
+                       </td>
+                      
+                       <td> 
+                          <a href="${baseurl}admin/checkout-payment/single?payment=${row.getId()}" > <i class="fa fa-sliders"></i> ${view.l('Settings') } </a>
+                       </td>
+                    </tr>
+               </#list>
+             </tbody>
+         </table>
+     <#else>
+
+
+         <div>${view.adminSwitchLang()}</div> <!--Switch Lang-->
+       <form action="${baseurl}admin/checkout-payment/store?payment=${row.getId()}" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="method" value="${row.getId()!}">
+
+           <input type="hidden" name="lang" value="${view.currentLang()!}">
+            
+            <table class="table_admin_settings">
+             <tbody>
+              <tr>
+                <th>${view.l('Enable') }</th>
+                <td>
+                 <label class="switch"> 
+                    <input name="enable" value="yes" class="checkbox" type="checkbox"  <#if enable>checked=""</#if>   >
+                    <span class="slider round"></span>
+                  </label>
+               </td>
+             </tr>
+             </tbody>
+             </table>
+                      
+            ${content!}
+         
+         
+         <div class="col-md-1"><br />
+           <button type="submit" class="btn btn_small"> ${view.l("Update") } </button>  
+        </div>
+         
+     <div class="clear"></div>
+    </form>
+
+     </#if>
+       
+       
+     </div>
+    
+ </div>
+</div>

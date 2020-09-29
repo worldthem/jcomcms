@@ -1,0 +1,1434 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<currencies title="Currency">
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>AED|none</name>
+        <code>&#1583;.&#1573;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>AFN|none</name>
+        <code>&#65;&#102;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ALL|none</name>
+        <code>&#76;&#101;&#107;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>AMD|none</name>
+        <code>|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ANG|none</name>
+        <code>&#402;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>AOA|none</name>
+        <code>&#75;&#122;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ARS|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>AUD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>AWG|none</name>
+        <code>&#402;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>AZN|none</name>
+        <code>&#1084;&#1072;&#1085;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BAM|none</name>
+        <code>&#75;&#77;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BBD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BDT|none</name>
+        <code>&#2547;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BGN|none</name>
+        <code>&#1083;&#1074;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BHD|none</name>
+        <code>.&#1583;.&#1576;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BIF|none</name>
+        <code>&#70;&#66;&#117;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BMD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BND|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BOB|none</name>
+        <code>&#36;&#98;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BRL|none</name>
+        <code>&#82;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BSD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BTN|none</name>
+        <code>&#78;&#117;&#46;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BWP|none</name>
+        <code>&#80;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BYR|none</name>
+        <code>&#112;&#46;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>BZD|none</name>
+        <code>&#66;&#90;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CAD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CDF|none</name>
+        <code>&#70;&#67;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CHF|none</name>
+        <code>&#67;&#72;&#70;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CLF|none</name>
+        <code>|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CLP|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CNY|none</name>
+        <code>&#165;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>COP|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CRC|none</name>
+        <code>&#8353;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CUP|none</name>
+        <code>&#8396;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CVE|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>CZK|none</name>
+        <code>&#75;&#269;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>DJF|none</name>
+        <code>&#70;&#100;&#106;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>DKK|none</name>
+        <code>&#107;&#114;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>DOP|none</name>
+        <code>&#82;&#68;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>DZD|none</name>
+        <code>&#1583;&#1580;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>EGP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ETB|none</name>
+        <code>&#66;&#114;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>EUR|none</name>
+        <code>&#8364;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>FJD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>FKP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GBP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GEL|none</name>
+        <code>&#4314;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GHS|none</name>
+        <code>&#162;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GIP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GMD|none</name>
+        <code>&#68;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GNF|none</name>
+        <code>&#70;&#71;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GTQ|none</name>
+        <code>&#81;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>GYD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>HKD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>HNL|none</name>
+        <code>&#76;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>HRK|none</name>
+        <code>&#107;&#110;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>HTG|none</name>
+        <code>&#71;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>HUF|none</name>
+        <code>&#70;&#116;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>IDR|none</name>
+        <code>&#82;&#112;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ILS|none</name>
+        <code>&#8362;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>INR|none</name>
+        <code>&#8377;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>IQD|none</name>
+        <code>&#1593;.&#1583;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>IRR|none</name>
+        <code>&#65020;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ISK|none</name>
+        <code>&#107;&#114;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>JEP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>JMD|none</name>
+        <code>&#74;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>JOD|none</name>
+        <code>&#74;&#68;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>JPY|none</name>
+        <code>&#165;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KES|none</name>
+        <code>&#75;&#83;&#104;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KGS|none</name>
+        <code>&#1083;&#1074;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KHR|none</name>
+        <code>&#6107;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KMF|none</name>
+        <code>&#67;&#70;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KPW|none</name>
+        <code>&#8361;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KRW|none</name>
+        <code>&#8361;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KWD|none</name>
+        <code>&#1583;.&#1603;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KYD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>KZT|none</name>
+        <code>&#1083;&#1074;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LAK|none</name>
+        <code>&#8365;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LBP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LKR|none</name>
+        <code>&#8360;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LRD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LSL|none</name>
+        <code>&#76;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LTL|none</name>
+        <code>&#76;&#116;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LVL|none</name>
+        <code>&#76;&#115;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>LYD|none</name>
+        <code>&#1604;.&#1583;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MAD|none</name>
+        <code>&#1583;.&#1605;.|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MDL|none</name>
+        <code>&#76;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MGA|none</name>
+        <code>&#65;&#114;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MMK|none</name>
+        <code>&#1076;&#1077;&#1085;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MMK|none</name>
+        <code>&#75;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MNT|none</name>
+        <code>&#8366;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MOP|none</name>
+        <code>&#77;&#79;&#80;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MRO|none</name>
+        <code>&#85;&#77;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MUR|none</name>
+        <code>&#8360;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MVR|none</name>
+        <code>.&#1923;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MWK|none</name>
+        <code>&#77;&#75;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MXN|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MYR|none</name>
+        <code>&#82;&#77;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>MZN|none</name>
+        <code>&#77;&#84;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>NAD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>NGN|none</name>
+        <code>&#8358;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>NIO|none</name>
+        <code>&#67;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>NOK|none</name>
+        <code>&#107;&#114;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>NPR|none</name>
+        <code>&#8360;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>NZD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>OMR|none</name>
+        <code>&#65020;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>PAB|none</name>
+        <code>&#66;&#47;&#46;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>PEN|none</name>
+        <code>&#83;&#47;&#46;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>PGK|none</name>
+        <code>&#75;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>PHP|none</name>
+        <code>&#8369;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>PKR|none</name>
+        <code>&#8360;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>PLN|none</name>
+        <code>&#122;&#322;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>PYG|none</name>
+        <code>&#71;&#115;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>QAR|none</name>
+        <code>&#65020;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>RON|none</name>
+        <code>&#108;&#101;&#105;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>RSD|none</name>
+        <code>&#1044;&#1080;&#1085;&#46;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>RUB|none</name>
+        <code>&#1088;&#1091;&#1073;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>RWF|none</name>
+        <code>&#1585;.&#1587;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SAR|none</name>
+        <code>&#65020;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SBD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SCR|none</name>
+        <code>&#8360;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SDG|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SEK|none</name>
+        <code>&#107;&#114;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SGD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SHP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SLL|none</name>
+        <code>&#76;&#101;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SOS|none</name>
+        <code>&#83;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SRD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>STD|none</name>
+        <code>&#68;&#98;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SVC|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SYP|none</name>
+        <code>&#163;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>SZL|none</name>
+        <code>&#76;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>THB|none</name>
+        <code>&#3647;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TJS|none</name>
+        <code>&#84;&#74;&#83;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TMT|none</name>
+        <code>&#109;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TND|none</name>
+        <code>&#1583;.&#1578;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TOP|none</name>
+        <code>&#84;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TRY|none</name>
+        <code>&#8356;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TTD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TWD|none</name>
+        <code>&#78;&#84;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>TZS|none</name>
+        <code>|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>UAH|none</name>
+        <code>&#8372;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>UGX|none</name>
+        <code>&#85;&#83;&#104;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>USD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>UYU|none</name>
+        <code>&#36;&#85;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>UZS|none</name>
+        <code>&#1083;&#1074;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>VEF|none</name>
+        <code>&#66;&#115;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>VND|none</name>
+        <code>&#8363;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>VUV|none</name>
+        <code>&#86;&#84;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>WST|none</name>
+        <code>&#87;&#83;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>XAF|none</name>
+        <code>&#70;&#67;&#70;&#65;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>XCD|none</name>
+        <code>&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>XDR|none</name>
+        <code>|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>XOF|none</name>
+        <code>|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>XPF|none</name>
+        <code>&#70;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>YER|none</name>
+        <code>&#65020;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ZAR|none</name>
+        <code>&#82;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ZMK|none</name>
+        <code>&#90;&#75;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+    <currency>
+        <enable>enable|checkbox|yes</enable>
+        <name>ZWL|none</name>
+        <code>&#90;&#36;|text|is</code>
+        <default>Main Currency|checkbox|yes</default>
+        <type>Currency position|select|left:right:left with space:right with space</type>
+        <rate>Rate(to main currency) |text|1</rate>
+    </currency>
+
+</currencies>

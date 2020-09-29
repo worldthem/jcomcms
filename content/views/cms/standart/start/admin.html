@@ -1,0 +1,60 @@
+ <div class="col-md-12">
+        
+    <div class="panel panel-default login">
+
+
+  <div class="panel-body">
+    <form class="form-horizontal" method="POST" action="${baseurl}new-instalations">
+     
+       <h2 class="text-align-center">${view.l("Create Admin User")}</h2>
+       
+       <div class="form-group">
+         <div class="col-md-12">
+            <input  type="text" name="websitename" value="${websitename!}" placeholder="${view.l('Website name')}"  class="form-control" required>
+         </div>
+      </div>
+      <div class="form-group">
+         <div class="col-md-12">
+            <input  type="text" name="fname" value="${fname!}" placeholder="${view.l('Frist name')}"  class="form-control" required>
+         </div>
+      </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input  type="text" name="lname" value="${lname!}" placeholder="${view.l('Last name')}"  class="form-control" required>
+            </div>
+        </div>
+       <div class="form-group">
+         <div class="col-md-12">
+            <input  type="email" name="email" value="${email!}" placeholder="${view.l('Admin Email (Email is a user name)')}"  class="form-control"  required>
+         </div>
+       </div>
+      
+       <div class="form-group">
+         <div class="col-md-12">
+            <input  type="text" name="password" value="${password!}" placeholder="${view.l('Admin Password')}"  class="form-control" required>
+         </div>
+       </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <h2>
+                    <label>
+                      <input  type="checkbox" name="democontent" value="yes" checked  >  ${view.l('Insall the demo content')}
+                   </label>
+                </h2>
+            </div>
+        </div>
+
+      <div class="form-group">
+           <div class="col-md-12 text-align-center">
+                <button type="submit" class="login100-form-btn">
+                    ${view.l("Install") }
+                </button> 
+          </div>
+      </div>
+  </form>
+</div>
+
+ </div>
+ </div>
+ 

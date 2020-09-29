@@ -1,0 +1,43 @@
+<div class="col-md-12">
+ <div class="card">
+     <div class="header">
+         <h4 class="title">
+             ${type?cap_first +' '+ view.l('Categories')}
+         </h4>
+           <p>
+               <a class="btn" href="${baseurl}admin/categories/add-edit/${type}?id=0" >${view.l('Add new one')}</a>
+           </p>
+     </div>
+     
+     <form action="${baseurl}admin/categories/update-bulk" method="post">
+
+         <div class="col-md-2">
+              <select  name="action" class="form-control" >
+                <option value="">${view.l('Action')}</option>
+                <option value="del" >${view.l('Delete')}</option>
+              </select>
+        </div>
+        <div class="col-md-1">
+           <button type="submit" class="btn btn_small">${view.l('Apply')}</button>
+        </div>
+        <div class="clearfix" ></div>
+
+     <div class="content table-responsive table-full-width">
+
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th style="width: 40px;"><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+                 <th>${view.l('ID')}</th>
+                 <th>${view.l('Title')}</th>
+                 <th>${view.l('CPU')}</th>
+                 <th style="width: 100px;"> </th>
+                 <th  style="width: 40px;"> </th>
+             </thead>
+             <tbody>${view.catsructure(type,'admintable', null) }</tbody>
+         </table>
+
+
+     </div>
+   </form>  
+ </div>
+</div>

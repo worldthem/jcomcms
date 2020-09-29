@@ -1,0 +1,25 @@
+<#assign random = view.rand(10)>
+<form action="#" method="POST" id="sendForm${random}" class="formDefault" onsubmit="simplePost('${baseurl}ajax-call/contact-form-send', '.results${random}', 'reset', '#sendForm${random}', '.results${random}' ); return false;">
+
+ <input type="hidden" name="id" value="${id!}">
+  <#if form.getFields()??>
+    <#list form.getFields() as key, field>
+     <#assign idfield = key>
+        <label class="type<#if (field.getType()! =="text" || field.getType()! == "email")>Input<#else>Textarea</#if>">
+            <#if field.getLabel()??>${field.getLabel()!}<br /></#if>
+           <#if field.getType()! =="text">
+             <input class="form-control"  type="text" name="${key}" value="" placeholder="${field.getLabel()!}" <#if field.getRequired()??>required</#if>/>
+           <#elseif field.getType()! == "email">
+             <input class="form-control"  type="email" name="${key}"  value="" placeholder="${field.getLabel()!}" <#if field.getRequired()??>required</#if>/>
+           <#else>
+             <textarea name="${key}"  class="form-control" placeholder="${field.getLabel()!}" <#if field.getRequired()??>required</#if>></textarea>
+           </#if>
+         </label>
+
+   </#list>
+</#if>
+ <div class="col-md-12 right-text">
+   <button type="submit" class="btn">${form.getSubmit()!}</button>
+ </div>
+ <div class="results${random} col-md-12"></div>
+</form>

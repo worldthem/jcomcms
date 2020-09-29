@@ -1,0 +1,50 @@
+
+<header id="header"><!--header-->
+<div class="header_top" style="display: none;"> <!--header_top-->
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+             <!--<th:block th:include="/views/standart/default/currency-switch-button"></th:block>-->
+        </div>
+           <div class="clear show500px"></div>
+           <div class="col-sm-8 mobile_new_line">
+              <div class="shop-menu pull-right">
+
+                   <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+                     <ul class="nav navbar-nav">${topMenuLogin!}</ul>
+                  <#else>
+                     <ul class="nav navbar-nav">${topMenuNOTLogin!}</ul>
+                  </#if>
+             </div>
+           </div>
+    </div>
+
+</div><!--/header_top-->
+
+</header><!--/header-->
+
+<div class="header_mobile">
+  
+      <div class="logo_mobile" >${view.logo()!}</div>
+    <div class="container_menu_icon" onclick="menu_show_is($$('.container_menu_icon'),'.left-sidebar')">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="left-sidebar clearfix" >
+                 		 
+    <a href="#" class="close_modalinner show_on_mobile" onclick="menu_show_is($$('.container_menu_icon'),'.left-sidebar')">x</a>
+   <div class="logo logo-desktop">${view.logo()!}</div>
+    <div>
+        ${view.shortcode('[search title=search]')!}
+   </div>
+       <div class="clear_10px"></div>
+         ${view.shortcode('[language]')!} ${view.shortcode('[currency]')!}
+       <div class="clear_10px"></div>
+          <div class="position-relative">
+          <ul class="topMenu">${main!}</ul>
+       </div>
+ </div>

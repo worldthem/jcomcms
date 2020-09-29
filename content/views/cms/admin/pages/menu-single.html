@@ -1,0 +1,230 @@
+ 
+
+ <script src="${adminassets}/js/jquery.mjs.nestedSortable.js"></script>
+ <script src="${adminassets}/js/menu.js"></script>
+  
+ 
+ <div class="col-md-12">
+    
+       <div class="col-md-12">
+         <h3>${row.getValue()!}</h3>
+      </div>
+       
+       <div class="col-sm-4">
+         <div class="card">
+          <div class="block">
+            <h3 class="header_block menu_open">${view.l('Custom Link') }</h3> 
+            <div class="paddinginside block_inside active">
+                  <label class="col-md-4">${view.l('Select Icon') }</label> 
+                    <div class="col-md-8">
+                     <button type="button" class="icon_link" onclick="icon_setup('.link_text',this)" data-toggle="modal" data-target="#load_icons_modal" >Select icon</button>
+                   </div>
+                   <div class="height10px"></div>
+                   
+                  <label class="col-md-4">${view.l('Select URL') }</label> 
+                  <div class="col-md-8">
+                    <select name="" class="form-control" onchange="select_url_fromlist(this,'.link_text_href','.link_text')">
+                        <option value="">${view.l("Select")}</option>
+                      <#list customLink as key, value>
+                            <option value="${key}">${view.lang(value, view.currentLang())}</option>
+                      </#list>
+                    </select>
+                  </div>
+                  <div class="height10px"></div>
+                 <label class="col-md-4">${view.l('Or enter manually') }</label> 
+                  
+                  <div class="col-md-8">
+                   <input type="text" value="" placeholder="#" name="link" class="form-control link_text_href" />
+                 </div>
+                  
+                 
+                  <div class="height10px"></div>
+                  <label class="col-md-4">${view.l('Menu name') }</label> 
+                  <div class="col-md-8">
+                    <input type="text" value="" placeholder="Home" name="link" class="form-control col-md-8 link_text" data-icons="" />
+                  </div>
+                  
+                  <div class="height10px"></div>
+                  <p class="col-md-12 text_align_right">
+                   <a href="#" class="btn btn_small" onclick="return simple_link('.link_text','text');">${view.l('Add ittem') }</a>
+                  </p>
+                  <div class="clear"></div> 
+             </div>
+          </div>
+          
+          <div class="block">
+            <h3 class="header_block menu_open">${view.l('Pages') }</h3>
+             <div class="paddinginside block_inside">
+                   <label class="col-md-4">${view.l('Select Icon') }</label> 
+                   <div class="col-md-8">
+                     <button type="button" class="icon_pages" onclick="icon_setup('.link_page',this)" data-toggle="modal" data-target="#load_icons_modal" >${view.l('Select icon') }</button>
+                   </div>
+                   
+                   <div class="height10px"></div>
+             
+                <label class="col-md-4">${view.l("Page")}</label>
+                   <div class="col-md-8">
+                     <select class="form-control link_page" data-icons="">
+                         <#if pages??>
+                               <#list pages as value>
+                                 <option value="/page/${value.getCpu()}" data-info="page_${value.getPageid()}" >${value.getTitle()}</option>
+                               </#list>
+                          </#if>
+                     </select>
+                  </div>
+                  <div class="height10px"></div>
+                 <p class="col-md-12 text_align_right">
+                   <a href="#" class="btn btn_small" onclick="return simple_link('.link_page', '.page_icon');">${view.l("Add ittem")}</a>
+                  </p> 
+                  <div class="clear"></div>
+             </div>
+            </div>
+
+             
+          <#list productCategories as key, value>
+             <#assign class1 = "cl"+view.rand(10)  class2 = "cl"+view.rand(10) >
+                      <div class="block">
+                        <h3 class="header_block menu_open">${view.l(value)}</h3>
+                         <div class="paddinginside block_inside">
+
+                               <label class="col-md-4">${view.l('Select Icon') }</label>
+                               <div class="col-md-8">
+                                 <button type="button" class="${class1}" onclick="icon_setup('.${class2}',this)" data-toggle="modal" data-target="#load_icons_modal" >${view.l('Select icon') }</button>
+                               </div>
+
+                               <div class="height10px"></div>
+
+                            <label class="col-md-4">${view.l('Select') }</label>
+                             <div class="col-md-8">
+                               <select class="form-control ${class2}" data-icons="">
+                                   <#if categories??>
+                                       <#list categories as key2 , value2>
+                                             <#if value2.getType()?contains(key)>
+                                                <option data-info="page_${key2}" value="<#if (key?contains('product') || key?contains('brand'))>/cat/<#else>/categories/</#if>${value2.getCpufull()}">${value2.getTitle()}</option>
+                                             </#if>
+                                       </#list>
+                                   </#if>
+                               </select>
+                             </div>
+                             <div class="height10px"></div>
+                               <p class="col-md-12 text_align_right">
+                                <a href="#" class="btn btn_small"  onclick="return simple_link_all('.${class2}');">${view.l('Add all') }</a>
+                                <a href="#" class="btn btn_small"  onclick="return simple_link('.${class2}');">${view.l('Add ittem') }</a>
+                              </p>
+                          <div class="clear"></div>
+                         </div>
+                      </div>
+               </#list>
+          
+          </div>
+         
+         
+          
+       </div>
+       
+       <div class="col-sm-8">
+       <form action="${baseurl}admin/menu/store" method="post" enctype="multipart/form-data">
+                
+         <div class="card"> 
+              <div class="header_block"> 
+                    <div class="col-md-10 header_menue">
+                      
+                                <em>${view.l('Menu name') }:</em>
+                                <input type="text" name="title" value="${row.getValue()!}" class="form-control small_input"  />
+
+                                <em>${view.l('Position') }:</em>
+                               <select name="position" class="form-control small_input">
+                                     <option>${view.l("Select Position")}</option>
+                                     <option value="topMenuLogin" <#if row.getValue2()!?contains("topMenuLogin")>selected</#if>>Top menu when user is login</option>
+                                     <option value="topMenuNOTLogin" <#if row.getValue2()!?contains("topMenuNOTLogin")>selected</#if>>Top menu when user is NOT login</option>
+                                     <option value="main" <#if row.getValue2()!?contains("main")>selected</#if>>Main menu</option>
+                                     <option value="footer" <#if row.getValue2()!?contains("footer")>selected</#if>>Footer Menu</option>
+                              </select>
+                     </div>
+                    <div class="col-md-2 text_align_right">
+                      <input type="submit" class="btn btn_small submit_form" value="${view.l('Update') }"/>
+                   </div>
+                   <div class="clear"></div>
+                  </div>
+         <div class="paddinginside">
+
+                  <input type="hidden" name="id" value="${key!}">
+                  <input type="hidden" name="lang" value="${view.currentLang()!}">
+                  <textarea name="munuIttem" id="response" style="display: none;"></textarea>
+
+                     ${view.adminSwitchLang()} <!--Switch Lang-->
+
+                     <#if (view.listLang()?size>1)>
+                         <div class="col-md-12">
+                           <div class="col-md-3" style="float: right;">
+                            <select onchange="if (this.value) window.location.href=this.value"  class="form-control">
+                                   <option value="?lang=${view.currentLang()!}">Dublicate from:</option>
+                                <#list view.listLang() as langVal>
+                                   <option value="${baseurl}admin/menu/dublicate?id=${key}&from=${langVal}&to=${view.currentLang()!}">Dublicate from ${langVal}</option>
+                                </#list>
+                            </select>
+                            </div>
+                            <div class="clear"></div>
+                         </div>
+                         <div class="clear"></div>
+                     </#if>
+                   
+                <div class="menu-box"> 
+                 <ul class="menu-list sortable">
+                     ${row.getValue1Lang()!}
+                 </ul>
+              </div>
+               
+            
+         </div>  
+       </div>
+        </form>
+     </div>      
+         <div class="height20px"></div>
+ </div>
+ 
+  <div class="edit_link_div">
+                 <input  type="hidden" value="" class="link_edit_hidden_href"/>
+                  
+                  
+                   <label class="col-md-4">${view.l('Select Icon') }</label> 
+                   <div class="col-md-8">
+                     <button type="button" class="icon_link_edit" onclick="icon_setup('.link_edit_text',this)" data-toggle="modal" data-target="#load_icons_modal" >${view.l('Select icon') }</button>
+                   </div>
+                   <div class="height10px"></div>
+                   
+                  <label class="col-md-4">${view.l('Select URL') }</label> 
+                  <div class="col-md-8">
+                     <select name="" class="form-control" onchange="select_url_fromlist(this, '.link_edit_href','.link_edit_text')">
+                        <#list customLink as key, value>
+                           <option value="${key}">${view.l(value)}</option>
+                        </#list>
+                    </select>
+                  </div>
+                  
+                  <div class="height10px"></div>
+                 
+                 <label class="col-md-4">${view.l('Or enter manually') }</label> 
+                  
+                  <div class="col-md-8">
+                   <input type="text" value="" placeholder="#" name="link" class="form-control link_edit_href" />
+                 </div>
+                  
+                 
+                  <div class="height10px"></div>
+                  <label class="col-md-4">${view.l('Menu name') }</label> 
+                  <div class="col-md-8">
+                    <input type="text" value="" placeholder="Home" name="link" class="form-control col-md-8 link_edit_text" data-icons="" />
+                  </div>
+                  
+                  <div class="height10px"></div>
+                  <p class="col-md-12 text_align_right">
+                  <a href="#" class="btn btn_small close_edit_div" >Close</a>
+                   <a href="#" class="btn btn_small" onclick="return simple_link_update('.link_edit_text','text');">${view.l('Update') }</a>
+                  </p>
+                  <div class="clear"></div> 
+             
+    
+  </div>
+ 
+ 

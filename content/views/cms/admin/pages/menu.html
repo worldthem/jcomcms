@@ -1,0 +1,81 @@
+
+ 
+<div class="col-md-12">
+ <div class="card">
+       
+         <div class="header">
+           <h4 class="title">${view.l('Menu') }</h4>
+        </div>
+     <div class="add_new_top">  
+    <form action="${baseurl}admin/menu/store" method="post">
+          <input type="hidden" name="lang" value="${view.currentLang()!}">
+
+           <div class="col-md-2">
+             <label> ${view.l('Menu Name') } </label> <br />
+                <input type="text" name="title" required="" class="form-control"/>
+
+          </div>
+        <div class="col-md-3">
+            <label> ${view.l('Menu Name') } </label><br />
+                <select name="position" class="form-control">
+                    <option>Select Position</option>
+                    <option value="topMenuLogin" >Top menu when user is login</option>
+                    <option value="topMenuNOTLogin">Top menu when user is NOT login</option>
+                    <option value="main">Main menu</option>
+                    <option value="footer">Footer Menu</option>
+                </select>
+
+        </div>
+          
+         <div class="col-md-2"><br />
+           <button type="submit" class="btn btn_small">${view.l('Add New') } </button>  
+        </div>
+         
+     <div class="clear"></div>
+    </form> 
+   </div> 
+
+   <#if rows?? >
+      <div class="content table-responsive table-full-width">
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th>ID</th>
+                 <th>${view.l('Menu Name') }</th>
+                 <th>${view.l('Position') }</th>
+                 <th>${view.l('Use menu in code') } </th>
+                 <th>${ view.l('Short code') }</th>
+                 <th style="width: 40px"> </th>
+                 <th style="width: 40px"> </th>
+             </thead>
+             <tbody>
+                <#list rows as row>
+                  <tr id="edit_this_nr">
+                           <td>${row.getId()!}</td>
+                           <td>${row.getValue()!}</td>
+                           <td>${row.getValue2()!}</td>
+                          <td>
+
+                                    <#if row.getValue2()!?has_content>
+                                          &lt;ul class ="your_class"&gt;  &#36;{${row.getValue2()!}!} &lt;/ul&gt; <br/>
+                                          &lt;ul class ="your_class"&gt; &#36;{menuId${row.getId()!}!} &lt;/ul&gt;
+                                    <#else>
+                                          &lt;ul class ="your_class"&gt; &#36;{view.menu(${row.getId()!})} &lt;/ul&gt;
+                                    </#if>
+
+                         </td>
+                          <td>[menu id=${row.getId()!} class=your_class]</td>
+                          <td>
+                             <a href="${baseurl}admin/menu/single?id=${row.getId()!}" class="fa_edit small" > </a>
+                         </td>
+                          <td>
+                            <a href="${baseurl}admin/menu/destroy?id=${row.getId()!}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"> </a>
+                         </td>
+
+                    </tr>
+             </#list>
+             </tbody>
+         </table>
+       </div>
+   </#if>
+ </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="col-md-12">
+ <div class="card">
+     <div class="header">
+         <h4 class="title">${view.l('Statistic')}</h4>
+     </div>
+     <div class="content table-responsive table-full-width">
+     
+            <div class="bargraph" >
+                <ul class="bars">
+                  <#if rowDate??>
+                       <#assign i= -25>
+                        <#list rowDate as k, v>
+                        <#assign i = i+25>
+                            <li class="bluebar" style="height: ${(v[2]!?number/2)!}px; left:${i!}px;">  <span> <a href="/admin/statistic?d=${k!}" >${v[2]!}    </a> </span> </li>
+                       </#list>
+                    </#if>
+                 </ul>
+                <ul class="label_firs">
+                 <li><span>day</span> <br/><span>month</span><br/><span>durat</span></li>
+                 </ul>
+                <ul class="label">
+                    <#if  rowDate??>
+                        <#list rowDate as k , v>
+                        <li> ${v[0]!}<br/> ${v[1]!} <br/> ${(v[3]!?number/60)?ceiling }  </li>
+                        </#list>
+                    </#if>
+                </ul>
+                
+             <ul class="y-axis">
+             <li>1300</li>
+             <li>1200</li>
+             <li>1100</li>
+             <li>1000</li>
+             <li>900</li>
+             <li>800</li>
+             <li>700</li>
+             <li>600</li>
+             <li>500</li>
+             <li>400</li>
+             <li>300</li>
+             <li>200</li>
+             <li>100</li>
+             <li>0</li>
+             </ul>
+            <p class="centered">${view.l('Statistic for the last month')}</p> 
+            </div>     
+     <div class="clear"></div>
+     <div class="col-md-6">
+     <h3> ${view.l("Countries")}</h3>
+          <table class="table">
+            <#if rowCountries??>
+                  <#list rowCountries as key, val>
+                      <tr>
+                          <td>${key}</td>
+                          <td>${(val!/60)?ceiling} (${view.l("Minutes")})</td>
+                      </tr>
+                  </#list>
+             </#if>
+
+    </table>
+      </div>
+      
+      <div class="col-md-6">
+      <h3>Source</h3>
+          <table class="table">
+            <#if rowSource??>
+                  <#list rowSource as key, val>
+                      <tr>
+                          <td>${key!'Direct'}</td>
+                          <td>${(val!/60)?ceiling} (${view.l("Minutes")})</td>
+                      </tr>
+                  </#list>
+             </#if>
+          </table>
+          
+          <h3>${view.l('Page Visit')}</h3>
+          <table class="table">
+              <#if rowPageVisit??>
+                  <#list rowPageVisit as key, val>
+                      <tr>
+                          <td>${key!}</td>
+                          <td>${val!}</td>
+                      </tr>
+                  </#list>
+             </#if>
+          </table>
+          
+      </div>
+     </div>
+     <div class="clear"></div>
+ </div>
+</div>
+ 

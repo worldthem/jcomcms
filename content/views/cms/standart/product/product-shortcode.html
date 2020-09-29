@@ -1,0 +1,7 @@
+<div class="productListBlcok">
+  <#if products??>
+    <#list products.iterator() as product>
+       <#include htmlpath!>
+    </#list>
+  </#if>
+</div>

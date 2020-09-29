@@ -1,0 +1,10 @@
+<#if (rows?size>0)>
+    <div class="col-md-12">
+        <#list rows as key, value>
+           <div class="specification_theme"  >
+              <div class="specification_left">${key}</div>
+             <div class="specification_right">${value}</div>
+           </div>
+        </#list>
+    </div>
+</#if>

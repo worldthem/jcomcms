@@ -1,0 +1,33 @@
+<div class="containerDefault">
+ 
+<div class="clear_20px"></div>
+   <div class="col-xs-9">
+      
+        <div class="postsList">
+           <#if rows??>
+            <#list rows.iterator() as row>
+                <div class="posts">
+                    <h2 class="blockTitle"> \  <a  href="${baseurl}blog-single/${row.getCpu()!}">${row.getTitle()!}</a></h2>
+                    <p>${row.getShortText(40)!}...</p>
+                </div>
+            </#list>
+             <div class="clear"></div>
+             <#include "/cms/standart/default/pagination.html">
+           </#if>
+
+          <#if row??>
+               <h2 class="blockTitle"> \ ${row.getTitle()!} </h2>
+               <p> ${row.getText()!} </p>
+           </#if>
+
+            <#if !rows?? && !row??>
+             <h1 class="text-center">${view.l("No title found")}</h1>
+            </#if>
+
+           <div class="clear_10px"></div>
+
+      </div>
+   </div>
+   
+   <div class="col-xs-3">${view.shortcode("[categorieslist title=Categories type=posts]")}  </div>
+ </div>       

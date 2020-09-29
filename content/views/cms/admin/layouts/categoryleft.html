@@ -1,0 +1,17 @@
+<tr th:each="category: ${categorieslist}">
+    <td>
+        <input type="checkbox" name="id" class="checkboxeach"  th:value="${category.getCatid()}">
+    </td>
+    <td th:text="${category.getCatid()}"></td>
+    <td>
+        <a th:href="${category.getCpu()}" target="_blank" th:text="${category.getTitle()}"></a>
+    </td>
+    <td th:text="${category.getCpu()+' | '+category.getUrl()}"></td>
+    <td>
+        <a th:href="${baseurl+'admin/categories/add-edit/'+type+'?id='+category.getCatid()}" class="fa_edit"></a> |
+        <a th:href="${baseurl+'admin/categories/delete-hide?id='+category.getCatid()+'&action='+(category.getTip()==2? '1':'2')}" title="Unpublish" th:class="${category.getTip() == 2 ? 'fa_unpublish':'fa_publish'}" ></a>
+    </td>
+    <td>
+        <a th:href="${baseurl+'admin/categories/delete-hide?id='+category.getCatid()}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"></a>
+    </td>
+</tr>

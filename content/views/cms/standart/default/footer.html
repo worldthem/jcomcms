@@ -1,0 +1,52 @@
+<script type="text/javascript" >
+    var base_url = "${baseurl!}";
+    var url_assets = "${themeassets!}";
+    var cms_assets = "${baseurl!}content/views/assets/front";
+    var url_theme = base_url;
+    var WajaxURL =   base_url + 'wajax.jsp' ;
+</script>
+
+<#assign typeLogin="simple">
+<#include "/cms/standart/default/login_registre_reset.html">
+<#include "/cms/standart/default/popup.html">
+
+ <div class="small_cart"  >
+   <div class="inner_smallcart">
+        <a href="${baseurl}cart/get" class="btn btn-default update cart_small_btn_top">${view.l('Cart')}</a>
+        <a href="${baseurl}checkout/step1" class="btn btn-default update cart_small_btn_top">${view.l('Checkout')} </a>
+        <a href="#" onclick="return hide_elem('.small_cart'); " class="btn btn-default update cart_small_btn" >
+            <i class="fa fa-times"></i> 
+        </a>
+        <div class="clearfix"></div>
+        <div class="load_content_smallcart"> </div>   
+   </div>   
+</div>
+<span class="pointdb"></span>
+
+<script src="${baseurl}content/views/assets/front/js/js-helper.js"></script>
+<script src="${baseurl}content/views/assets/front/js/jsonly.js"></script>
+<script src="${baseurl}content/views/assets/front/js/lazyload.min.js"></script>
+<link href="${baseurl}content/views/assets/front/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript">
+  new LazyLoad();
+  //alert(document.referrer);
+   window.addEventListener('load', function(){
+     calUrl('${baseurl}analitycs-set?refer='+document.referrer, '',  'noresult');
+    }, false);
+
+    setInterval(function(){
+        calUrl('${baseurl}analitycs-set?updatetime=yes', '',  'noresult');
+    }, 20000);
+</script>
+ 
+<div class="quickEditWindow"></div>
+${footer_hook!}
+${_footerjs_!}
+
+<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+      <#assign authorities = Session["SPRING_SECURITY_CONTEXT"].authentication.authorities />
+    <#if authorities?seq_contains("ROLE_ADMIN")>
+        <#include "/cms/standart/default/adminMenu.html">
+     </#if>
+</#if>

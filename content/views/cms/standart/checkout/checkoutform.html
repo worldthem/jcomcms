@@ -1,0 +1,99 @@
+<div class="checkoutPage">
+ <#if (totalcart>0)>
+    <form action='${baseurl}checkout/step2' method="POST" id="checkoutform" onsubmit="return checkout_finall('.resul_checkout', '', '#checkoutform' );" >
+        
+         <input type="hidden" name="action" value="place_order" />
+        <#if (billingFields?size >= 2 || shippingFields?size >= 1)>
+            <div class="col-sm-6">
+                     <div class="shopper-info">
+                       <#if (billingFields?size >=  2)>
+                         <#assign titleMethod = titleBilling, fields=billingFields , shippon ="">
+                          <#include "/cms/standart/checkout/fields.html">
+                        </#if>
+                        <#if (shippingFields?size >=  1)>
+                           <#assign titleMethod = titleShipping, shippon ="shipping_", fields=shippingFields  >
+                           <#include "/cms/standart/checkout/fields.html">
+                       </#if>
+
+                     <div class="clear_20px"></div>
+                     </div>
+            </div>
+           </#if>
+                <div class="col-sm-6 paymentDetailsCheckout<#if (billingFields?size < 2  && shippingFields?size < 1 )> paymentCheckoutCenter</#if>" >
+                  <div class="order-message">
+
+                  <#if !shippingMethods?contains("notshipping")>
+                   <div class="register-reqs">${view.l('Shipping Method') } </div>
+                    <div class="total_area" id="shipping_method" style="width: 99%">
+                       <ul style="margin: 0;padding: 0;" class="deliverylist">
+                            ${shippingMethods!}
+                      </ul>
+                        <br/>
+                    </div>
+                  <#else>
+                      <span class="deliverylist" style="display:none"></span>
+                  </#if>
+                   
+                   
+
+                    <div class="register-reqs">${view.l('Payment Method') } </div>
+                    <div class="clear"></div>
+                            
+                              
+                   
+                       <div class="total_area" style="width: 99%">
+                           <ul style="margin: 0;padding: 0;">
+                           <#if !shippingMethods?contains("notshipping")>
+                             <li style="margin-top: 0;"><b>${view.l('Merchandise Subtotal') }</b> <span class="subtotal_price">${viewRequest.price(totalcart,  null )}</span></li>
+                             <li><b>${view.l('Shipping') }</b> <span class="delivery_cost">0</span></li>
+                            </#if>
+                             
+                             <li><b>${view.l('Payment Due') }</b> <span class="total_price">${viewRequest.price(totalcart,  null )}</span></li>
+                           </ul>
+                       </div>
+                           
+                            <div class="clear_20px">
+                              <hr />
+                           </div>  
+                          
+                            <#if (paymentSettings?size>0)>
+                                 <#list payment as value>
+                                     <#if paymentSettings?seq_contains(value.getId()) >
+                                         ${value.frontEnd()!}
+                                         <div class="clear_10px"></div>
+                                     </#if>
+                                 </#list>
+                            </#if>
+                              <div class="clear_10px"></div>
+                              <#if page??>
+                                 <label>
+                                   <input type="checkbox" name="agred" required="" value="yes"> 
+                                   ${view.l('I read and agree to') }
+                                    <a href="${baseurl}pages/${page.getCpu()!}">${page.getTitle()!}</a>
+                                 </label>
+                              </#if>
+
+                        <div class="clear_10px"></div>
+                        <div class="resul_checkout text-center"></div>
+                        <button type="submit" class="btnplace_order" >
+                          ${view.l('Place Order & Pay') }
+                        </button>
+                        <div class="clear_10px"></div>
+
+                  </div>	
+                </div>
+                <div class="clear"></div>
+          </form>
+
+
+<#else>
+<div class="content-404 text-center">
+    <h1>
+        ${view.l("Look like your cart it's empty")}
+    </h1>
+</div>
+</#if>
+<div class="clear"></div>
+</div> 
+
+        

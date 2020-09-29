@@ -1,0 +1,25 @@
+<div th:fragment="popup">
+ <div class="reveal-modal-bg modal-window" id="mini-modal">
+   <div class="reveal-modal" id="" >
+       <div class="modal-body modal-body-sub" style="position: relative;">
+          <button type="button" class="close_modalinner" onclick="modaljs(this,'close');" data-modal="#mini-modal" aria-hidden="true"> &times;</button>
+             <div id="load_content_mini">
+                  
+             </div>
+       </div>
+    </div>
+ </div> 
+  
+  <div class="reveal-modal-bg" id="payment_modal">
+   <div class="reveal-modal" id="" >
+        
+         <div class="modal-body modal-body-sub" style="position: relative;">
+                <button type="button" class="close_modalinner" ng-click="open_modal('payment_modal','close');" aria-hidden="true"> &times;</button>
+                <div class="inner_modal_body">
+                   <iframe class="finalsteppayment" src="" style="zoom:0.60" frameborder="0" height="250" width="99.6%"></iframe>  
+               </div>
+        </div>
+    </div>
+ </div>
+
+</div>

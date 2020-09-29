@@ -1,0 +1,184 @@
+<#assign dataStatus= ["success", "pending", "processing", "canceled", "refunded"]>
+<div class="col-md-12">
+    <div class="card">
+     
+     
+        <div class="header">
+            <h4 class="title">${view.l('Order number')}: ${row.getOrdersid()!}</h4>
+        </div>
+        <div class="content table-responsive table-full-width">
+ 
+  
+<div class="col-md-12">
+<table class="table">
+      
+    <tr class="rem1">
+       <th>${view.l('Order Status')}:</th>
+       <td>
+          <select class="form-control"  onchange="if (this.value) window.location.href=this.value">
+               <#list dataStatus as rowStatus>
+                  <option value="${baseurl}admin/order-change-status?id=${row.getOrdersid()!}&status=${rowStatus}" <#if row.getStatus()!?contains(rowStatus)>selected </#if> >${view.l("Status")}: ${rowStatus} </option>
+               </#list>
+          </select>
+       </td> 
+   </tr>
+
+    <tr class="rem2">
+        <th>${view.l("Total payd")}:</th>
+        <td>${viewRequest.price(row.getTotalpayd()!,  null )!}</td>
+    </tr>
+    <tr class="rem2">
+       <th>${view.l("Date")}:</th>
+       <td>${row.getCreated_at()!}</td>
+   </tr>
+    <#assign total=0>
+      <#list row.getCart() as cart>
+       <#assign total = total+cart.getPrice()! >
+          <tr>
+             <th>
+                <a href="${baseurl + cart.getProduct().getUrl() }" target="_blank">
+                    ${cart.getProduct().getTitle()!}
+                </a><b> x ${cart.getQty()!}</b>
+
+                 <#if cart.getOptionsid()?? >
+                     <div class="optionss">
+                         <i>${cart.getProduct().getAttrNames(cart.getOptionsid())!}</i>
+                     </div>
+                 </#if>
+
+              </th>
+               <td class="invert"> ${viewRequest.price(cart.getPrice()! ,  null )!}</td>
+           </tr>
+             
+              
+                   <#list cart.getProduct().getGallery() as file>
+                     <#if file.getTypefile()!?contains("file")>
+
+                       <tr>
+                          <th style="padding-left: 15px;"> ${file.getTitle()}</th>
+                          <td>
+                             <a href="${baseurl}download-user-file/${cart.getCartid()!}/${file.getId()}">
+                               <b><i class="fa fa-download"></i>${view.l("Download")}  </b>
+                             </a>,
+                              ${view.l("Downloaded")}: ${cart.getDownloaded()!} ${view.l("time")}
+                           </td>
+                       </tr>
+                     </#if>
+                   </#list>
+
+         </#list>
+         
+
+       
+        <#if cupon??>
+                <tr class="rem3">
+                    <th>Subtotal</th>
+                    <td>${viewRequest.price(total,  null )} </td>
+                </tr>
+                <tr class="rem3">
+                    <th>${view.l('Cupon') }</th>
+                    <td>${cupon.getCupon()!}</td>
+                </tr>
+                <tr class="rem3">
+                    <th>${view.l('Discount') }</th>
+                    <td> -  ${viewRequest.price(view.calcDiscount(cupon, total, 'discount'),  null )}</td>
+                </tr>
+                <tr class="rem3">
+                    <th>${view.l('Total') }:</th>
+                    <td> ${viewRequest.price(view.calcDiscount(cupon, total, 'total'),  null )}</td>
+                </tr>
+               <#assign total = view.calcDiscount(cupon, total, 'total') >
+        <#else>
+                <tr class="rem3">
+                    <th> ${view.l("Subtotal")}: </th>
+                    <td><b>${viewRequest.price(total,  null )} </b></td>
+                </tr>
+        </#if>
+
+      <#if row.getShipingTable()??>
+         <tr class="rem4">
+           <th>
+             ${view.l("Shipping")} 
+             ( <i>${row.getShipingTable().getShipping_name()!}</i> )
+           </th>
+           <td>${viewRequest.price(row.getShipingTable().getPrice()!,  null )!}   </td>
+         </tr>
+      </#if>
+      
+    <tr class="rem4">
+       <th>${view.l("Payment Method")} :</th>
+       <td>
+          ${row.getPaymentmethod()!}
+       </td> 
+   </tr>
+
+     <tr class="rem3">
+       <th>${view.l("Total payd")}:</th>
+       <td>${viewRequest.price(row.getTotalpayd()!,  null )!}</td>
+    </tr>
+    <tr>
+        <td><br /></td>
+        <td></td>
+    </tr>
+    
+    <#if user?? >
+      <tr class="rem7">
+          <th> <b>${view.l("User")}  :</b> </th>
+          <td>
+          <a href="${baseurl}admin/users/single?id=${user.getUserid()!}">
+            <b> ${user.getFirstName()!}  ${user.getLastName()!}</b> , ${user.getEmail()!}
+          </a>
+          | <a href="${baseurl}admin?userid=${user.getUserid()!}">${view.l("View all orders")} </a>
+         </td>
+     </tr>
+    </#if>
+    <tr>
+        <td><br /></td>
+        <td></td>
+    </tr>
+ </table>
+ 
+</div>
+
+ <div class="clear_40px"></div>
+
+<#if (fieldsData?size>0)>
+
+<#list fieldsData as field>
+  <div class="col-md-6">
+           <h2><i>${view.splitLang(field.getValue()!)}</i></h2>
+            <table class="table">
+              <#assign dataFields = view.checkoutFields(field.getValue1())!, ordersShipping = row.getShippingMap()!>
+                <#if field.getParam()!?contains("shipping")>
+                    <#assign shippon ="shipping_">
+                  <#else>
+                    <#assign shippon ="">
+                </#if>
+
+              <#list dataFields as key, value>
+                <#if ordersShipping[shippon+key]!?has_content>
+                   <tr>
+                      <th> ${value.getTitleTranslated()!}:</b></th>
+                     <td>
+                          <#if key?contains("country")>
+                               ${countryServices.getCountryById(ordersShipping[shippon+"country"]!)!}
+                          <#else>
+                               ${ordersShipping[shippon+key]!}
+                          </#if>
+                      </td>
+                   </tr>
+                 </#if>
+               </#list>
+          </table>
+  </div>
+</#list>
+
+</#if>
+
+ 
+            <div class="clear"></div>    
+            
+         </div>
+       </div>
+    </div>
+ 

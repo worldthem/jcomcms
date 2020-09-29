@@ -1,0 +1,48 @@
+<table class="table_admin_settings">
+ <tbody>
+    
+ <tr>
+    <th>${view.l('Title') }</th>
+    <td>
+      <input class="form-control" name="title" value="${row.getTitle()!}" type="text">
+   </td> 
+ </tr>  
+ <tr>
+    <th>${view.l('Image') }</th>
+    <td>
+        <input name="image" type="hidden" value="${row.getImage()!}">
+
+        <input class="form-control" name="file" type="file">
+          <#if row.getImage()??>
+              <img src="${baseurl}content/views/payment/stripepayment/img/${row.getImage()!}" style="max-height: 70px;" /><br/>
+           <#else>
+          </#if>
+     <label> <input name="noimage"  type="checkbox" <#if row.getNoimage() >  checked  </#if> value="noimage" /> No logo</label>
+      <br />
+   </td> 
+ </tr>
+  <tr>
+    <th>${view.l('Description') }</th>
+    <td>
+       <textarea name="description" class="form-control">${row.getDescription()!}</textarea>
+       <br /> 
+   </td> 
+  </tr>
+   <tr>
+    <th>${view.l('Publishable key') }</th>
+    <td>
+        <input class="form-control" name="publickey" value="${row.getPublicKey()!}" type="text">
+       <br /> 
+   </td> 
+  </tr>                                               
+  <tr>
+    <th>${view.l('Secret key') }</th>
+    <td>
+        <input class="form-control" name="secretkey" value="${row.getSecretKey()!}" type="text">
+       <br />
+   </td>
+  </tr>
+
+         
+  </tbody>
+ </table>

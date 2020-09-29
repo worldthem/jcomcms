@@ -1,0 +1,54 @@
+<#if comments??>
+  <div class="col-md-6" >
+    <div class="review-overall">
+        <div class="main-review" > ${reting!}</div>
+        <div class="div-center centerSpan">${starreting!}</div>
+         ${ nrcomments! }  ${view.l('Reviews')}
+    </div>
+  </div>
+ <#else>
+    <div class="col-md-6"  >
+        <h3>${view.l('No reviews yet')}</h3>
+    </div>
+ </#if>
+
+<div class="col-md-6">
+ <form  class="shopper-info" id="submit_comment" method="POST" onsubmit="simplePost('${view.baseurl()}comments/store', '.resul_checkou', 'reset', '#submit_comment' ); return false;">
+	    <input type="hidden" name="id_post"  value="${product.getProductid()!}" />
+        <input type="hidden" name="id_user" value="" />
+        <input type="hidden" name="stars" value="5"  id="stars_input" />
+         <input type="hidden" name="action" value="new_comment" />
+		<input type="text" name="comment_author" required="" placeholder="${view.l('Your Name')}" />
+		<input type="email" name="comment_author_email" required="" placeholder="${view.l('Email Address')}" />
+	    <textarea name="comment" required="" ></textarea>
+        
+        
+	 	  <span class="stars5" id="stars_click">
+           <span onclick="stars_point('stars_click','stars_input', '1');"></span>
+           <span onclick="stars_point('stars_click','stars_input', '2');"></span>
+           <span onclick="stars_point('stars_click','stars_input', '3');"></span>
+           <span onclick="stars_point('stars_click','stars_input', '4');"></span>
+           <span onclick="stars_point('stars_click','stars_input', '5');"></span>
+          </span>  
+         <button type="submit" class="btn btn-default pull-right" >${view.l('Submit')}</button>
+        <div class="clear"></div>
+       <div class="resul_checkou"></div> 
+	</form>
+</div>
+
+<div class="clear_15px"></div>
+ <#if comments??>
+ <div class="col-md-12" >
+     <#list comments as comment>
+      <div>
+         <div class="clear_15px"></div>
+         <ul class="comment_header">
+             <li><a href="#"> <b>${comment.getCommentAuthor()!}</b> </a></li>
+             <li><a href="#"><span class="theme_calendar"></span> ${comment.getCreated_at()!} </a></li>
+             <li> <span  class="${'stars'+comment.getStars()!}"></span> </li>
+         </ul>
+         <p>${comment.getComment()}</p>
+     </div>
+ </#list>
+ </#if>
+ </div>

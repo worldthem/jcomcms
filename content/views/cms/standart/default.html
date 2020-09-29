@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="">
+    <meta name="_csrf_header" content="">
+    <title>${title!}</title>
+    <link href="${frontassets}/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${frontassets}/css/login.css" rel="stylesheet"/>
+</head><!--/head-->
+<body >
+
+
+<div class="container-fluid">
+    <div class="row" id="livesearch">
+        <#include viewname>
+    </div>
+</div>
+
+<script type="text/javascript" >
+    var base_url = "${baseurl!}";
+    var url_assets = "${themeassets!}";
+    var cms_assets = "${baseurl!}content/views/assets/front";
+    var url_theme = base_url;
+    var WajaxURL =   base_url + 'wajax.jsp' ;
+</script>
+
+<script src="${frontassets}/js/js-helper.js"></script>
+<script src="${frontassets}/js/jsonly.js"></script>
+</body>
+</html>

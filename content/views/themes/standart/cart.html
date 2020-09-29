@@ -1,0 +1,15 @@
+
+ <#if (rows?size >0)>
+      <div class="update_ajax_cal col-md-12">
+         <#include "/cms/standart/cart/cartittem.html">
+     </div>
+ <#else>
+     <div class="content-404 text-center">
+         <h1>
+             ${view.l("Look like your cart it's empty")}
+         </h1>
+     </div>
+ </#if>
+
+    
+

@@ -1,0 +1,33 @@
+<#setting number_format="computer">
+<meta name="_csrf" content=""/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header"  content=""/>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="shortcut icon" href="${view.favicon()!}" type="image/png"/>
+ <title>${title!}</title>
+
+ <meta name="description" content="${metad!}" >
+ <meta name="author" content="${metak!}"   >
+<!-- CSRF Token -->
+ <#include "/assets/front/css/bootstrap_min_css.html">
+
+ <#if view.getConfig().getMinOptions().getDevelopmentmode()??>
+     <style type="text/css">
+         <!--
+           <#include "/assets/front/css/style.html">
+           <#include "/assets/front/css/pageBuilderDefault.html">
+           -->
+     </style>
+ <#else>
+   <link  href="${baseurl}content/views/assets/front/css/style.css" type="text/css" rel="stylesheet"/>
+   <link  href="${baseurl}content/views/assets/front/css/pageBuilderDefault.css" type="text/css" rel="stylesheet"/>
+ </#if>
+
+ <style type="text/css">${css!}</style>
+ <style type="text/css">${view.editableBlocks(_header_css, 'css')!}</style>
+ <style type="text/css">${view.editableBlocks(_footer_css, 'css')!}</style>
+
+ ${header_hook!}
+

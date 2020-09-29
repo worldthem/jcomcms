@@ -1,0 +1,65 @@
+  <#assign id_random ='id'+view.rand(10) galleryData=view.gallery(product.getGallery(), product.getImage())>
+      <div class="miniSingle">
+           <div   class="col-sm-<#if getSidebar!?has_content>5<#else>7</#if> singleLeftSide">
+               <div class="<#if galleryData?has_content>view-product<#else>view-productfullwidth</#if>">
+                   <div class="position_imageload"></div>
+                   <a data-fancybox="gallery" class="main_image_link"  href="${baseurl+ view.imgproduct(product.getImage(), 'full')}" onclick="return zoom_image(this);">
+                     <img class="big_img_product" src="${baseurl+ view.imgproduct(product.getImage(), 'thumb')}" alt="" />
+                  </a>
+               </div>
+                 <!-- Wrapper for slides -->
+                 <#if galleryData?has_content>
+                  <div class="single_product_images">${galleryData!}</div>
+                </#if>
+                <div class="clear"></div>
+             </div>
+
+             <div class="col-sm-5 singleRightSide" >
+                    <div class="product-information">
+                             
+                         <!--/product-information-->
+                             <h2>${title!}</h2>
+                             <span id="price_each" class="priceSinglePage" >${product.getPriceHtml()}</span>
+                              <div class="clear_20px"></div>
+
+                            <form action="#"  id="from${id_random!}" onsubmit="simplePost('${view.baseurl()}cart/add', '.load_content_smallcart', 'smallCart', '#from${id_random}', '.result${id_random}'); return false;">
+                                <input type="hidden" name="id"  value="${product.getProductid()!}" />
+                                <input type="hidden" name="max_qtu" id="max_qtu"  value="${product.getQtu()!}"  />
+
+                                     ${priceOtions!}
+
+
+                                <div class="quantityAdd font_single">
+                                     <span class="incrementSingle" onclick="IncrementDecrement('-');"></span>
+                                      <input type="number" value="1" class="qtu_entered" name="qtu" required=""/>
+                                     <span class="incrementSingle" onclick="IncrementDecrement();"></span>
+                                </div>
+                                <div class="clear"></div>
+                                <button type="submit"  class="btn btn-fefault cart"  >
+                                   <i class="fa fa-shopping-cart"></i>
+                                     ${view.l('Add to cart')}
+                                </button>
+                            </form>
+                            <div  class="show_erroraddcart result${id_random}"></div>
+                            <hr/>
+
+                           ${description!}
+                          
+                    </div><!--/product-information-->
+            </div>
+
+    </div>        
+     <div class="clear_20px"></div>
+       ${tabs!}
+    
+        <div class="col-md-12">
+            <h2>${view.l('Related Products')}</h2>
+            <div class="mainRelated">
+                <#if products??>
+                  <#list products  as product>
+                    <#include productpath>
+                </#list>
+               </#if>
+             <div class="clear"></div>
+          </div> 
+        </div>     

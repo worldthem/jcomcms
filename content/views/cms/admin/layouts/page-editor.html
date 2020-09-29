@@ -1,0 +1,144 @@
+<link rel="stylesheet" media="screen" type="text/css" href="${adminassets}/css/colorpicker.css" />
+<link href="${frontassets}/css/pageBuilderDefault.css" rel="stylesheet"/>
+<style type="text/css" id="css_done"></style>
+<style type="text/css" id="directCSS"></style>
+<div class="main_container">
+ 
+ <textarea name="style" id="css_divs" style="display: none;">${row.getStyle()!}</textarea>
+ 
+ <div class="rightSideSave">
+     <a href="#" class="buttonSave cssModal"><i class="fa fa-code"></i> CSS</a>
+     <button type="submit" class="buttonSave"><i class="fa fa-cloud-upload"></i> ${view.l('Save')}</button>
+ </div>
+ <div class="css_editor">
+     <div class="closs_editor" onclick="return closeDiv('.css_editor');">x</div>
+     <textarea name="css" id="cssDirect" class="form-control">${row.getCss()!}</textarea>
+     
+     <div class="height10px"></div>
+     <div class="text_align_right">
+        <a href="#" class="btn btn_small btn_active update_css">${view.l("Update")}</a>
+     </div>
+ </div>
+
+<div class="options_windows" >
+     <div class="closs_editor">x</div>
+     
+     <p>
+        <label>${view.l("Padding")} (Pixel) </label> 
+        <div class="clear"></div>
+        <div class="padding_form">
+             Top 
+            <input type="number" class="paddingt form-control" />
+        </div>
+        <div class="padding_form">
+               Bottom
+            <input type="number" class="paddingb form-control" />
+        </div>
+        <div class="padding_form">
+               Left
+            <input type="number" class="paddingl form-control" />
+        </div>
+        <div class="padding_form">
+               Right
+            <input type="number" class="paddingr form-control" />
+        </div>
+        <div class="clear"></div>
+     </p>
+     
+     <p>
+        <div style="position: relative;">
+            <label>${view.l("Font Color")} </label>
+            <input type="text" class="font_color form-control" value="" />
+        </div>
+     </p>
+     <p>
+        <div style="position: relative;">
+            <label>${view.l("Background Color")} </label>
+            <input type="text" class="bg_color form-control" value="" />
+        </div>
+     </p>
+     
+     <p>
+        <label >${view.l("Background Image")} </label>
+          <input type="file" name="imgmain" id="background_img" data-url="${baseurl}admin/upload-simple/simple?type=image" onchange="upload_files(this, '#background_img',  '.show_result_main', '.response_main', '{{@$id}}'  );" class="load_imge_main" />
+          <div class="clear_20px response_main"></div>
+          <div class="show_result_main">
+             <img src="" class="bg_image"  />
+         </div>
+         <a href="#" class="remove_image">${view.l("Remove Image")}</a>
+     </p>
+     
+     <p>
+        <label>${view.l("Background Image Display")} </label>
+              <select class="bg_type form-control">
+                 <option value="cover">Cover</option>
+			     <option value="fixed">Fixed</option>
+		      </select>
+     </p>
+       <p>
+           <label>${view.l("Opacity background image ")} </label>
+               <select class="bg_opacity form-control">
+                 <option value="">No opacity</option>
+			     <option value="0.9">0.9</option>
+                 <option value="0.8">0.8</option>
+                 <option value="0.7">0.7</option>
+                 <option value="0.6">0.6</option>
+                 <option value="0.5">0.5</option>
+                 <option value="0.4">0.4</option>
+                 <option value="0.3">0.3</option>
+                 <option value="0.2">0.2</option>
+                 <option value="0.1">0.1</option>
+               </select>
+       </p>
+       
+       <p>
+        <div style="position: relative;">
+            <label>${view.l("DIV Classes")} (${view.l("Don't touch if you don't know")}) </label>
+            <input type="text" class="div_class form-control" value="" />
+        </div>
+     </p>
+     
+     <input type="hidden" id="id_parent" value=""/>
+      <a href="#" style="margin-top: 10px;float: left;" onclick="return closeDiv('.options_windows');" class="btn btn_small">${view.l("Cancel")}</a>
+     <a href="#" id="update_options" style="margin-top: 10px;float: right; " class="btn btn_small btn_active">${view.l("Update")}</a>
+    
+</div>
+ 
+      <textarea name="text" class="tinymce" data-typeeditor="full">
+                  <#if row.getContent()!?contains('dropable')>
+                        ${row.getContent()!}
+                  <#else>
+                     <div class="dropable sections" id="id${view.rand(5)}">
+                        ${row.getContent()!}
+                     </div>
+                  </#if>
+        </textarea>
+
+      
+</div>
+   
+
+ <div class="page_builder_makets">
+      <div class="options_page_builder">
+        <i class="fa fa-sliders" aria-hidden="true"></i>
+     </div>
+     
+      <div class="inside_builder">
+         <p>
+           <label>${view.l("Add Block")}</label> <br />
+             <select class="bootstrap_blocks">
+                <option value="dropable sections">${view.l('Full block')}</option>
+                <option value="clear">${view.l('Clear block')}</option>
+                 <#list 1..12 as x>
+                   <option value="col-md-${x}">col-md-${x}</option>
+                 </#list>
+             </select>
+            <a href="#" class="add_grid btn btn_small">Add Block</a>
+            <div class="clear"></div>
+             <div class="blockListPage"> 
+                <#include "/cms/admin/layouts/ready-blocks.html">
+            </div>
+            <a class="lodaMore_template btn" href="#" onclick=" access_url('${baseurl}admin/page-check-block', '.blockListPage' );return false;">Check for More</a>
+         </p>
+      </div>     
+ </div>

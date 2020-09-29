@@ -1,0 +1,163 @@
+
+<#include "/cms/admin/layouts/successMessage.html">
+   <form action="${baseurl}admin/pages-store" method="POST"  class="updateFormPage formSave">
+                   <#if pageid??>
+                       <input type="hidden" name="pageid" value="${pageid!}">
+                   </#if>
+                   <#if (!type?contains("emails") )>
+                    <input type="hidden" name="direction" value="${row.getDirection()!}">
+                   </#if>
+                    <input type="hidden" name="type" value="${type!}">
+                    <input type="hidden" name="lang" value="${view.currentLang()!}">
+     
+                     <div class="col-md-<#if type?contains("pages")>12<#else>9</#if>">
+                        <div class="card">
+
+                            ${view.adminSwitchLang()}
+                            <#include "/cms/admin/layouts/jsEditChanges.html">
+
+                             <div class="header">
+                                <h4 class="title">
+                                    <#if !pageid!?contains("0")>  Edit: ${row.getTitle()!}  <#else> ${view.l("Create new page")}</#if>
+
+                                     <#if (!pageid!?contains("0") && view.listLang()?size>1 && !type!?contains("emails"))>
+                                        <select onchange="if (this.value) window.location.href=this.value" >
+                                           <option value="?lang=${view.currentLang()!}">Dublicate from:</option>
+                                            <#list view.listLang() as lang>
+                                               <option value="${baseurl}admin/page-dublicate?id=${pageid}&to=${view.currentLang()!}&from=${lang}">Dublicate from ${lang!}</option>
+                                            </#list>
+                                        </select>
+                                      </#if>
+
+                                     <#if (type?contains("pages") && !pageid!?contains("0"))>
+                                       <a href="${baseurl}page/${row.getCpu()!}" target="_blank"> <i class="fa fa-link"></i> View page  </a>
+                                     </#if>
+                                </h4> 
+                              </div>
+                            
+                              
+                            <div class="content">
+                                 <#if (!type?contains("pages") && !type?contains("posts"))>
+                                    <div  class="col-md-6">
+                                      <p>
+                                         <label>
+                                           <input type="checkbox" <#if row.getEnable()??>checked</#if> name="enable" value="enable">  ${view.l('Enable/Disable') }
+                                        </label>
+                                      </p>
+                                    </div>
+                                        <#if (type?contains("emails") )>
+                                                <div  class="col-md-6">
+                                                    <p>
+                                                        <label>${view.l('Select type') } </label> <br/>
+                                                        <select class="form-control" name="direction">
+
+                                                            <#assign dataStatus= ["success", "pending", "processing", "canceled", "refunded" "new-account","reset-password"]>
+                                                            <#list dataStatus as rowStatus>
+                                                               <option value="${rowStatus}" <#if row.getDirection()!?contains(rowStatus)>selected</#if>> ${view.l(rowStatus)?cap_first} </option>
+                                                            </#list>
+                                                        </select>
+                                                    </p>
+                                                </div>
+                                       </#if>
+                                    <div class="clearfix"></div>
+                                 </#if>
+
+
+                                   <div  class="col-md-6">
+                                      <p>
+                                        <label>${view.l('Title') } </label> <br/>
+                                        <input type="text" class="form-control" name="title" value="${row.getTitle()!}">
+                                      </p>
+                                   </div>
+
+                                 <#if type?contains("tabs")>
+                                    <div  class="col-md-6">
+                                        <p>
+                                            <label>${view.l('Order') } </label> <br/>
+                                            <input type="text" class="form-control" name="sort" value="${row.getSort()!}">
+                                        </p>
+                                    </div>
+                                 </#if>
+
+                            <#if (type?contains("pages") || type?contains("posts"))>
+
+                                   <div  class="col-md-6">
+                                      <p>
+                                        <label>${view.l('CPU') } </label> <br/>
+                                        <input type="text" class="form-control" name="cpu" value="${row.getCpu()!}">
+                                      </p>
+                                   </div> 
+
+                                     <div  class="col-md-6">
+                                      <p>
+                                        <label>${view.l('Meta description') } </label> <br/>
+                                        <input type="text" class="form-control" name="metad" value="${row.getMetad()!}">
+                                      </p>
+                                   </div> 
+
+                                   <div  class="col-md-6">
+                                      <p>
+                                        <label>${view.l('Meta keyword') } </label> <br/>
+                                        <input type="text" class="form-control" name="metak" value="${row.getMetak()!}">
+                                      </p>
+                                   </div>
+                                   </#if>
+
+                                  <#if type?contains("emails")>
+                                   <div  class="col-md-6">
+                                      <p>
+                                        <label>${view.l('Subject') } </label> <br/>
+                                        <input type="text" class="form-control" name="subject" value="${row.getSubject()!}">
+                                      </p>
+                                   </div>
+                                  </#if>
+                                               
+                                <div class="height10px"></div>
+
+                                 <div class="col-md-12">
+                                  <#if type?contains("emails")>
+                                     <h3>${view.l("Replace this short code with your need")}:</h3><br />
+                                     <b>[order_number]</b>  - ${view.l("This will show the order number")} <br />
+                                     <b>[products]</b>  - ${view.l("Product List")} <br />
+                                     <b>[billing_shiping]</b> - ${view.l("Billing information")} <br />
+                                     <b>[order_amount]</b> - ${view.l("Total order ammount")}<br />
+                                     <b>[first_name]</b> - ${view.l("Billing first name")} <br />
+                                     <b>[last_name]</b> - ${view.l("Billing last name")} <br /><br />
+                                       ${view.l("This is for new account and reset password")}<br />
+                                     <b>[email]</b> - ${view.l("User Login(email)")}<br />
+                                     <b>[reseturl]</b> - ${view.l("Reset Link (for reset password)")}<br />
+                                  </#if>
+                                    
+                                    
+                                    
+                                    <#if !type?contains("pages")>
+                                         <textarea name="text" id="editor" class="form-control tinymce">${row.getText()!}</textarea>
+                                     <#else>
+                                         <#include "/cms/admin/layouts/page-editor.html">
+                                    </#if>
+                                </div>
+                                <div class="height10px"></div>
+                                  <div class="text-center">
+                                    <input type="submit" class="btn save_content btn_active" value="${view.l('Save') }"/>
+                                 </div>
+                                <div class="height30px"></div>
+                            </div>
+                        </div>
+                    </div>
+
+               <#if !type?contains("pages")>
+                      <div class="col-md-3">
+                             <div class="card padding_10px">
+                                <h3 class="margin_top_0px">${view.l('Publish') }</h3>
+                                <button type="submit" class="btn"> Save </button>
+                             </div>
+
+                        <#if type?contains("posts")>
+                          <#assign page=row>
+                          <#include "/cms/admin/layouts/selectCategory.html">
+                        </#if>
+                      </div>
+                </#if>
+                    
+      </form> 
+ 

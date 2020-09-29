@@ -1,0 +1,31 @@
+<#if (rows?size >0)>
+       <ul>
+           <#assign total=0>
+
+           <#list rows as row>
+           <#if (row.getQty()>0)>
+           <#assign total= total+row.getTotalRow() >
+
+                <li>
+                    <a href="${baseurl + row.getProduct().getUrl() }" >
+                        <img src="${baseurl+'content/imgproduct/thumb_'+row.getProduct().getImage()!}" alt=" " class="img-responsive"   />
+
+                         ${row.getProduct().getTitle()} <br/>
+                        <#if row.getOptionsid()?? >
+                             <i>${row.getProduct().getAttrNames(row.getOptionsid())!}</i><br/>
+                         </#if>
+
+                         <b>${row.getQty()!} x ${viewRequest.price( row.getTotalRow() ,  null )}   </b>
+                      </a>
+                      <div class="clear_5px"></div>
+                </li>
+
+           </#if>
+          </#list>
+          
+           <li>
+             ${view.l('Total')} :  ${viewRequest.price(total,  null )}
+          </li>
+        </ul>
+</#if>
+    

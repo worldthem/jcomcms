@@ -1,0 +1,9 @@
+[
+  {"cpu":"clothing","metad":"{\"en\":\"Clothing\"}","metak":"{\"en\":\"Clothing\"}","param":null,"parent":"0","post_type":null,"sort":null,"text":"{}","tip":"0","title":"{\"en\":\"Clothing\"}","type":"product","url":null},
+  {"cpu":"handbags","metad":"{\"en\":\"Handbags\"}","metak":"{\"en\":\"Handbags\"}","param":null,"parent":"0","post_type":null,"sort":null,"text":"{}","tip":"0","title":"{\"en\":\"Handbags\"}","type":"product","url":null},
+  {"cpu":"electronics","metad":"{\"en\":\"Electronics\"}","metak":"{\"en\":\"Electronics\"}","param":null,"parent":"0","post_type":null,"sort":null,"text":"{}","tip":"0","title":"{\"en\":\"Electronics\"}","type":"product","url":"Electronics"},
+  {"cpu":"phones","metad":"{\"en\":\"Phones\"}","metak":"{\"en\":\"Phones\"}","param":null,"parent":"5","post_type":null,"sort":null,"text":"{}","tip":"0","title":"{\"en\":\"Phones\"}","type":"product","url":"Phones"},
+  {"cpu":"laptops","metad":"{\"en\":\"Laptops\"}","metak":"{\"en\":\"Laptops\"}","param":null,"parent":"5","post_type":null,"sort":null,"text":"{}","tip":"0","title":"{\"en\":\"Laptops\"}","type":"product","url":null},
+  {"cpu":"software","metad":null,"metak":null,"param":null,"parent":"0","post_type":null,"sort":null,"text":null,"tip":"0","title":"{\"en\":\"Software\"}","type":"product","url":null},
+  {"cpu":"new-idea","metad":null,"metak":null,"param":null,"parent":"0","post_type":null,"sort":null,"text":null,"tip":"0","title":"{\"en\":\"New Idea\"}","type":"posts","url":null}
+]

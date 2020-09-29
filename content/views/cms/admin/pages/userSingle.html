@@ -1,0 +1,58 @@
+<div class="col-md-12">
+ <div class="card">
+      
+     <div class="header">
+          <h4 class="title">${view.l('Users') }</h4>
+     </div>
+     <div class="col-md-7 full_label">
+        <form action="${baseurl}admin/users/store" method="post">
+
+          <input type="hidden" name="id" value="${row.getUserid()!}">
+          
+          <label>
+              ${view.l("Registred date")}:${row.getCreated_at()!} <br />
+          </label>
+          
+          <label>
+              ${view.l("First Name")} <br />
+              <input type="text" name="firstName" class="form-control" value="${row.getFirstName()!}">
+          </label>
+
+           <label>
+              ${view.l("Last Name")} <br />
+              <input type="text" name="lastName" class="form-control" value="${row.getLastName()!}">
+          </label>
+          
+          <label>
+              ${view.l("User Email")} <br />
+              <input type="text" name="email" class="form-control" value="${row.getEmail()!}">
+          </label>
+
+          
+          <label>
+              ${view.l("Role")}  <br />
+
+             <select class="form-control" name="userRole">
+                     <option value="ROLE_USER">Subscriber</option>
+                     <option value="ROLE_EDITOR" <#if view.returnRole(row.getRoles()!)!?contains("Editor")>selected</#if>>Editor</option>
+                     <option value="ROLE_ADMIN" <#if view.returnRole(row.getRoles()!)!?contains("Admin")>selected</#if>>Admin</option>
+              </select>
+
+          </label>
+             
+           <label>
+              ${view.l("User Password")}  <br />
+              <input type="text" name="password" class="form-control" placeholder="*****" value="">
+              <small> <i> ${view.l("Leave empty if you don't want to change")} </i></small>
+          </label>
+          
+           <label>
+              <input type="submit" class="btn btn_small"  value="${view.l('Update')}">
+          </label>
+           
+           <div class="clear"></div>
+      </form>  
+   </div>
+   <div class="clear"></div>
+  </div>
+ </div>  

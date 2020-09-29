@@ -1,0 +1,18 @@
+<div class="content-404 text-center">
+
+    <h1><b>${view.l('OPPS')}!</b>
+        <#if errortype!?contains("404")>
+        <br> 404 <br> ${view.l("We Couldn’t Find this Page")}
+
+        <#elseif errortype!?contains("500")>
+        ${view.l("Error 500, something wrong with the code")}
+
+        <#else>
+        ${view.l("Some error, better checkthe logs")}
+    </#if>
+    </h1>
+
+
+    <div class="clear_40px"></div>
+    <h2><a href="${baseurl}">${view.l('Bring me back Home')}</a></h2>
+</div>

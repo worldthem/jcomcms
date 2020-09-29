@@ -1,0 +1,201 @@
+<#assign dataStatus= ["success", "pending", "onhold","canceled", "failed"]>
+<div class="col-md-12">
+
+<#if typepage!?contains("list")>
+    <#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+        <#if rows?? >
+          <table class="table" >
+            <tr>
+                <th>${view.l('Order Nr.')}</th>
+                <th>${view.l('Date')}</th>
+                <th>${view.l('Status')}</th>
+                <th>${view.l('Total')}</th>
+                <th></th>
+            </tr>
+
+             <#list rows.iterator() as row>
+             <#assign countryship = row.getShippingMap()!>
+                 <tr class="rem1">
+                   <td>
+                      <a href="${baseurl}orders-page/${row.getSecretnr()!}" class="btn">
+                          ${row.getOrdersid()!}
+                      </a>
+                   </td>
+                   <td>${row.getCreated_at()!}</td>
+                   <td>${row.getStatus()!}</td>
+                  <td>${viewRequest.price(row.getTotalpayd()!,  null )!} </td>
+                  <td>
+                   <a href="${baseurl}orders-page/${row.getSecretnr()!}" class="btn resp-tab-item tab_buttons active">${view.l('View Order') }</a>
+                  </td>
+                 </tr>
+            </#list>
+          </table>
+
+        <#else> <!-- else row if -->
+            <div class="content-404 text-center">
+                <h1> ${view.l('No orders')} :(   </h1>
+            </div>
+            <div class="clear_40px"></div>
+         </#if> <!--row-->
+
+     <#else><!--session-->
+        <div class="text-center" >
+          <h2>
+              ${view.l('To see the orders list please')}:
+              <br><br>
+              <a href="#login" class="simple_link login_link niceButton" style="color:#000;border-color:#000;"> ${view.l('Login')}</a>
+          </h2>
+        </div>
+
+     </#if><!--session-->
+
+</#if> <!--typepage-->
+
+<#if typepage!?contains("single")>
+<#if row??>
+
+
+  <h3 class="text-center">NR:${row.getOrdersid()!}</h3>
+  <div class="clear_10px"></div>
+
+
+<div class="checkout-right">
+<table class="table">
+     <tr class="rem1">
+       <td>${view.l('Order Nr.') } </td>
+       <td>${row.getOrdersid()!}</td>
+     </tr>
+    <tr class="rem1">
+       <td>${view.l('Status') }:</td>
+       <td>${row.getStatus()!}</td>
+   </tr>
+    
+    <tr class="rem2">
+       <td>${view.l('Date') }:</td>
+       <td>${row.getCreated_at()!}</td>
+   </tr>
+    <#assign total=0>
+    <#list row.getCart() as cart>
+    <#assign total = total+cart.getPrice()! >
+    <tr>
+        <th>
+            <a href="${baseurl + cart.getProduct().getUrl() }" target="_blank">
+                ${cart.getProduct().getTitle()!}
+            </a><b> x ${cart.getQty()!}</b>
+
+            <#if cart.getOptionsid()?? >
+                <div class="optionss">
+                    <i><small> ${cart.getProduct().getAttrNames(cart.getOptionsid())!}</small></i>
+                </div>
+           </#if>
+
+        </th>
+        <td class="invert"> ${view.price(cart.getPrice() ,  null )!}</td>
+    </tr>
+
+
+    <#list cart.getProduct().getGallery() as file>
+    <#if file.getTypefile()!?contains("file")>
+
+    <tr>
+        <th style="padding-left: 20px;"> ${file.getTitle()}</th>
+        <td>
+            <#if row.getStatus()!?contains("success")>
+                <a href="${baseurl}download-user-file/${row.getOrdersid()!}/${cart.getCartid()!}/${file.getId()}">
+                    <b><i class="fa fa-download"></i>${view.l("Download")}  </b>
+                </a>
+            <#else>
+               ${view.l("You can not download until order status is success") }
+            </#if>
+
+         </td>
+    </tr>
+</#if>
+</#list>
+
+</#list>
+
+    <tr>
+        <td><br /></td>
+        <td></td>
+    </tr>
+
+    <#if cupon??>
+        <tr class="cart-subtotal">
+            <th>${view.l('Cupon') } <i>( ${cupon.getCupon()!} )</i>:</th>
+            <td>${cupon.getDiscount()}</td>
+        </tr>
+     </#if>
+
+    <#if row.getShipingTable()??>
+        <tr>
+            <th class="rem4">
+                ${view.l("Shipping")}
+                ( <i>${row.getShipingTable().getShipping_name()!}</i> )
+            </th>
+            <td>${viewRequest.price(row.getShipingTable().getPrice()!,  null )!}   </td>
+        </tr>
+    </#if>
+
+    <tr class="rem3">
+        <th>${view.l("Total payd")}</th>
+        <td>${viewRequest.price(row.getTotalpayd()!,  null )!}</td>
+    </tr>
+
+ </table>
+ 
+</div>
+
+ <div class="clear_40px"></div>
+
+
+
+<#if ((uid! == row.getUserid()! && row.getUserid()! >0) || tmpuid!?contains(row.getSessionuser()!))>
+
+        <#list fieldsData as field>
+          <div class="col-md-6">
+                   <h2><i>${view.splitLang(field.getValue()!)}</i></h2>
+                    <table class="table">
+                      <#assign dataFields = view.checkoutFields(field.getValue1())!, ordersShipping = row.getShippingMap()!>
+                        <#if field.getParam()!?contains("shipping")>
+                            <#assign shippon ="shipping_">
+                          <#else>
+                            <#assign shippon ="">
+                        </#if>
+
+                      <#list dataFields as key, value>
+                        <#if ordersShipping[shippon+key]!?has_content>
+                           <tr>
+                              <th> ${value.getTitleTranslated()!}:</b></th>
+                             <td>
+                                  <#if key?contains("country")>
+                                       ${countryServices.getCountryById(ordersShipping[shippon+"country"]!)!}
+                                  <#else>
+                                       ${ordersShipping[shippon+key]!}
+                                  </#if>
+                              </td>
+                           </tr>
+                         </#if>
+                       </#list>
+                  </table>
+          </div>
+        </#list>
+
+
+
+  <#else><!--session-->
+<div class="col-md-6" style="float:none; margin:10px auto;">
+     <#include "/cms/standart/auth/tabslSignedForm.html">
+</div>
+  </#if> <!--session-->
+
+    <#else> <!-- else row if -->
+        <div class="content-404 text-center">
+            <h1> ${view.l('No orders')} :(   </h1>
+        </div>
+        <div class="clear_40px"></div>
+    </#if> <!-- end row if -->
+
+</#if> <!-- end row if -->
+</div>
+<div class="clear_30px"></div>

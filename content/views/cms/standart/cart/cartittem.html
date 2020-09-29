@@ -1,0 +1,118 @@
+<div class="allCartContent">
+<#if (rows?size >0)>
+    <div class="col-md-12">
+        <h2 class="cartTitleHeader">${view.l("Shopping Cart")}</h2>
+    </div>
+<div class="col-md-8">
+  <div class="featured-box">
+
+             <table class="cartTable">
+                 <#assign total=0>
+
+                <#list rows as row>
+                  <#if (row.getQty()>0)>
+                    <#assign total= total+row.getTotalRow() >
+                    <tr>
+                            <td class="imageCart">
+                                <a href="${baseurl + row.getProduct().getUrl() }" >
+                                    <img src="${baseurl+'content/imgproduct/thumb_'+row.getProduct().getImage()!}" alt=" " class="img-responsive"   />
+                                </a>
+                            </td>
+
+                            <td class="cartData">
+                                <div class="deleteIttemCart">
+                                  <a href="#" class="closeCart" onclick="simplePost('${baseurl}cart/operations?action=del&id=${row.getCartid()}&val=n', '.allCartContent', '', '', '#result_cart${row.getCartid()}'); return false;"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                </div>
+
+                              <div class="cartTitle">
+                                 <a href="${baseurl + row.getProduct().getUrl() }" >
+                                    <b> ${row.getProduct().getTitle()}</b>
+                                </a>
+                                 <#if row.getOptionsid()?? >
+                                      <div class="optionss">
+                                        <i>${row.getProduct().getAttrNames(row.getOptionsid())!}</i>
+                                      </div>
+                                 </#if>
+                              </div>
+
+                              <div class="cartPrice">
+                                      <div class="quantityAdd cartQuantity">
+                                         <span class="incrementSingle"  onclick="simplePost('${baseurl}cart/operations?action=decrement&id=${row.getCartid()}&val=1', '.allCartContent', '', '', '#result_cart${row.getCartid()}');"> </span>
+                                          <input type="text" class="qtu_entered qtu_cart${row.getCartid()}" value="${row.getQty()!}"  onchange="simplePost('${baseurl}cart/operations?action=update&id=${row.getCartid()}&val='+this.value, '.allCartContent', '', '', '#result_cart${row.getCartid()}');"   />
+                                         <span class="incrementSingle" onclick="simplePost('${baseurl}cart/operations?action=increment&id=${row.getCartid()}&val=1', '.allCartContent', '', '', '#result_cart${row.getCartid()}');"> </span>
+                                      </div>
+
+                                     <div class="priceTotalCart">${viewRequest.price(row.getTotalRow()  ,  null )} </div>
+
+                                   <div class="clear"></div>
+                                   <div id="result_cart${row.getCartid()}"></div>
+                              </div>
+
+                            </td>
+
+                    </tr>
+                   </#if>
+             </#list>
+           </table>
+       <div class="clear"></div>
+
+   </div>
+ </div>
+ <div class="col-md-4">
+  <div class="cartTotalsRight">
+
+  <div class="cuppon_code">
+       <form method="post" id="submit_cupon" onsubmit="simplePost('${baseurl}cart/cupon-apply', '.allCartContent',  '', '#submit_cupon', '.result_cuppon'); return false;">
+          <input type="hidden" name="action" value="CuponApply" />
+          <input type="text" name="cuppon" placeholder="${view.l('Coupon Code') }" value=""/>
+          <input type="submit" name="submit" class="submitCuppon" value="${view.l('Apply coupon') }" />
+       </form>
+       <div class="clear result_cuppon"></div>
+   </div> 
+ 
+  <div class="cartSubtotalTable">
+        <table class="cart_subtotal">
+           <#if cupon??>
+                <tr class="cart-subtotal">
+        			<th>Subtotal</th>
+        			<td>${viewRequest.price(total,  null )} </td>
+        		</tr>
+                <tr class="cart-subtotal">
+        			<th>${view.l('Cupon') }</th>
+        			<td>${cupon.getCupon()!}</td>
+        		</tr>
+                <tr class="cart-subtotal">
+        			<th>${view.l('Discount') }</th>
+                    <td> -  ${viewRequest.price(view.calcDiscount(cupon, total, 'discount'),  null )}</td>
+        		</tr>
+                <tr class="cart-subtotal">
+                    <th>${view.l('Total') }:</th>
+        			<td> ${viewRequest.price(view.calcDiscount(cupon, total, 'total'),  null )}</td>
+        		</tr>
+           <#else>
+                <tr class="cart-subtotal">
+        			<th>${view.l('Sub Total') }:</th>
+        			<td>${viewRequest.price(total,  null )} </td>
+        		</tr>
+                <tr class="cart-subtotal">
+        			<th>${view.l('Total') }:</th>
+        			<td> ${viewRequest.price(total,  null )}</td>
+        		</tr>
+           </#if>
+        </table>
+    </div>
+       <div class="clear_20px"></div>
+     <a class="large_button goToCheckout" href="${baseurl}checkout/step1">${view.l('Proceed to checkout') }</a>
+   
+   
+   </div>
+  </div>  
+ <div class="clear_40px"></div>
+<#else>
+    <div class="content-404 text-center">
+        <h1>
+            ${view.l("Look like your cart it's empty")}
+        </h1>
+    </div>
+</#if>
+</div>

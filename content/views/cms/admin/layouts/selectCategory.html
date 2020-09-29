@@ -1,0 +1,30 @@
+<#if categorieslist??>
+  <#list categorieslist  as key, value>
+    <div class="card" >
+           <h3 class="padding_10px margin_top_0px" >${value}</h3>
+               <div  class="${'small_box_with_scroll loadResult_'+key}" id="categories_right" >
+                   ${view.catsructure(key, 'checkbox', page.getCatid()!)}
+               </div>
+              <div class="height10px"></div>
+               <p class="text_align_right padding_p">
+                 <a href="#" class="showAddCat" data-show="${key}" >${view.l('Add new')+key}</a>
+              </p>
+              
+           <div class="addNewCategory" id="catType_${key}">
+               <#list view.listLang() as lang>
+                 <input type="text" class="form-control catName" data-lang="${lang}"  placeholder="${view.l('Title')}-${lang}"  value=""/>
+              </#list>
+                <div class="height5px"></div>
+                 <select class="form-control catParent">
+                     <option value="">${view.l('Select Parent')}</option>
+                     ${view.catsructure(key, 'select', '')}
+               </select>
+               <div class="height5px"></div>
+                <p class="text_align_right">
+                  <span class="smallLoad_${key}"></span>
+                  <button class="btn btn_small" onclick="return addNewCategory('${key}','${baseurl}admin/update-categories-multiple','${page.getCatid()!?replace('"', "--")}');" >${view.l('Add new')} </button>
+               </p>
+           </div>
+        </div>
+  </#list>
+</#if>

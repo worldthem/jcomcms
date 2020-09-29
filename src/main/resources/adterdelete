@@ -1,0 +1,232 @@
+Join Mysql
+http://learningprogramming.net/java/spring-boot-jpa/join-in-custom-query-in-spring-boot-jpa/
+https://stackoverflow.com/questions/19977130/joining-two-table-entities-in-spring-data-jpa
+
+Query Creation jpa
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+
+paypal payment
+https://www.codejava.net/coding/how-to-integrate-paypal-payment-into-java-web-application
+
+
+
+/******Merge two Maps if key one exist than from map2 with the same key add to the end*
+ topMenu.forEach((k, v) -> topTheme.merge(k, v, (v1,v2) -> {
+            System.out.println("values2:" +v2);
+            v1.putAll(v2);
+            return v1;
+        }));
+
+/**********MYSQL
+Page<Person> findByFirstName(String firstName, Pageable pageable);
+
+Slice<Person> findByAgeBetween(int start, int end, Pageable pageable);
+
+List<Person> findByLastNameIsNotNull(Pageable pageable);
+
+
+   @{${urlpagination}?page={id}(id=${i})}
+
+/******Paginate*
+https://www.baeldung.com/spring-data-sorting
+
+public Question randomQuestion() {
+    Long qty = questionRepository.countAll();
+    int idx = (int)(Math.random() * qty);
+    Page<Question> questionPage = questionRepository.findAll(new PageRequest(idx, 1));
+    Question q = null;
+    if (questionPage.hasContent()) {
+        q = questionPage.getContent().get(0);
+    }
+    return q;
+}
+
+Long count();
+Page<Question> findAll(Pageable pageable);
+
+/**********
+public interface StudentDAO extends JpaRepository<StudentEntity, Integer> {
+    public List<StudentEntity> findAllByOrderByIdAsc();
+}
+
+The code above should work. I'm using something similar:
+
+public List<Pilot> findTop10ByOrderByLevelDesc();
+
+
+/*****
+ @OneToMany(targetEntity = Gallery.class,cascade = CascadeType.ALL)
+ @JoinColumn(name ="productid",referencedColumnName = "productid")
+ private List<Gallery> galleries;
+
+
+/*****
+  @Query("SELECT new cms.ecommercecms.org.dto.ProductResponse(p.productid, p.userid, p.catid,  p.SKU, p.qtu, p.store," +
+                " p.title, p.cpu, p.meta, p.description,p.text, p.weight, p.price, p.sale_price, " +
+                "p.attr, p.optionsdata, p.hide, p.created_at, g.directory) FROM Product p LEFT JOIN p.galleries g")
+    public List<ProductResponse> getJoinInformation();
+
+
+
+
+
+
+/*****
+The regex means:
+
+    \\(: character (
+    (: start match group
+    [: one of these characters
+    ^: not the following character
+    ): with the previous ^, this means "every character except )"
+    +: one of more of the stuff from the [] set
+    ): stop match group
+    \\): literal closing paranthesis
+
+
+
+String test = request.getRequestURI();
+System.out.println("call nr:"+test );
+
+spring.mvc.static-path-pattern=/templates/themes/standart/assets/css/**
+spring.resources.static-locations=classpath:/templates/**, classpath:/static/**
+
+<p th:text="${T(cms.ecommercecms.org.Helpers).simple_text()}"></p>
+[[${@lang.l("i got milion dollars")}]]
+[[${@lang.l('i got milion dollars')}]]
+[[${@view.v('theme::layouts/header')}]]
+
+	<resources>
+			<resource>
+				<directory>src/main/resources
+				</directory>               <!-- Do not have the maven-resource-plugin copy these as the frontend-maven-plugin will take care of it -->
+				<excludes>
+					<exclude>**/*.html</exclude>
+<exclude>**/*.css</exclude>
+					<exclude>**/*.js</exclude>
+</excludes>
+</resource>
+</resources>
+
+https://springframework.guru/spring-requestmapping-annotation/
+    @RestController
+    @RequestMapping("/home")
+    public class IndexController {
+      @RequestMapping(value = "/fetch/{id}", method = RequestMethod.GET)
+      String getDynamicUriValue(@PathVariable String id){
+        System.out.println("ID is "+id);
+        return "Dynamic URI parameter fetched";
+      }
+      @RequestMapping(value = "/fetch/{id:[a-z]+}/{name}", method = RequestMethod.GET)
+        String getDynamicUriValueRegex(@PathVariable("name") String name){
+        System.out.println("Name is "+name);
+        return "Dynamic URI parameter fetched using regex";
+      }
+    }
+
+    In this code, the method getDynamicUriValue() will execute for a request to localhost:8080/home/fetch/10. Also, the id parameter of the getDynamicUriValue() handler method will be populated with the value 10 dynamically.
+
+    The method getDynamicUriValueRegex() will execute for a request to localhost:8080/home/fetch/category/shirt. However, an exception will be thrown for a request to/home/fetch/10/shirt as it does not match the regular expression.
+
+    @PathVariable works differently from @RequestParam. You use @RequestParam to obtain the values of the query parameters from the URI. On the other hand, you use @PathVariable to obtain the parameter values from the URI template.
+
+
+
+
+
+/**************
+  Integer id = request.getParameter("id").isEmpty() ? 0 : Integer.parseInt(request.getParameter("id"));
+        Product n;
+        try{
+            n = productsRepository.getOne(id);
+        }catch (Exception e){
+            n = new Product();
+        }
+
+        String cpu = request.getParameter("cpu").isEmpty() ? Helpers.slug(request.getParameter("title")) :
+                request.getParameter("cpu");
+
+        //n.setType(request.getParameter("type"));
+        n.setTitle(request.getParameter("title"));
+        //n.setParent(Integer.parseInt(request.getParameter("parent")));
+        n.setCpu(cpu);
+        //n.setUrl(request.getParameter("url"));
+        n.setMetad(request.getParameter("metad"));
+        n.setMetak(request.getParameter("metak"));
+        n.setText(request.getParameter("text"));
+        n.setDescription(request.getParameter("description"));
+
+        n.setStock(request.getParameter("stock"));
+        n.setPrice(Float.parseFloat(request.getParameter("price")));
+        n.setSale_price(Float.parseFloat(request.getParameter("sale_price")));
+        n.setSKU(request.getParameter("SKU"));
+        n.setQtu(Integer.parseInt(request.getParameter("qtu")));
+        n.setWeight(Float.parseFloat(request.getParameter("weight")));
+
+
+        productsRepository.save(n);
+
+        redirectAttributes.addFlashAttribute("message","Successfully updated!");
+        return  "redirect:" + request.getHeader("Referer");
+
+
+     /****88888888888888888888888888888888888888*
+      Categories n;
+                try{
+                     n = categoriesRepository.getOne(id);
+                     n.setType(request.getParameter("type"));
+                }catch (Exception e){
+                     n = new Categories();
+                   }
+
+             String cpu = request.getParameter("cpu").isEmpty() ? Helpers.slug(request.getParameter("title")) :
+                                                                     request.getParameter("cpu");
+
+             n.setType(request.getParameter("type"));
+             n.setTitle(request.getParameter("title"));
+             n.setParent(Integer.parseInt(request.getParameter("parent")));
+             n.setCpu(cpu);
+             n.setUrl(request.getParameter("url"));
+             n.setMetad(request.getParameter("metad"));
+             n.setMetak(request.getParameter("metak"));
+             n.setText(request.getParameter("text"));
+             categoriesRepository.save(n);
+
+
+
+
+   /**FreeMarker*********
+   value -is Map
+     <#list value as key2, value2>
+               ${key2?index} -will show like 0, 1, 2, 3, 4
+     </#list>
+
+
+
+<@security.authorize ifAnyGranted="ROLE_USER">
+    Your role is "ROLE_USER" <br/>
+</@security.authorize>
+
+Step 3: To check logged in user's loginname
+
+<@security.authorize access="isAuthenticated()">
+    logged in as <@security.authentication property="principal.username" />
+</@security.authorize>
+
+<@security.authorize access="! isAuthenticated()">
+    Not logged in
+</@security.authorize>
+
+
+https://drmanalo.github.io/blog/2015/freemarker-expression-based-access.html
+
+<#assign security=JspTaglibs["/WEB-INF/security.tld"]/>
+
+<#if Session["SPRING_SECURITY_CONTEXT"]?exists>
+						<li><@logout/></li>
+          				<li><a href="home"><@spring.message "home"/></a></li>
+						<#assign authorities = Session["SPRING_SECURITY_CONTEXT"].authentication.authorities />
+						<#if authorities?seq_contains("ROLE_ADMIN")>
+							<li><a href="listUsers"><@spring.message "users"/></a></li>
+						</#if>
+	          		</#if>

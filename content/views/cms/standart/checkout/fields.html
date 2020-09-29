@@ -1,0 +1,54 @@
+<#if (shippon?has_content && fields?size > 0)>
+<label class="chckbox_show show_shipping">
+    <input type="checkbox" name="differentaddres" class="needshipaddress" value="yes" onclick="hide_show_shipping(this,  '.shipping_address');">
+    ${view.l('Ship to different address') }
+</label>
+</#if>
+
+<div class="<#if shippon?has_content>shipping_address<#else>billing_address</#if>">
+    <div class="register-reqs">${titleMethod}</div>
+    <#assign last="full">
+    <#list fields as key, value>
+        <#assign requiredcl="" required="">
+         <#if value.getRequired()>
+            <#if shippon?has_content> <#assign requiredcl=" requiredNeed">  <#else> <#assign required="required">  </#if>
+         </#if>
+
+        <div class="<#if value.getBoxLength()!?contains('full')>full-width<#else>small_input</#if><#if value.getBoxLength()!?contains('half') && last!?contains('half')> right_inp</#if>">
+              <#if key?contains('country')>
+                  <#if value.getShowTitle()??>${value.getTitleTranslated()!} <br/></#if>
+                       <select name="${shippon!}${key}"   onchange="simplePost('${baseurl}checkout/get-shipping', '.deliverylist', 'action=shipping_get&id='+ this.value +'&kg=${wight!}&total=${totalcart!}', '', '');" class="cl_${key}${requiredcl!}" ${required!}>
+                            <option value=""> ${view.l("Select")}  ${value.getTitleTranslated()!}</option>
+                           <#if countries??>
+                             <#list countries  as value>
+                               <option value="${value.getId()!}"  <#if lastaddress[shippon+key]?? >selected</#if> > ${value.getCountry()!} </option>
+                             </#list>
+                          </#if>
+                       </select>
+               <#elseif  key?contains('password')>
+                    <#if !Session["SPRING_SECURITY_CONTEXT"]?exists>
+                      <#if value.getShowTitle()??>${value.getTitleTranslated()!} <br/></#if>
+                      <input type="password" value="" name="${key}" class="cl_${key}" ${required!} placeholder="${value.getTitleTranslated()!}">
+                    </#if>
+               <#else>
+                  <#if value.getBoxType()!?contains("textbox")>
+                    <#if value.getShowTitle()??>${value.getTitleTranslated()!} <br/></#if>
+                       <input type="<#if key?contains('email')>email<#else>text</#if>" value="<#if (key?contains('email') && currentEmail??)>${currentEmail!}<#else>${lastaddress[shippon+key]!}</#if>" name="${shippon!}${key}" class="cl_${key}${requiredcl!}" ${required!} placeholder="${value.getTitleTranslated()!}">
+                    <#else>
+                       <textarea name="${shippon!}${key}" placeholder="${value.getTitleTranslated()!}" class="cl_${key}${requiredcl!}" ${required!}/>${lastaddress[shippon+key]!}</textarea>
+                  </#if>
+               </#if>
+
+
+        </div>
+
+          <#if value.getBoxLength()!?contains('half') && last!?contains('half')>
+              <#assign last="">
+              <div class='clear'></div>
+          <#else>
+               <#assign last=value.getBoxLength()!>
+          </#if>
+
+    </#list>
+</div>
+

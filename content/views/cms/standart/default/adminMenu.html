@@ -1,0 +1,16 @@
+<div sec:authorize="isAuthenticated()" >
+<style type="text/css">
+<!--
+	body{
+	     padding-top: 20px;
+	   }
+-->
+</style>
+<div class="adminMenu">
+      <div class="btn_small adminMenuIcon" onclick="menu_show_is(this,'.admin_menu')"> ${view.l("Admin Menu")}  </div>
+      
+    <ul class="nav navbar-nav navbar-right admin_menu">
+        ${adminmenu}
+    </ul>
+</div>
+</div>

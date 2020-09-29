@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+
+    <#include "/cms/standart/default/head.html">
+    <link  href="${themeassets}/css/style.css" type="text/css" rel="stylesheet"/>
+
+</head>
+
+<body id="body_scroll">
+<!-- documentation thymeleaf: https://www.thymeleaf.org/documentation.html -->
+
+
+<div class="main">
+       <#include "/themes/standart/layouts/header.html">
+
+       <section class="content-part clearfix" >
+           <#if view.isAuthenticated()>
+           <ul class="nav navbar-nav">${topMenuLogin!}</ul>
+           <#else>
+           <ul class="nav navbar-nav">${topMenuNOTLogin!}</ul>
+            </#if>
+           <div class="clearfix"></div>
+         <div id="livesearch">
+              <#include viewname>
+         </div>
+      </section>
+</div>
+<!--<img src="/content/images/1.jpg">-->
+
+<div class="clearfix"></div>
+
+<#include "/cms/standart/default/footer.html">
+
+<script  src="${themeassets}/js/main.js"></script>
+
+
+</body>
+</html>

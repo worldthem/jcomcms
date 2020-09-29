@@ -1,0 +1,30 @@
+<#if totalPages??>
+   <#if (totalPages  > 1)>
+        <!-- products pagination -->
+        <nav aria-label="Pagination">
+            <ul class="pagination">
+                <li class="page-item" <#if pagenumber==0>class="disabled"</#if> >
+                    <a class="page-link"
+                         href="${urlpagination}?page=<#if (pagenumber<2)>1<#else>${pagenumber}</#if>"
+                       aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+               <#list 1..totalPages as i>
+                    <li class="page-item" <#if (i==(pagenumber + 1)) >class="active"</#if> >
+                        <a class="page-link" href="${urlpagination+'?page='+i}"
+                            title="${'Page '+ i}" data-toggle="tooltip">${i}</a>
+                    </li>
+               </#list>
+
+               <#if (totalPages>(pagenumber + 1))>
+                <li class="page-item" >
+                    <a class="page-link" href="${urlpagination+'?page='+(pagenumber + 2)}" aria-label="Next" title="Next Page" data-toggle="tooltip">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+              </#if>
+            </ul>
+        </nav>
+    </#if>
+</#if>

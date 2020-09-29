@@ -1,0 +1,104 @@
+
+ 
+<div class="col-md-12">
+   <div class="card">
+       
+<div class="col-md-6"> 
+
+<h3>${view.l('Email Settings')}</h3>
+
+<form action="${baseurl}admin/email-settings" method="post" >
+    <div class="col-md-12">
+       <input type="submit" class="btn btn_small" value="${view.l('Update')}"/>
+     </div> 
+             <table  class="table_admin_settings">
+                 <tr>
+                     <th> ${view.l('Global "From" Name')} </th>
+                     <td>
+                         <div class="col-md-12">
+                             <input type="text" class="form-control" name="fromname" value="${row.getFromname()!}" />
+                         </div>
+                     </td>
+                 </tr>
+                 <tr>
+                     <th> ${view.l('Global "From" Email')} </th>
+                     <td>
+                         <div class="col-md-12">
+                             <input type="text" class="form-control" name="fromemail" value="${row.getFromemail()!}" />
+                         </div>
+                     </td>
+                 </tr>
+               <tr>
+                     <th> ${view.l("SMTP Host Address")} </th>
+                     <td>
+                       <div class="col-md-12">
+                             <input type="text" class="form-control" name="host" value="${row.getHost()!}" />
+                        </div>   
+                     </td> 
+               </tr>
+                 <tr>
+                     <th> ${view.l("SMTP Host Port")} </th>
+                     <td>
+                       <div class="col-md-12">
+                             <input type="text" class="form-control" name="port" value="${row.getPort()!}" />
+                        </div>   
+                     </td> 
+               </tr>
+
+
+
+               <tr>
+                     <th> ${view.l("SMTP Server Username")} </th>
+                     <td>
+                       <div class="col-md-12">
+                             <input type="text" class="form-control" name="username" value="${row.getUsername()!}" autocomplete="off"/>
+                        </div>   
+                     </td> 
+               </tr>
+               <tr>
+                     <th> ${view.l("SMTP Server Password")} </th>
+                     <td>
+                       <div class="col-md-12">
+                             <input type="password" class="form-control" placeholder="*********" name="password" value="${row.getPassword()!}" autocomplete="off" />
+                        </div>   
+                     </td> 
+               </tr>
+               
+                  
+                 
+            </table>
+     <div class="col-md-12">
+       <input type="submit" class="btn btn_small" value="${view.l('Update')}"/>
+   </div>  
+ </form>
+</div>
+
+<div class="col-md-6">
+<form action="${baseurl}admin/mail/send-test" method="post" >
+
+
+
+<h3>Send test mail</h3> <br /> 
+
+  
+     <div class="col-md-12">
+     ${view.l("To")}<br />
+         <input type="text" class="form-control" placeholder="your-email@domain.com" name="to" value="" required="" /><br />
+    </div>   
+      <div class="col-md-12">${view.l("Text")}<br />
+        <textarea class="form-control" placeholder="Test emil from" name="body" required="">Test emil from </textarea>
+      </div>   
+
+     <div class="col-md-12"><br /><br />
+        <input type="submit" class="btn btn_small"  value="${view.l('Send')}"/>
+    </div>   
+      
+ </form>
+    <div class="height20px"></div>
+   <h4>${response!}</h4>
+</div>
+               
+             
+         <div class="height20px"></div>
+      </div>
+  </div>

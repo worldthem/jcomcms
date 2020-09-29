@@ -1,0 +1,44 @@
+<div class="col-md-12">
+ <div class="card">
+      <div class="header">
+           <h4 class="title">${view.l('Themes')}</h4>
+        </div>
+     <div class="add_new_top">  
+    <form action="${baseurl}admin/themes/store" method="post" enctype="multipart/form-data">
+
+           
+            <div class="col-md-4">
+             <label>${view.l('Add new one')}</label><br />
+              <input type="file" class="form-control" name="theme" accept='application/zip'/>
+              <small><em>${view.l('Select theme file (zip file)')}</em></small>
+           </div>
+          
+         <div class="col-md-2"><label><br /></label><br />
+           <button type="submit" class="btn btn_small">${view.l('Add new one')}</button>  
+        </div>
+         
+     <div class="clear"></div>
+    </form> 
+   </div> 
+     <#list rows as row>
+         <div class="col-sm-4 single_theme">
+            <div class="theme_list<#if row.getName()!?contains(activeTheme!)> active</#if>">
+                <img src="${baseurl}content/views/themes/${row.getName()!}/screenshot.jpg"/>
+                <h3>${row.getName()!}</h3>
+              <footer>
+                <a href="${baseurl}admin/themes/delete?theme=${row.getName()!}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"> </a>
+                
+                <a href="${baseurl}admin/themes/activate?theme=${row.getName()!}" class="btn_text btn btn_small btn_active" >
+                    <span class="<#if row.getName()!?contains(activeTheme!)>fa_publish<#else>fa_unpublish</#if>"></span>
+                   <#if row.getName()!?contains(activeTheme!)> ${view.l('Deactivate')}<#else> ${view.l('Activate')} </#if>
+                </a>
+               </footer>
+            </div>  
+          </div>
+       </#list>
+      <div class="height20px"></div>
+
+      
+  </div>
+</div>
+ 

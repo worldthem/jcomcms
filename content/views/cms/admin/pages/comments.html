@@ -1,0 +1,114 @@
+ 
+<div class="col-md-12">
+ <div class="card">
+     <div class="header">
+          <h4 class="title">${view.l('Comments/Reviews')}</h4>
+     </div>
+     
+     <form action="${baseurl}admin/comments-bulk" method="post">
+
+           <div class="col-md-2">
+             <select name="action" class="form-control" >
+                <option value="">${view.l('Action')}</option>
+                <option value="del"> ${view.l('Remove')} </option>
+                <option value="1"> ${view.l('Aprove')} </option>
+                <option value="2"> ${view.l('Inaprove')} </option>
+            </select>
+          </div>
+         
+        <div class="col-md-1">
+           <button type="submit" class="btn btn_small">${view.l('Apply')}</button>  
+        </div>
+          <div class="col-md-1">
+           <br />
+        </div>  
+     <div class="col-md-3" class="text_align_right">
+       <select class="form-control"  onchange="if (this.value) window.location.href=this.value">
+            <option value="${baseurl}admin/comments"> All</option>
+            <option value="${baseurl}admin/comments?status=2" >${view.l('Inaproved')}</option>
+            <option value="${baseurl}admin/comments?status=1" >${view.l('Aproved')}  </option>
+       </select>
+     </div>
+     <div class="col-md-1">
+           <br />
+        </div>
+          <div class="col-md-2">
+           <input type="text" class="form-control" name="s" value=""  placeholder="${view.l('Search')}"/>
+         </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn_small">${view.l('Search')}</button>  
+          </div>
+         
+     <div class="clear"></div>
+     
+     <div class="content table-responsive table-full-width">
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+                 <th>${view.l('Status')}</th>
+                
+                 <th>${view.l('Author')}</th>
+                 <th>${view.l('Comment')}</th>
+                 
+                 <th>${view.l('Product')}</th>
+                 <th>${view.l('Date')}</th>
+                 <th style="width: 40px"> </th>
+                 
+             </thead>
+             <tbody>
+                <#list rows.iterator() as row>
+                  <tr>
+                     <td> <input type="checkbox" name="bulkid" class="checkboxeach"  value="${row.getCommentsid()}"></td>
+                     <td>
+                          <#if (row.getStatus()==2)>
+                               ${view.l('Inaproved')}
+                          <#else>
+                              ${view.l('Aproved')}
+                          </#if>
+                     </td>
+                   
+                      <td>
+                         
+                           <#if row.getUser()?? >
+                               <a href="${baseurl}admin/comments?userid=${row.getUser().getUserid()!}">
+                                   <b>${row.getUser().getFirstName()!} ${row.getUser().getLastName()!} </b> ${row.getUser().getEmail()!}
+                               </a>
+                               |
+                              <a href="${baseurl}admin/users/single?id=${row.getUser().getUserid()!}"  target="_blank" >
+                                  ${view.l("View user")}
+                              </a>
+                           <#else>
+                                  <a href="${baseurl}admin/comments?search=${row.getCommentAuthorEmail()!}">
+                                      <b>${row.getCommentAuthor()!}  | ${row.getCommentAuthorEmail()!} </b>
+                                  </a>
+                           </#if>
+                         <br />
+
+                           <span class="stars${row.getStars()!}"></span>
+                            ${row.getCommentAthorIp()!}
+                      </td>
+                     <td style="max-width: 600px;"> ${row.getComment()!} </td>
+                     <td>
+                         <#if row.getProduct()??>
+                             <a href="${baseurl}admin/products/add-edit?id=${row.getProduct().getProductid()!}">
+                                 ${row.getProduct().getTitle()!}
+                             </a>
+                         </#if>
+
+                     </td>
+                     <td> ${row.getCreated_at()!}</td>
+                      <td> 
+                         <a href="${baseurl}admin/comments-delete?id=${row.getCommentsid()}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"> </a>
+                     </td>
+                     
+                 </tr>
+             </#list>
+             </tbody>
+         </table>
+ 
+     </div>
+         <#include "/cms/standart/default/pagination.html">
+     </form>  
+ </div>
+</div>
+ 

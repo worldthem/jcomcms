@@ -1,0 +1,37 @@
+ <#if row??>
+ <div class="col-md-12"><h2>${view.l("My account")}</h2></div>
+  <div class="col-md-6">
+         <form action="${baseurl}signup/update" method="POST" >
+           <div class="shopper-info">
+                 <label> ${view.l("First Name") } *</label>
+                 <input type="text" name="firstName" value="${row.getFirstName()!}"  placeholder="${view.l("First Name")} *" required="">
+
+                 <label> ${view.l("Last Name") } *</label>
+                 <input type="text" name="lastName" value="${row.getLastName()!}"  placeholder="${view.l("Last Name")} *" required="">
+
+                  <label>${view.l("Email") } </label>
+                  <input type="text" name="email" value="${row.getEmail()!}" readonly="" >
+                    <label class="chckbox_show"> 
+                          <input type="checkbox" name="creataccount"  value="yes" onclick="hide_show_is(this,  '.create_account_input');"> 
+                            ${view.l("Change password") }
+                    </label>
+                        <div class="create_account_input" style="display: none;">
+                            <label>${view.l("Enter a new password") } *</label>
+                            <input type="password" name="password" autocomplete="off" placeholder="${view.l("Enter a new password") }" >
+                      </div>
+                  <div class="clear_10px"></div>
+                  <button value="submit" type="submit" class="btn btn-default">${view.l("Update") }</button>
+            </div>
+                <div  class="clear"></div>
+                <div class="showresulthere"></div>
+         </form>      
+  </div>
+ <#else>
+ <div class="text-center" >
+     <h2>
+         ${view.l('You need to login to do changes on this page')}:
+         <br><br>
+         <a href="#login" class="simple_link login_link niceButton" style="color:#000;border-color:#000;"> ${view.l('Login')}</a>
+     </h2>
+ </div>
+ </#if>

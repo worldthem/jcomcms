@@ -1,0 +1,33 @@
+  <input  type="hidden" name="fields[${idfield!'unicid'}].name" value="${field.getName()!'random'}"/>
+
+ <ul>
+     <li>
+         <label> ${view.l("Caption")}: <br />
+           <input class="form-control"  type="text" name="fields[${idfield!'unicid'}].label" value="${field.getLabel()!}"/>
+         </label>    
+    </li>
+    <li>
+         <label> ${view.l("Placeholder")}: <br />
+           <input class="form-control"  placeholder="Placeholder" type="text" name="fields[${idfield!'unicid'}].placeholder" value="${field.getPlaceholder()!}"/>
+         </label>    
+    </li>
+    <li>
+            <label> ${view.l("Type")}: <br />
+             <select class="form-control" name="fields[${idfield!'unicid'}].type" >
+               <option value="text" >${view.l("Text box")}</option>
+               <option value="email" <#if field.getType()!?contains("email")> selected </#if>> ${view.l("E-mail text box")}</option>
+               <option value="textarea" <#if field.getType()!?contains("textarea")> selected </#if>> ${view.l("Message text box")}</option>
+             </select>
+            </label> 
+   </li>
+    <li class="checkboxLi"> 
+          <label> <br />${view.l("Required")} 
+           <input type="checkbox" name="fields[${idfield!'unicid'}].required" value="yes"   <#if field.getRequired()??> checked </#if> />
+         </label>
+   </li>
+   
+   <li> 
+      <br /> 
+     <a href="#" class="fa_delete delete_field"> </a>
+  </li>
+ </ul>

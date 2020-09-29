@@ -1,0 +1,273 @@
+<#setting number_format="computer">
+<#if (attributes?size>0)>
+      <script type="text/javascript" >${jsattributes}</script>
+
+        <div style="display:none;">
+            <#assign keyvar = view.rand(4)  datatest=view.rand(4) >
+            <div id="new_element_is">
+                <div class="inner_row background_variation">
+                    <#include "/cms/admin/layouts/variation_fields.html">
+                </div>
+            </div>
+
+        </div>
+</#if>
+
+
+<#include "/cms/admin/layouts/successMessage.html">
+
+ <form class="formSave" action="${baseurl+'admin/update-product'}" method="POST" enctype="multipart/form-data">
+     <input type="hidden"  id="parent_id" name="<#if productid??>productid<#else>temporarid</#if>"  value="${prid!}">
+     <input type="hidden" name="lang" value="${view.currentLang()!}">
+
+    <div class="col-md-9 productSingle">
+            <div class="card">
+                <div class="header">
+                   <div >${view.adminSwitchLang()}</div> <!--Switch Lang-->
+                
+                  <h4 class="title" >
+                      <#if productid??>
+                          ${view.l('Edit')} : ${page.getTitle()!}
+                       <#else>
+                          ${view.l('Add new Product')}
+                       </#if>
+                  </h4>
+                    <#if (productid??)>
+                         <a href="${baseurl + page.getUrl()! }" target="_blank"> <i class="fa fa-link"></i> View page  </a>
+                    </#if>
+                </div>
+
+
+                <div class="content">
+                    <div  class="col-md-6">
+                           <p>
+                             <label >${view.l('Title')}</label> <br/>
+                             <input type="text" class="form-control" name="title" value="${page.getTitle()!}">
+                          </p>
+                      </div>
+                     <div  class="col-md-6">
+                        <p>
+                            <label > ${view.l('Cpu')}</label> <br/>
+                            <input type="text" class="form-control" name="cpu" value="${page.getCpu()!}">
+                        </p>
+                     </div>
+                     
+                         <div class="col-md-6">
+                             <p>
+                                <label >${view.l('Meta description')}</label> <br/>
+                                <input type="text" class="form-control" name="metad" value="${page.getMetad()!}">
+                             </p>
+                        </div>
+                         <div  class="col-md-6">
+                            <p> <label >${view.l('Meta keyword')}</label> <br/>
+                               <input type="text" class="form-control" name="metak" value="${page.getMetak()!}">
+                            </p>
+                         </div>
+                      
+                      
+                   <div class="clear"></div>
+                   <div class="col-md-2">
+                          <p>
+                            <label >${view.l('Stock')}</label> <br/>
+                             <select name="stock">
+                               <option  value="yes" >${view.l('In stock')}</option>
+                                 <option value="not" <#if page.getStock()!?contains('not') > selected="yes" </#if> >${view.l('Out of stock')}</option>
+                             </select>
+                          </p>
+                      </div>
+                       
+               
+                       <div class="col-md-2">
+                          <p>
+                            <label >${view.l('Price')}</label> <br/>
+                            <input type="text" class="form-control" name="price" value="${page.getPrice()!?string["0.##"]}">
+                          </p>
+                      </div>
+                       <div class="col-md-2">
+                        <p>
+                            <label >${view.l('Sale price')}</label> <br/>
+                            <input type="text" class="form-control" name="sale_price" value="${page.getSale_price()!?string["0.##"]}">
+                        </p>
+                     </div>
+                     
+                      <div class="col-md-2">
+                        <p>
+                            <label >${view.l('SKU')} </label> <br/>
+                            <input type="text" class="form-control" name="SKU" value="${page.getSKU()!}">
+                        </p>
+                     </div>
+                     <div class="col-md-2">
+                        <p>
+                            <label >${view.l('Quantity')}</label> <br/>
+                            <input type="text" class="form-control" name="qtu" value="${page.getQtu()!}">
+                        </p>
+                     </div>
+                     <div class="col-md-2">
+                          <p>
+                            <label>${view.l('Weight')} (KG)</label> <br/>
+                            <input type="text" class="form-control" name="weight" value="${page.getWeight()!?string["0.##"]}">
+                          </p>
+                     </div>
+                     
+                  
+                   <div class="clear"></div>
+                 <div class="block_attributes">   
+                    <a class="title_attributes" href="${baseurl}admin/attributes/variations" target="_blank">Add / Edit Variation <i class="icon_result fa fa-plus"></i> </a>
+                    
+                     <div class="clear"> </div> 
+                     
+                     <div id="variation_control">
+                         <#if attr??>
+                               <#list attr as key, value>
+                                   <#if value.get('type')!?contains('var')>
+                                       <#assign keyvar = key>
+                                       <div class="inner_row background_variation">
+                                           <#include "/cms/admin/layouts/variation_fields.html">
+                                       </div>
+                                   </#if>
+                               </#list>
+                         </#if>
+                              <div class="clear"></div>
+                      </div>
+                    <#if (attributes!?size > 0)>
+                            <div class="text_align_center">
+                                <a href="#" onclick="return new_element_add(); " title="${view.l('Add new Variation')}" style="font-size:22px"><span class="fa fa-plus-circle"></span> ${view.l('Add new Variation')}</a>
+                            </div>
+                    </#if>
+                         <div class="clear"> </div>
+                  </div> 
+                    
+                    
+                         <div class="background_variation">
+                             <div  class="col-md-5">
+                                <p>
+                                    <label>${view.l('File Title')} </label> <br/>
+                                    <input type="text" class="form-control" id="downloadable_title" name="upload_title">
+                                     <small><i >${view.l('If product is virtual and Downloadable')}</i></small>
+                                </p>
+                             </div>
+                             
+                             <div  class="col-md-4">
+                                <p>
+                                    <label >${view.l('Select file')}</label> <br/>
+                                    <input type="file" class="form-control" id="downloadable" name="upload_file">
+                                    <small><i >${view.l('Costomer will get access after order')}</i></small>
+                                </p>
+                             </div>
+                          
+                              <div  class="col-md-3">
+                                  <p><label><br/></label> <br/>
+                                    <input  type="button" class="btn btn_small" value="Upload" data-url="${baseurl+'admin/upload/upload-file'}"  onclick="upload_files(this, '#downloadable',  '.listOfFiles', '.load_iacon', '${prid!}', '#downloadable_title');"/>
+                                     <span style="float: right;" class="load_iacon"></span>
+                                  </p>
+                              </div>
+                              
+                                <div class="clear"></div>
+
+                                <div class="listOfFiles" >${view.adminGallery(page.getGallery()!, 'file')}</div>
+
+                              <div class="clear"></div>
+                        </div>
+                      <div class="height10px"></div>
+                      <div class="block_attributes">   
+                    <a class="title_attributes" href="${baseurl}/admin/attributes/specifications" target="_blank">${view.l('Add / Edit Specification')} <i class="icon_result fa fa-plus"></i></a></h4>
+
+                    <#if (attributes!?size > 0)>
+
+                          <#list attributes as key3, value3>
+                              <#if value3.getType()!?contains('spec')>
+
+                                     <#if value3.getBox()!?contains('select') >
+                                            <div class="col-xs-6" >
+                                               <label>${value3.getName().get(view.currentLang()!)!} </label> <br />
+                                               <select class="form-control" name="${'specification['+key3+']'}" >
+                                                  <option value="" >${view.l('Select')}</option>
+                                                   <#list value3.getSugestion() as keySelect, valueSelect>
+                                                       <option value="${keySelect!}" <#if view.checkIfIsInAttrProduct(attr, key3, keySelect)> selected </#if>>${valueSelect.get(view.currentLang())!}</option>
+                                                   </#list>
+                                                </select>
+                                            </div>
+                                        <#elseif value3.getBox()!?contains('checkbox')>
+                                               <div class="col-xs-12" >
+                                                   <div class="clear"></div>
+                                                   <h4 >${value3.getName().get(view.currentLang()!)!} </h4>
+
+                                                   <#list value3.getSugestion() as keySelect, valueSelect>
+                                                       <label>
+                                                        <input type="checkbox"  name="${'specification['+key3+']'}"   <#if view.checkIfIsInAttrProduct(attr, key3, keySelect)> checked </#if> value="${keySelect}" />
+                                                        <span >${valueSelect.get(view.currentLang())}</span>
+                                                       </label>
+                                                    </#list>
+                                               </div>
+
+                                         <div class="height10px"></div>
+
+                                       <#elseif value3.getBox()!?contains('textbox')>
+                                              <#assign title = value3.getName().get(view.currentLang()!)!  wastedField="dww"   key = keyvar  keyField=key3  fieldName = "specification["+key3+"]"  entryInner= value3   keySugestion = view.getKeyFromProductAttr (attr, key3 ) >
+                                                    <div class="col-xs-6 position_relatie inputfield">
+                                                     <#include "/cms/admin/layouts/variatedTextField.html">
+                                                    </div>
+                                           </#if>
+
+                                  </#if>
+
+                          <#else>
+                      </#list>
+                     </#if>
+
+                    <div class="clear"></div>
+                    </div>
+                     <div class="height10px"></div>
+                    <div class="col-md-12">
+                    <label >${view.l('Small Description')}</label>
+                        <textarea name="description" id="editor" class="form-control tinymce" > ${page.getDescription()!}</textarea>
+                    </div>
+                    <div class="height20px"></div>
+                      <div class="col-md-12">
+                        <label >${view.l('Full Description')}</label>
+                        <textarea name="text" id="editor" class="form-control tinymce" >${page.getText()!}</textarea>
+                      </div>
+                    <div class="height10px"></div>
+                     
+                     <div  class="col-md-6">
+                        <p>
+                            <label >${view.l('External URL')}</label> <br/>
+                            <input type="text" class="form-control" name="cpu_store"  value="${page.getStore()!}">
+                        </p>
+                     </div>
+                     
+                   <div class="height10px"></div>
+                 </div>
+            </div>
+ </div>
+  <div class="col-md-3">
+       
+       <div class="card padding_10px">
+           <h3 class="margin_top_0px" >${view.l('Publish')}</h3>
+           <button type="submit" class="btn" >${view.l('Save')}</button>
+       </div>
+
+       <#include "/cms/admin/layouts/selectCategory.html">
+
+       <div class="card padding_10px">
+         <h3 class="margin_top_0px" >${view.l('Main Images')}</h3>
+           <input type="hidden" name="image" value="${page.getImage()!}">
+         <input type="file" name="imgmain" id="load_imge_main"  class="btn btn_small" style="max-wid100%;" />
+         <div class="height20px response_main"></div>
+         <div class="show_result_main">
+             <img  src="${baseurl+ view.imgproduct(page.getImage(), 'full')!}"  alt="" />
+          <div class="clear"></div>   
+         </div>
+      </div>   
+  
+      <div class="card padding_10px">
+         <h3 class="margin_top_0px" >${view.l('Gallery')}</h3>
+         <input type="file" name="galleryw" id="load_imge_gallery" multiple="" style="max-wid100%;" data-url="${baseurl+'admin/upload/upload-images'}" onchange="upload_files(this, '#load_imge_gallery',  '.show_result_gallery', '.response_gallery', '${prid!}');" class="btn btn_small load_imge_galery" />
+         <div class="height20px response_gallery"></div>
+         <div class="show_result_gallery" >${view.adminGallery(page.getGallery(), 'gallery')!}</div>
+      </div>
+  
+  </div>
+ </form>  
+ <script src="${adminassets+'/js/variation-product.js'}" ></script>
+  

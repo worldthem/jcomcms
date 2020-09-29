@@ -1,0 +1,35 @@
+<!-- keep this hidden element -->
+<input type="hidden" class="stripe_token" autocomplete="off" name="stripe_token" value="" />
+<label>
+          <input type="radio" name="payment" value="${idPayment!}" class="payment_method stripePaymentradio" data-unic="${idPayment!}" required> <!-- The name of your plugin -->
+           <#if !row.getNoimage() && row.getImage()?? >
+              <img style="max-width: 250px;" src="${baseurl}content/views/payment/stripepayment/img/${row.getImage()!}">
+           </#if>
+          ${row.getTitle()!}
+
+</label>
+
+<div class="clear"></div>
+<div class="info-payment ${idPayment!}">
+    <div class="clear_10px"></div>
+    <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+    </div>
+    <!-- Used to display form errors. -->
+    <div id="card-errors" role="alert" style="color: red;"></div>
+
+    <small><i>${row.getDescription()!}</i></small>
+</div>
+
+<#if row.getPublicKey()??>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script type="text/javascript">
+   <!--
+     var stripe_public = '${row.getPublicKey()!}';
+   -->
+</script>
+
+<script src="${baseurl}content/views/payment/stripepayment/js/stripe.js"></script>
+</#if>

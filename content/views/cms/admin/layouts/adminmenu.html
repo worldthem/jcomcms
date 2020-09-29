@@ -1,0 +1,26 @@
+<#list menu as key, value>
+         <#if (value!?size > 1) >
+            <li>
+                <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    ${checkMap.firstElemMap(value, 'value')}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                   <#list value as key2, value2>
+                         <#if (!value2!?contains('hidden')  &&  !key2!?contains('#')) >
+                            <li><a  href="${baseurl+ key2}">${value2} </a></li>
+                         </#if>
+                    </#list>
+                  </ul>
+            </li>
+
+        <#else>
+                <li>
+                    <a  href="${baseurl+checkMap.firstElemMap(value, 'key')}">
+                        ${checkMap.firstElemMap(value, 'value')}
+                    </a>
+                </li>
+        </#if>
+ </#list>
+
+

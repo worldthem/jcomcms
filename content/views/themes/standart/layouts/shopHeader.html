@@ -1,0 +1,34 @@
+<ul class="shop-filter-menu">
+   <#if _shop_sidebar_?has_content>
+      <li>
+       <a href="#filter" class="filtersButtonHeader">
+          ${view.l('Filters')}
+       </a>
+     </li>
+    </#if>
+     <li>
+      <#if _shop_sidebar_?has_content>
+        <span>/</span>
+      </#if>
+
+        ${view.l('Price')} :
+        <a href="${baseurl}products/sort/asc"><i class="fa fa-sort-amount-asc"></i> </a>
+        <a href="${baseurl}products/sort/desc"><i class="fa fa-sort-amount-desc"></i></a>
+     </li>
+    <li>
+        <span>/</span>
+        <a href="#search" class="searchButtonHeader">
+           ${view.l('Search')}
+        </a>
+    </li>
+</ul>
+
+<div class="clear_20px"></div>
+    <div class="searchFormHeader">
+        ${view.shortcode('[search title=search]')!}
+   </div>
+
+ <div class="filtersHeader">
+     ${view.shortcode(_shop_sidebar_)!?replace('<[p^>]+>','','r')?replace('</p>','','r')?replace('<[span^>]+>','','r')?replace('</span>','','r')?replace('<[h^>]+>','','r')?replace('<[/h^>]+>','','r')}
+     ${view.shortcode('[subscribe]')!}
+ </div>

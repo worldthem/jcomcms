@@ -1,0 +1,10 @@
+<div class="sidebar-categories sidebarBlock">
+    <form method="GET" action="" class="priceSort" onsubmit="formqeepQueryParam('.hidenQuery')">
+        <div class="hidenQuery"></div>
+        <div>
+        <input type="text" placeholder="${view.l('Min')}" value="${pricemin!}" name="pricemin"/>
+        <input type="text" placeholder="${view.l('Max')}" value="${pricemax!}" name="pricemax"/>
+        </div>
+        <button type="submit">${view.l('Ok')}</button>
+    </form>
+</div>

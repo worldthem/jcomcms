@@ -1,0 +1,100 @@
+<#assign dataStatus= ["success", "pending", "processing", "canceled", "refunded"]>
+<div class="col-md-12">
+   <div class="card">
+     
+    <div class="header">
+        <h4 class="title">Orders</h4>
+   </div>
+
+       <p class="category">${view.l('Check the list of orders')}</p>
+     <form action="${baseurl}admin/orders-bulk" method="post">
+          <div class="col-md-2">
+             <select name="action" class="form-control" >
+                <option value="">${view.l('Action')}</option>
+                <option value="del"> ${view.l('Remove')} </option>
+                 <#list dataStatus as rowStatus>
+                    <option value="${rowStatus}">${view.l("Change status to")}: ${rowStatus} </option>
+                  </#list>
+            </select>
+          </div>
+         
+        <div class="col-md-1">
+           <button type="submit" class="btn btn_small">${view.l('Apply')}</button>  
+        </div>
+          <div class="col-md-1">
+           <br />
+        </div>  
+     <div class="col-md-3" class="text_align_right">
+      
+       <select class="form-control"  onchange="if (this.value) window.location.href=this.value">
+               <option value="${baseurl}admin"> ${view.l('Show by status')}</option>
+               <option value="${baseurl}admin"> ${view.l('All')}</option>
+              <#list dataStatus as rowStatus>
+                  <option value="${baseurl}admin?search=${rowStatus}">${rowStatus} </option>
+              </#list>
+         </select>
+     </div>
+     <div class="col-md-1">
+           <br />
+        </div>
+          <div class="col-md-2">
+           <input type="text" class="form-control" name="s" value=""  placeholder="${view.l('Search')}"/>
+         </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn_small">${view.l('Search')}</button>  
+          </div>
+         
+     <div class="clear"></div>
+     
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th><input type="checkbox" id="checkall" onclick="check_all(this);" /></th>
+                                        <th>${view.l('NR')}.</th>
+                                        <th>${view.l('Status')}</th>
+                                        <th>${view.l('Name')}</th>
+
+                                    	<th>${view.l('Date')}</th>
+                                    	<th>${view.l('Payd in')}</th>
+                                    	<th>${view.l('Shipp to')}</th>
+                                        <th>${view.l('Shipping')}</th>
+                                        <th>${view.l('View')}</th>
+                                    </thead>
+                                    <tbody>
+                                       <#list rows.iterator() as row>
+                                         <#assign countryship = row.getShippingMap()!>
+                                           <tr>
+                                                <td> <input type="checkbox" name="bulkid" class="checkboxeach"  value="${row.getOrdersid()!}"></td>
+                                                <td>${row.getOrdersid()!}</td>
+                                                <td>${row.getStatus()!} </td>
+                                                <td> ${countryship["name"]!} ${countryship["lastname"]!}</td>
+                                                <td>${row.getCreated_at()!}</td>
+                                                <td>${viewRequest.price(row.getTotalpayd()!,  null )!}</td>
+                                               <td>
+                                                   <#if (countries?? && countryship["country"]??)>
+                                                       <#list countries as country>
+                                                         <#if  country.getId()?contains(countryship["country"])>
+                                                             ${country.getCountry()}
+                                                         </#if>
+                                                       </#list>
+                                                   </#if>
+                                              </td>
+
+
+                                                <td> <#if row.getShipingTable()??>  ${row.getShipingTable().getShipping_name()!} : ${viewRequest.price(row.getShipingTable().getPrice()!,  null )!}   </#if> </td>
+                                                <td>
+                                                    <a href="${baseurl}admin/vieworder?id=${row.getOrdersid()!}">View order</a>
+                                                </td>
+                                            </tr>
+                                        <?php $shipping = null; $addresB=null; $addresS =null; $order =null;  ?>
+                                       </#list>
+                                    </tbody> 
+                                </table>
+
+                                    <#include "/cms/standart/default/pagination.html">
+
+                            </div>
+                             </form>  
+                        </div>
+                    </div>
+ 

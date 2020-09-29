@@ -1,0 +1,124 @@
+<div class="col-md-12">
+ <div class="card">
+        <div class="header">
+           <h4 class="title">${view.l('Language')} </h4>
+        </div>
+
+     <div class="add_new_top">  
+         <form action="${baseurl+'admin/general-settings/language/set'}" method="post">
+              <input type="hidden" name="id" value="new">
+         
+              <div class="col-md-3">
+                <i class="fa fa-flag"></i>${view.l('Front end Language')} <br />
+                <select name="language" class="form-control">
+                    <option value="" >${view.l('Select')}</option>
+                    <#list languagelist as key, value>
+                          <option value="${key}">${value}</option>
+                   </#list>
+
+                </select>
+
+              <#list view.listLang() as lang>
+                    <div>
+                       <p>
+                           <b><img src="${assets+'/langicon/'+(lang?upper_case)+'.png'}"/> ${lang}</b>:
+                           <a href="${baseurl+'admin/general-settings/language/operation?lang='+lang+'&action=delete'}">
+                              <span class="fa fa-trash"></span>
+                           </a> |
+                            <a href="${baseurl+'admin/general-settings/language?lang='+lang}">
+                              <span class="fa fa-pencil"></span>
+                           </a> |
+
+                           <#if (lang?index == 0)><span class="fa fa-home"></span>${view.l('Default')} </span></#if>
+                           <#if (lang?index > 0)><a href="${baseurl+'admin/general-settings/language/operation?lang='+lang+'&action=default'}" >${view.l('Make default')}</a></#if>
+                       </p>
+                    </div>
+              </#list>
+             </div>
+             <div class="col-md-2"><br />
+                <button type="submit" class="btn btn_small"  > ${view.l('Add language')}</button>
+             </div>
+          
+            <div class="col-md-3">
+                 <i class="fa fa-flag"></i>${view.l('Admin Language')} <br />
+                 <select name="adminlanguage" class="form-control" style="width: calc(100% - 24px); display: inline-table;">
+                     <option value="">${view.l('Select')}</option>
+                     <#list languagelist as key, value>
+                         <option value="${key}" <#if adminlang!?contains(key)>selected</#if>>${value}</option>
+                     </#list>
+                  </select>
+                    <a href="${baseurl+'admin/general-settings/language?lang='+adminlang!}">
+                       <b><span class="fa fa-pencil"></span></b>
+                   </a>
+             </div>
+          
+         <div class="col-md-2"><br />
+           <button type="submit" class="btn btn_small" > ${view.l('Change')}</button>
+        </div>
+         
+     <div class="clear"></div>
+     <div class="col-md-12">
+         Put this short code in header like: <br />
+           [language] -  Will show: ${view.shortcode('[language]')!}<br />
+           [language type=short] - Will show: ${view.shortcode('[language type=short]')!} <br />
+           [language type=full] - Will show: ${view.shortcode('[language type=full]')!} <br />
+           or in html page
+           <strong>&#36{view.shortcode('[language]')!}</strong> OR
+           <strong>&#36{view.shortcode('[language type=short]')!}</strong> OR
+           <strong>&#36{view.shortcode('[language type=full]')!}</strong>
+         
+      </div>
+      <div class="clear"></div> 
+      
+    </form> 
+   </div> 
+      
+
+<#if langtranslate??>
+ <#if !langtranslate?contains('en')>
+
+
+     <div class="content table-responsive table-full-width">
+      <form  action="${baseurl+'admin/general-settings/language/store'}" method="post">
+        <input type="hidden" name="lang" value="${langtranslate}">
+
+          <div class="rightSideSave">
+            <button type="submit" class="buttonSave"><i class="fa fa-cloud-upload"></i>${view.l('Save')}</button>
+         </div>
+          
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th style="width: 33%;" > ${view.l('In English')}</th>
+                     <th>
+                    <a href="#" class="shareTranslate lang1Share" onclick="access_url('{{url('/admin/language/shareTranslate/'.@$lang_view)}}', '.lang1Share' ); return false;">
+                          Share This Translate
+                    </a><br />
+                        ${view.l('In')+' '+langtranslate}
+
+                        <a href="{{url('/admin/language/translate/'.$lang_view)}}" class="btn btn_small">
+                           <i class="fa fa-plus" aria-hidden="true"></i>
+                       </a>
+                       
+                    </th>
+              </thead>
+              <tbody>
+              <#list englishjson as language>
+                     <tr>
+                             <td >${language!}</td>
+                             <td>
+                              <input  type="text" class="form-control" name="langtranslate[${language!}]" value="${totranslatejson[language]!}"/>
+                            </td>
+                      </tr>
+              </#list>
+              </tbody>
+         </table>
+       </form> 
+     </div>
+
+</#if>
+</#if>
+
+
+ </div>
+</div>
+ 

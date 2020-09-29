@@ -1,0 +1,19 @@
+<div class="col-product-list">
+    <div class="product-image-wrapper">
+        <div class="single-products">
+            <div class="productinfo text-center">
+                <a class="image_product" href="${baseurl + product.getUrl() }">
+                    <img class="lazy_load" src="${baseurl+'content/imgproduct/thumb_small_'+product.getImage()!}" data-src="${baseurl+'content/imgproduct/thumb_'+product.getImage()!}" alt="${product.getTitle()!}" />
+                </a>
+            </div>
+        </div>
+        <div class="product-text">
+            <p><a href="${baseurl + product.getUrl() }" > ${product.getTitle()!} </a></p>
+            <div class="product_stars" >${view.countStars(product.getComments())!}</div>
+        </div>
+        <div class="choose info-bottom">
+            <div>${product.getPriceHtml()}</div>
+            <span class="addCartBtn" >${view.addToCartBtn( product.getAttrMapModule(), 'btn btn-default add-to-cart', product.getProductid(), product.getQtu())}</span>
+        </div>
+    </div>
+</div>

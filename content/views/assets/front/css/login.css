@@ -1,0 +1,195 @@
+::-webkit-input-placeholder { /* Edge */
+  color: #5a5a5a !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #5a5a5a !important;
+}
+
+::placeholder {
+  color: #5a5a5a !important;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  
+}
+
+.logo{
+  margin: 30px auto 20px auto;
+  max-width: 250px;   
+}
+img{max-width: 100%;} 
+
+.register input[type="text"], .register input[type="email"], .register input[type="password"] {
+    outline: none;
+    border:none ;
+    border-bottom: 3px solid rgba(255,255,255,0.24);
+    margin-bottom: 30px;
+    background: none;
+    padding: 10px 5px 10px 38px;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: Tahoma;
+    font-size: 17px;
+    color: #fff;
+    
+    line-height: 1.2;
+}
+
+.register input[type="text"] {
+    background:url("../img_theme/user-white.png")  no-repeat left center;
+    background-size: 23px  auto;
+}
+
+.register input[type="email"]{
+    background:url("../img_theme/email2.png")  no-repeat left center;
+    background-size: 25px  auto; 
+}
+
+.register input[type="password"]{
+    background:url("../img_theme/padlock-white.png")  no-repeat left center;
+    background-size: 20px  auto;   
+}
+
+.register input[type="submit"],
+.login100-form-btn{
+    border:none;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #555555 !important;
+    line-height: 1.2;
+    display: inline-table;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 17px;
+    min-width: 100px;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    margin-bottom: 20px;
+    display: inline-table;
+}
+
+
+.display_none{
+    display: none;
+}
+ 
+.close_modalinner{
+    display: none;
+}
+
+
+.resp-tab-item {
+    border: none;
+    color: #fff;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px;
+    display: inline-block;
+    list-style: none;
+    outline: none;
+    border: 1px solid #fff;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    -webkit-appearance: none;
+}
+#horizontalTab ul{
+    margin: 0;
+    padding: 0;
+}
+#horizontalTab ul li {
+    list-style: none;
+}
+
+#horizontalTab ul li:first-child {
+    margin-left: 0px;
+}
+
+.reset_pass_btn{
+   margin-left: 10px;
+}
+
+.resp-tab-item.active{
+    color: #000;
+    background: #fff;
+}
+
+#horizontalTab ul {
+    margin-bottom: 20px;
+}
+
+.sign-up{
+    margin-top: 20px;
+}
+ 
+
+
+.text-align-center{
+    text-align: center;
+}
+.container-fluid {
+  background-image: url("../img_theme/simple-backgrounds.jpg") ;
+  /*background-size: cover; */ 
+ background-size: 100% 100%;
+  min-height: 100%;
+}
+
+
+.login {
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px;
+    background-image: url("../img_theme/bgbgbggb.jpg") ;
+    background-size: cover;
+    margin: 20px auto;
+    color: #5a5a5a;
+    
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(82,82,82,1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(82,82,82,1);
+    box-shadow: 0px 0px 8px 0px rgba(82,82,82,1); 
+  }
+  
+.login a{
+   color: #5a5a5a; 
+} 
+
+
+  
+ input:focus,
+button:focus {
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: rgba(255,255,255,.4);
+}
+
+input::-moz-placeholder {
+  color: rgba(255,255,255,.4);
+}
+
+ 
+.text-center{
+   text-align: center; 
+}
+ 

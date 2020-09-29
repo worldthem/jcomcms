@@ -1,0 +1,7 @@
+<#if forseLogin?? && !Session["SPRING_SECURITY_CONTEXT"]?exists>
+   <div style="max-width:370px;margin:20px auto;" >
+     <#include "/cms/standart/auth/tabslSignedForm.html">
+  </div>
+ <#else>
+      <#include "/cms/standart/checkout/checkoutform.html">
+ </#if>

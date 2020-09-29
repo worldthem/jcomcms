@@ -1,0 +1,73 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="header">
+            <h4 class="title"> ${view.l('Shipping method') } : ${row.getShipping_name() }</h4>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="add_new_top">
+            <form action="${baseurl}admin/checkout-shipping/store" method="post">
+                <input type="hidden" name="id" value="${row.getId()}">
+                <input type="hidden" name="showhide" value="${row.getShowhide()}">
+                <div class="col-md-2">
+                    <label>  ${view.l('Title') }</label> <br />
+                    <div class="blockMultilang">
+                        <#list view.listLang() as langVal>
+                        <span class="inputLang">${langVal}</span>
+                        <input type="text" name="shipping_name[${langVal}]" class="form-control" value="${row.getShipping_nameFull().get(langVal)! }">
+                    </#list>
+                </div>
+        </div>
+
+
+        <div class="col-md-2">
+            <label> ${view.l('Select country') }  <br />
+                <select class="form-control" name="country">
+                    <option value="0"> ${view.l('For all countries (Worldwide)') }</option>
+                    <#if countries??>
+                         <#list countries as value>
+                            <option value="${value.getId()!}" <#if (row.getCountry() ==value.getId())> selected</#if>>${value.getCountry()!} </option>
+                        </#list>
+                    </#if>
+                </select>
+        </div>
+
+        <div class="col-md-2">
+            <label>  ${view.l('Weight') } kg<br />
+                <input type="text" name="weight" class="form-control" value="${row.getWeight()!}"/>
+                <small> ${view.l("Leave empty if you don't use Weight") }}</small>
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label>  ${view.l('Shipping calculation') } <br />
+                <select name="type_shipping" class="form-control" >
+                    <option  value="2" > ${view.l('Fixed') }</option>
+                    <option value="3" <#if (row.getType_shipping()==3 )> selected</#if> > ${view.l('Percentage from Total') }</option>
+                </select>
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label>  ${view.l('Fixed Or') } %<br />
+                <input type="text" name="price" class="form-control" placeholder="25" value="${row.getStringPrice()!}"/>
+            </label>
+            <small> ${view.l('Fixed Price 25$ OR  Percentage 25% from basket total') }</small>
+        </div>
+        <div class="col-md-2" style="background: #A2A2A2;">
+            <label>  ${view.l('Free') } <br />
+                <input type="text" name="free_delivery" class="form-control" placeholder="1000" value="${row.getStringFree_delivery()!}" />
+            </label>
+            <small> ${view.l("Free when basket total is bigger than this ammount, leave empty if don't need") }}</small>
+        </div>
+
+        <div class="col-md-12 text_align_right"><br />
+            <button type="submit" class="btn btn_small"> ${view.l('Update') }</button>
+        </div>
+
+        <div class="clear"></div>
+        </form>
+    </div>
+
+</div>
+</div>
+</div>

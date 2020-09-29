@@ -1,0 +1,125 @@
+<div class="col-md-12">
+ <div class="card">
+       
+         <div class="header">
+           <h4 class="title">${view.l('Contact Forms')}</h4>
+        </div>
+
+ <#if rows??>
+     <div class="add_new_top">
+     <form action="${baseurl}admin/contact-form-store" method="post">
+         <div class="col-md-2">
+              <label> ${view.l('Form name')} <br />
+                <input type="text" name="value" required="" class="form-control"/>
+             </label>
+          </div>
+          
+         <div class="col-md-1"><br />
+           <button type="submit" class="btn btn_small">${view.l('Add New')} </button>  
+        </div>
+         
+     <div class="clear"></div>
+    </form> 
+   </div> 
+      
+        
+     <div class="content table-responsive table-full-width">
+         <table class="table table-hover table-striped">
+             <thead>
+                 <th>ID</th>
+                 <th>${view.l('Form Title')}</th>
+                 <th>${view.l('Use Form in page')}</th>
+                 <th style="width: 40px"> </th>
+                 <th style="width: 40px"> </th>
+             </thead>
+             <tbody>
+                <#list rows as row>
+                  <tr id="edit_this_nr${row.getId()!}">
+                       <td>${row.getId()!}</td>
+                       <td>
+                            <a href="${baseurl}admin/contact-form-single?id=${row.getId()!}">
+                                ${row.getValue()!}
+                            </a>
+                       </td>  
+                       
+                     <td>[form id=${row.getId()!}]</td>
+                      <td> 
+                         <a href="${baseurl}admin/contact-form-single?id=${row.getId()!}" class="fa_edit small" > </a>
+                     </td>
+                      <td> 
+                        <a href="${baseurl}admin/contact-form-distroy?id=${row.getId()!}" class="fa_delete" onclick="return confirm('You are sure?') ? true : false;"> </a>
+                     </td>
+                     <td class="result{{$val->id}}"></td>
+                  </tr>
+                </#list>
+             </tbody>
+         </table>
+ 
+     </div>
+   </#if>
+  
+   <#if row??>
+    <div class="fields_html" style="display: none;">
+        <#include "/cms/admin/layouts/contactFormField.html">
+    </div>
+      <script src="${adminassets}/js/contact-form.js"></script>
+      <div class="content table-responsive table-full-width">
+        <form action="${baseurl}admin/contact-form-store" method="post">
+
+          <input type="hidden" name="id" value="${row.getId()!'0'}">
+          <input type="hidden" name="value" value="${row.getValue()!}">
+
+
+          <div class="col-md-4">
+           <label>${view.l("Add this code in to your page")}</label><br />
+           <input class="form-control" type="text" value="[form id=${row.getId()!}]"/>
+         </div>
+            <div class="height20px"></div>
+            <div class="col-md-4">
+                <label>${view.l("Emil Title")}</label><br />
+                <input class="form-control" type="text" value="${form.getSubject()!}" name="subject"/>
+            </div>
+            <div class="height20px"></div>
+          <div class="col-md-4">
+           <label>${view.l("Email To")}</label><br />
+           <input class="form-control" type="text" value="${form.getTo()!}" name="to"/>
+         </div> 
+          <div class="height20px"></div>
+             <div class="col-md-12">
+               <a href="#" class="newField btn btn_small">${view.l("Add new Field")}</a>
+            </div>
+            <div class="height20px"></div>
+              <div class="fields_list"> 
+                 <#if form.getFields()??>
+                    <#list form.getFields() as key, field>
+                       <#assign idfield = key>
+                      <#include "/cms/admin/layouts/contactFormField.html">
+                    </#list>
+                 </#if>
+
+
+             </div> 
+             <div class="height20px"></div>
+         <div class="col-md-4">
+           <label>${view.l("Submit Button")}</label><br />
+           <input class="form-control" type="text" value="${form.getSubmit()!}" name="submit"/>
+         </div>  
+         
+         <div class="col-md-8">
+           <label>${view.l("Successfull mesage")} ${view.l("Example: Your message has been sent successfully!")}</label><br />
+           <input class="form-control" type="text" value="${form.getMessage()!}" name="message"/>
+         </div>
+           <div class="height20px"></div>
+            <div class="col-md-12">
+              <input  type="submit" value="${view.l('Save')}" class="btn btn_small"/>
+            </div>
+        </form> 
+         
+     </div>
+
+
+     </#if>
+    
+ </div>
+</div>
+

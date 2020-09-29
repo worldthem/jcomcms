@@ -1,0 +1,204 @@
+ 
+   <div class="col-md-12">
+   <div class="card">
+
+        <div class="col-md-12">
+          <h3>${ view.l('General Settings') }</h3>
+       </div>
+       
+        <form action="${baseurl}admin/general-settings/store" method="POST" enctype="multipart/form-data">
+             <div class="col-md-12 text_align_right">
+               <input type="submit" class="btn btn_small" value="${ view.l('Update') }"/>
+             </div>
+              <div class="col-md-6">  
+                 <table  class="table_admin_settings">
+                   <tr>
+                         <th> 
+                           <i class="fa fa-file-picture-o"></i> ${ view.l('Logo') }
+                         </th>
+                         <td> 
+                            <div class="col-md-12">
+                                   <input type="hidden" value="${row.getLogo()!}" name="logo">
+                                   <input type="file" class="form-control" name="logofile"  />
+                                  <#if row.getLogo()??>
+                                      <img src="${baseurl}content/images/${row.getLogo()!}" style="max-height: 70px;"/>
+                                  </#if>
+                            </div>
+                         </td>
+                     </tr>
+                     <tr>
+                         <th> 
+                           <i class="fa fa-file-picture-o"></i> ${ view.l('Favicon') }
+                         </th>
+                         <td> 
+                            <div class="col-md-12">
+                                <input type="hidden" value="${row.getFavicon()!}" name="favicon">
+                               <input type="file" class="form-control" name="faviconfile"  />
+                                 <#if row.getLogo()??>
+                                    <img src="${baseurl}content/images/${row.getFavicon()!}" style="max-height: 70px;"/>
+                                 </#if>
+                            </div>  
+                         </td>
+                     </tr>
+                     
+                      <tr>
+                         <th> 
+                           <h4>${view.l('Media') }:</h4> 
+                         </th>
+                         <td> 
+                               
+                         </td>
+                     </tr>
+                      <tr>
+                          <th> 
+                           <i class="fa fa-file-picture-o"></i> ${ view.l('Crop image by dimension') }
+                         </th>
+                         <td> 
+                             <div class="col-sm-12">
+                             <label class="switch">
+                                <input type="checkbox" class="checkbox" name="media_crop" value="yes" <#if row.getMedia_crop()??>checked=""</#if>/>
+                                <span class="slider round"></span>
+                              </label>
+                           </div>
+                         </td>
+                     </tr>
+                      <tr>
+                          <th> <i class="fa fa-file-picture-o"></i> ${ view.l('Thumbnail size') } (pixel)</th>
+                         <td> 
+                             <div class="col-sm-6">
+                                 <input type="text" class="form-control" placeholder="255" name="media_width" value="${row.getMedia_width()!}" />
+                            </div>
+                              <div class="col-sm-6">
+                                 <input type="text" class="form-control" placeholder="383" name="media_height" value="${row.getMedia_height()!}" />
+                             </div>   
+                         </td>
+                     </tr>
+                     
+                </table>
+              </div>
+              
+               <div class="col-md-6">
+                   <table  class="table_admin_settings">
+                       <tr>
+                           <th> ${view.l("Forse login on checkout page")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <label class="switch">
+                                       <input type="checkbox" class="checkbox" name="forseCheckoutLogin" value="yes" <#if row.getForseCheckoutLogin()??>checked=""</#if> />
+                                   <span class="slider round"></span>
+                                   </label>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th> ${view.l("Website on maintenance")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <label class="switch">
+                                       <input type="checkbox" class="checkbox" name="websiteonmaintenance" value="yes" <#if row.getWebsiteonmaintenance()??>checked=""</#if> />
+                                       <span class="slider round"></span>
+                                   </label>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th> ${view.l("Minify css to increase the speed of website")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <label class="switch">
+                                       <input type="checkbox" class="checkbox" name="developmentmode" value="yes" <#if row.getDevelopmentmode()??>checked=""</#if> />
+                                   <span class="slider round"></span>
+                                   </label>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th><i class="fa fa-at"></i> ${view.l("Email Address")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <input type="text" class="form-control" name="admin_email" value="${row.getAdmin_email()!}" />
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th><i class="fa fa-link"></i> ${view.l("Site Address")}(URL)</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <input type="text" class="form-control"  name="baseurl" value="${row.getBaseurl()!}" />
+                                   </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th><i class="fa fa-file"></i> ${view.l("Site Title")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <input type="text" class="form-control" name="site_title" value="${row.getSite_title()!}" />
+                                   </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th><i class="fa fa-file"></i> ${view.l("Meta descriptions")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <input type="text" class="form-control"  name="metad" value="${row.getMetad()!}" />
+                                   </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th><i class="fa fa-file"></i> ${view.l("Meta keyword")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <input type="text" class="form-control"  name="metak" value="${row.getMetak()!}" />
+                                   </div>
+                           </td>
+                       </tr>
+                       <tr><th><h4>Shop pages:</h4></th> <td></td></tr>
+                       <tr>
+                           <th>  ${view.l("Home Page")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <select name="pageHome" class="form-control">
+                                       <option value="0">${view.l("Select")}</option>
+                                       <#if pages??>
+                                          <#list pages  as value>
+                                            <option value="${value.getPageid()}"  <#if (value.getPageid() == row.getPageHome()) >selected</#if>>${value.getTitle()}</option>
+                                          </#list>
+                                       </#if>
+                                   </select>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th>  ${view.l("Checkout term and condition page")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <select name="checkoutTermandcondition" class="form-control">
+                                       <option value="0">${view.l("Select")}</option>
+                                       <#if pages??>
+                                          <#list pages  as value>
+                                            <option value="${value.getPageid()}" <#if (value.getPageid()== row.getCheckoutTermandcondition()) >selected</#if>>${value.getTitle()}</option>
+                                          </#list>
+                                       </#if>
+                                   </select>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th><i class="fa fa-file"></i> ${view.l("Any js like google analitycs code or chat")}</th>
+                           <td>
+                               <div class="col-md-12">
+                                   <textarea name="_footerjs_" class="form-control">${_footerjs_!}</textarea>
+                               </div>
+                           </td>
+                       </tr>
+                       
+                </table>
+              </div>
+             
+            <div class="col-md-12 text_align_right">
+               <input type="submit" class="btn btn_small" value="${ view.l('Update') }"/>
+           </div>  
+         </form>  
+         <div class="height20px"></div>
+      </div>
+  </div>   

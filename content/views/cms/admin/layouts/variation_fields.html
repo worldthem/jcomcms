@@ -1,0 +1,39 @@
+
+     <div class="col_1_05">
+         <label>${view.l('Price')}</label> <br/>
+         <input type="text" class="form-control" name="${'variation['+keyvar+'][price]'}" value="<#if value??>${value.get('price')!}</#if>" >
+       </div>
+     
+       <div class="col_2">
+          <label>${view.l('SKU')}</label> <br/>
+           <input type="text" class="form-control" name="${'variation['+keyvar+'][sku]'}" value="<#if value??>${value.get('sku')!}</#if>">
+      </div>
+     <div class="col_1_05">
+           <label>${view.l('Quantity')}</label> <br/>
+           <input type="text" class="form-control" name="${'variation['+keyvar+'][qtu]'}" value="<#if value??>${value.get('qtu')!}</#if>">
+      </div>
+     
+     <div class="col_1_05">
+            <label>${view.l('Weight')}</label> <br/>
+            <input type="text" class="form-control" name="${'variation['+keyvar+'][weight]'}" placeholder="In KG" value="<#if value??>${value.get('weight')!}</#if>">
+      </div>
+
+     <#list attributes as key3, value3>
+        <#if value3.getType()!?contains('var')>
+           <#assign title = value3.getName().get(view.currentLang()) keyField=key3  key = keyvar  fieldName = "variation["+keyvar+"]["+key3+"]" entryInner= value3 >
+                <#if value??>
+                       <#assign keySugestion = value.get(key3)!>
+                </#if>
+            <div class="col_2 position_relatie inputfield">
+               <#include "/cms/admin/layouts/variatedTextField.html">
+            </div>
+        </#if>
+     <#else>
+     </#list>
+
+
+       <div class="clear"></div>
+          <a href="#" onclick="return remove_element(this);" title="Delete"  class="fa_delete float_right"></a>
+          <a href="#" onclick="dublicate(this); return false;" title="Dublicate"  class="fa_dublicate float_right"></a>  
+       <div class="height5px"></div>
+
