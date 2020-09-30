@@ -14,7 +14,7 @@
 
         <input class="form-control" name="file" type="file">
           <#if row.getImage()??>
-              <img src="${baseurl}content/views/payment/paypalpayment/img/${row.getImage()!}" style="max-height: 70px;" /><br/>
+              <img src="${baseurl}content/views/payment/banktransfer/img/${row.getImage()!}" style="max-height: 70px;" /><br/>
            <#else>
           </#if>
      <label> <input name="noimage"  type="checkbox" <#if row.getNoimage() >  checked  </#if> value="noimage" /> No logo</label>
@@ -28,32 +28,14 @@
        <br /> 
    </td> 
   </tr>
- <tr>
-     <th>${view.l('PayPal Mode') }</th>
-     <td>
-         <select name="mode" class="form-control">
-             <option value="sandbox">Sandbox (Test mode)</option>
-             <option value="live" <#if row.getMode()!?contains("live")>selected</#if> >Live (Live mode)</option>
-
-         </select>
-         <br />
-     </td>
- </tr>
- <tr>
-    <th>${view.l('PayPal Express Checkout client ID') }</th>
+   <tr>
+    <th>${view.l('Instruction') }</th>
     <td>
-        <input class="form-control" name="publickey" value="${row.getPublicKey()!}" type="text">
+       <textarea name="instruction" class="form-control">${row.getInstruction()!}</textarea>
        <br /> 
    </td> 
   </tr>                                               
-  <tr>
-    <th>${view.l('PayPal Express Checkout secret') }</th>
-    <td>
-        <input class="form-control" name="secretkey" value="${row.getSecretKey()!}" type="text">
-       <br />
-   </td>
-  </tr>
-
+    
          
   </tbody>
  </table>

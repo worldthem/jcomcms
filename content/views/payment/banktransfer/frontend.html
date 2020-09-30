@@ -1,0 +1,11 @@
+<label>
+          <input type="radio" name="payment" value="${idPayment!}" class="payment_method" data-unic="${idPayment!}" required> <!-- The name of your plugin -->
+           <#if !row.getNoimage() && row.getImage()?? >
+              <img style="max-width: 250px;" src="${baseurl}content/views/payment/banktransfer/img/${row.getImage()!}">
+           </#if>
+          ${row.getTitle()!}
+          <div class="clear"></div>
+          <div class="info-payment ${idPayment!}">
+            <small><i>${row.getDescription()!}</i></small>
+          </div> 
+</label>
